@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import os
 
 def scrape_svg_to_json(url):
     # Fetch the webpage
@@ -36,16 +37,20 @@ def scrape_svg_to_json(url):
     # Convert to JSON-like format
     return svg_data
 
+# Define the output subfolder and ensure it exists
+subfolder = "scrap_data"
+os.makedirs(subfolder, exist_ok=True)
 
-url = "https://strides.co.nz/course_plans.php?id=109287"  # Replace with the target URL
-try:
-    svg_data = scrape_svg_to_json(url)
-#    svg_data_json = json.loads(svg_data)
+for i in range(20000):
+    url = "https://strides.co.nz/course_plans.php?id=" + str(i)  # Replace with the target URL
+    try:
+        svg_data = scrape_svg_to_json(url)
     
-    # Save to JSON file
-    with open("svg_data.json", "w") as f:
-        json.dump(svg_data, f, indent=4)
-    print("SVG data has been saved to 'svg_data.json'.")
+        if svg_data:
+            # Save to JSON file
+            with open(f"{subfolder}/svg_data{i}.json", "w") as f:
+                json.dump(svg_data, f, indent=4)
+            print(f"SVG data has been saved to 'svg_data{i}.json'.")
     
-except Exception as e:
-    print(f"An error occurred: {e}")
+    except Exception as e:
+        print(f"An error occurred: {e}")

@@ -1,0 +1,4785 @@
+[
+    {
+        "attributes": {
+            "id": "jumpCanvas1",
+            "xmlns": "http://www.w3.org/2000/svg",
+            "version": "1.1",
+            "width": "1107",
+            "height": "800",
+            "onmouseout": "createXML()"
+        },
+        "content": [
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "scale(1)"
+                },
+                "content": "Waitemata 1 StarShow Jumping class 31 Open Pony On 9-2-2014Course Designer: Edward BullockCourse DetailsTAM 5 Two Phase Level: 0.80m  First Round 1 - 9 Distance: 472, Speed: 325 Time Allowed: 87s, Time limit: 174sSecond Phase 10 11 12 13A 13B  Distance: 297, Speed: 325 Time Allowed: 55s, Time limit: 110s(70m, 60m)InOutJury714121125931068A13A8B13BStartFinishFinish"
+            },
+            {
+                "tag": "rect",
+                "attributes": {
+                    "id": "mainRect",
+                    "x": "0",
+                    "y": "0",
+                    "width": "1107",
+                    "height": "800",
+                    "fill": "white",
+                    "opacity": "1.0",
+                    "onmousedown": "deselectElement(evt)",
+                    "onmouseover": "setUp(17, 14, 'Edward', 'Bullock','Show Jumping', '0', 'Open Pony', '9', '2', '2014', '9', '0.80m', 'TAM 5 Two Phase', '', '31', '472', '325',  'Woodhill Sands on Sand', 'Rectangle', '60', '70', 9)",
+                    "ontouchstart": "setUp(17, 14, 'Edward', 'Bullock','Show Jumping', '0', 'Open Pony', '9', '2', '2014', '9', '0.80m', 'TAM 5 Two Phase', '', '31', '472', '325',  'Woodhill Sands on Sand', 'Rectangle', '60', '70', 9)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(20, 0)"
+                },
+                "content": "Waitemata 1 StarShow Jumping class 31 Open Pony On 9-2-2014Course Designer: Edward BullockCourse DetailsTAM 5 Two Phase Level: 0.80m  First Round 1 - 9 Distance: 472, Speed: 325 Time Allowed: 87s, Time limit: 174sSecond Phase 10 11 12 13A 13B  Distance: 297, Speed: 325 Time Allowed: 55s, Time limit: 110s(70m, 60m)"
+            },
+            {
+                "tag": "rect",
+                "attributes": {
+                    "x": "0",
+                    "y": "80",
+                    "width": "1067",
+                    "height": "680",
+                    "rx": "20",
+                    "ry": "20",
+                    "fill": "white",
+                    "stroke": "black",
+                    "stroke-width": "1",
+                    "onmousedown": "deselectElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "image",
+                "attributes": {
+                    "x": "20",
+                    "y": "51",
+                    "width": "19",
+                    "height": "27",
+                    "xlink:href": "images/Strides-Icon.ico"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {},
+                "content": "Waitemata 1 StarShow Jumping class 31 Open Pony On 9-2-2014Course Designer: Edward BullockCourse DetailsTAM 5 Two Phase Level: 0.80m"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "id": "title",
+                    "x": "42",
+                    "y": "78",
+                    "font-size": "26",
+                    "font-weight": "bold"
+                },
+                "content": "Waitemata 1 Star"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "id": "class_title",
+                    "x": "10",
+                    "y": "95",
+                    "font-size": "16",
+                    "font-weight": "bold"
+                },
+                "content": "Show Jumping class 31 Open Pony On 9-2-2014"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "id": "person",
+                    "x": "10",
+                    "y": "705",
+                    "font-size": "16",
+                    "font-weight": "bold"
+                },
+                "content": "Course Designer: Edward Bullock"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "x": "650",
+                    "y": "130",
+                    "font-size": "16",
+                    "font-weight": "bold"
+                },
+                "content": "Course Details"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "id": "class_details",
+                    "x": "10",
+                    "y": "115",
+                    "font-size": "16",
+                    "font-weight": "bold"
+                },
+                "content": "TAM 5 Two Phase Level: 0.80m"
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "650",
+                    "y1": "132",
+                    "x2": "1067",
+                    "y2": "132",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "0.5"
+                },
+                "content": null
+            },
+            {
+                "tag": "image",
+                "attributes": {
+                    "x": "887",
+                    "y": "706",
+                    "width": "160",
+                    "height": "54",
+                    "xlink:href": "SVG/Strides-Logo-2021.svg"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "650",
+                    "y1": "152",
+                    "x2": "1067",
+                    "y2": "152",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "0.5"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {},
+                "content": "First Round 1 - 9 Distance: 472, Speed: 325 Time Allowed: 87s, Time limit: 174s"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "id": "roundName0",
+                    "x": "650",
+                    "y": "152",
+                    "font-size": "16",
+                    "font-family": "arial",
+                    "font-weight": "bold",
+                    "onmouseup": "message(prompt('Enter string'))"
+                },
+                "content": "First Round"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "id": "roundJumps0",
+                    "x": "650",
+                    "y": "182",
+                    "font-size": "24",
+                    "font-family": "arial",
+                    "font-weight": "bold"
+                },
+                "content": "1 - 9"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "id": "roundDetails0",
+                    "x": "650",
+                    "y": "202",
+                    "font-family": "arial",
+                    "font-size": "15"
+                },
+                "content": "Distance: 472, Speed: 325"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "id": "roundTimes0",
+                    "x": "650",
+                    "y": "222",
+                    "font-family": "arial",
+                    "font-size": "15"
+                },
+                "content": "Time Allowed: 87s, Time limit: 174s"
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "650",
+                    "y1": "244",
+                    "x2": "1067",
+                    "y2": "244",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "0.5"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {},
+                "content": "Second Phase 10 11 12 13A 13B  Distance: 297, Speed: 325 Time Allowed: 55s, Time limit: 110s"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "id": "roundName1",
+                    "x": "650",
+                    "y": "244",
+                    "font-size": "16",
+                    "font-family": "arial",
+                    "font-weight": "bold",
+                    "onmouseup": "message(prompt('Enter string'))"
+                },
+                "content": "Second Phase"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "id": "roundJumps1",
+                    "x": "650",
+                    "y": "274",
+                    "font-size": "24",
+                    "font-family": "arial",
+                    "font-weight": "bold"
+                },
+                "content": "10 11 12 13A 13B"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "id": "roundDetails1",
+                    "x": "650",
+                    "y": "294",
+                    "font-family": "arial",
+                    "font-size": "15"
+                },
+                "content": "Distance: 297, Speed: 325"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "id": "roundTimes1",
+                    "x": "650",
+                    "y": "314",
+                    "font-family": "arial",
+                    "font-size": "15"
+                },
+                "content": "Time Allowed: 55s, Time limit: 110s"
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "650",
+                    "y1": "316",
+                    "x2": "1067",
+                    "y2": "316",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "0.5"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arena",
+                    "onmouseover": "setUp(17, 14, 'Edward', 'Bullock','Show Jumping', '0', 'Open Pony', '9', '2', '2014', '9', '0.80m', 'TAM 5 Two Phase', '', '31', '472', '325',  'Woodhill Sands on Sand', 'Rectangle', '60', '70', 9)",
+                    "ontouchstart": "setUp(17, 14, 'Edward', 'Bullock','Show Jumping', '0', 'Open Pony', '9', '2', '2014', '9', '0.80m', 'TAM 5 Two Phase', '', '31', '472', '325',  'Woodhill Sands on Sand', 'Rectangle', '60', '70', 9)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arena"
+                },
+                "content": null
+            },
+            {
+                "tag": "rect",
+                "attributes": {
+                    "x": "10",
+                    "y": "130",
+                    "width": "630",
+                    "height": "540",
+                    "fill": "white",
+                    "stroke": "black",
+                    "stroke-width": "2",
+                    "onmousedown": "deselectElement(evt)",
+                    "ontouchstart": "deselectTouchedElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {},
+                "content": "(70m, 60m)"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "id": "title",
+                    "x": "580",
+                    "y": "690",
+                    "font-size": "18",
+                    "font-weight": "normal"
+                },
+                "content": "(70m, 60m)"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "jumpGroup"
+                },
+                "content": "InOutJury714121125931068A13A8B13BStartFinishFinish"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "1",
+                    "type": "In And Out",
+                    "class": [
+                        "draggable"
+                    ],
+                    "transform": "matrix(-1.836970198721E-16 -1 1 -1.836970198721E-16 524 669)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "24",
+                    "onmousedown": "selectElement(1, evt)",
+                    "ontouchstart": "touched(1, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": "InOut"
+            },
+            {
+                "tag": "g",
+                "attributes": {},
+                "content": null
+            },
+            {
+                "tag": "rect",
+                "attributes": {
+                    "x": "-2.25",
+                    "y": "-18",
+                    "width": "4.5",
+                    "height": "36",
+                    "fill": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight1",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "rect",
+                "attributes": {
+                    "x": "-2.25",
+                    "y": "-18",
+                    "width": "4.5",
+                    "height": "36",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "matrix(1 0 0 1 -13.5 -13.5)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "rotate(0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {},
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-11",
+                    "y1": "0",
+                    "x2": "5",
+                    "y2": "0",
+                    "fill": "black",
+                    "stroke": "black",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "5, -3 11, 0 5, 3",
+                    "fill": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "matrix(1 0 0 1 -13.5 13.5)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "rotate(180)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {},
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-11",
+                    "y1": "0",
+                    "x2": "5",
+                    "y2": "0",
+                    "fill": "black",
+                    "stroke": "black",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "5, -3 11, 0 5, 3",
+                    "fill": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "x": "-9",
+                    "y": "15.75",
+                    "font-size": "9",
+                    "transform": "rotate(90)",
+                    "font-weight": "normal",
+                    "stroke": "green",
+                    "font-family": "arial"
+                },
+                "content": "In"
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "x": "-9",
+                    "y": "27",
+                    "font-size": "9",
+                    "transform": "rotate(90)",
+                    "font-weight": "normal",
+                    "stroke": "red",
+                    "font-family": "arial"
+                },
+                "content": "Out"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial1",
+                    "transform": "matrix(-1.836970198721E-16 -1 1 -1.836970198721E-16 524 669)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial1",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "2",
+                    "type": "Judges Box",
+                    "class": [
+                        "draggable"
+                    ],
+                    "transform": "matrix(-1.836970198721E-16 -1 1 -1.836970198721E-16 454 680)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "24",
+                    "onmousedown": "selectElement(2, evt)",
+                    "ontouchstart": "touched(2, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": "Jury"
+            },
+            {
+                "tag": "g",
+                "attributes": {},
+                "content": "Jury"
+            },
+            {
+                "tag": "rect",
+                "attributes": {
+                    "x": "-9",
+                    "y": "-18",
+                    "width": "18",
+                    "height": "36",
+                    "fill": "white",
+                    "stroke": "black",
+                    "stroke-width": "1"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight2",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "rect",
+                "attributes": {
+                    "x": "-9",
+                    "y": "-18",
+                    "width": "18",
+                    "height": "36",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "rotate(90)"
+                },
+                "content": "Jury"
+            },
+            {
+                "tag": "text",
+                "attributes": {},
+                "content": "Jury"
+            },
+            {
+                "tag": "tspan",
+                "attributes": {
+                    "x": "-15.75",
+                    "y": "4.5",
+                    "font-size": "18",
+                    "font-weight": "bold"
+                },
+                "content": "Jury"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial2",
+                    "transform": "matrix(-1.836970198721E-16 -1 1 -1.836970198721E-16 454 680)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial2",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "3",
+                    "type": "Arrow",
+                    "class": [
+                        "draggable"
+                    ],
+                    "transform": "matrix(-0.83146961230255 -0.5555702330196 0.5555702330196 -0.83146961230255 225 294)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "19",
+                    "onmousedown": "selectElement(3, evt)",
+                    "ontouchstart": "touched(3, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arrow3"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-18",
+                    "y1": "0",
+                    "x2": "12",
+                    "y2": "0",
+                    "fill": "rgb(0,0,0)",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "12, -3 18, 0 12, 3",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial3",
+                    "transform": "matrix(-0.83146961230255 -0.5555702330196 0.5555702330196 -0.83146961230255 225 294)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial3",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "4",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Vertical",
+                    "hasarrow": "true",
+                    "transform": "matrix(-1 1.2246467991474E-16 -1.2246467991474E-16 -1 213 186)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "16",
+                    "onmousedown": "selectElement(4, evt)",
+                    "ontouchstart": "touched(4, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "jump4"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight4",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arrow4"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-18",
+                    "y1": "0",
+                    "x2": "12",
+                    "y2": "0",
+                    "fill": "rgb(0,0,0)",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "12, -3 18, 0 12, 3",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial4",
+                    "transform": "matrix(-1 1.2246467991474E-16 -1.2246467991474E-16 -1 213 186)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial4",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "main4",
+                    "x": "222",
+                    "y": "178",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "black",
+                    "fill": "black",
+                    "font-weight": "normal"
+                },
+                "content": "7"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "5",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Vertical",
+                    "hasarrow": "true",
+                    "transform": "matrix(1 0 0 1 469 238)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "0",
+                    "onmousedown": "selectElement(5, evt)",
+                    "ontouchstart": "touched(5, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "jump5"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight5",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arrow5"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-18",
+                    "y1": "0",
+                    "x2": "12",
+                    "y2": "0",
+                    "fill": "rgb(0,0,0)",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "12, -3 18, 0 12, 3",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial5",
+                    "transform": "matrix(1 0 0 1 469 238)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial5",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "main5",
+                    "x": "445",
+                    "y": "256",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "black",
+                    "fill": "black",
+                    "font-weight": "normal"
+                },
+                "content": "1"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "6",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Vertical",
+                    "hasarrow": "true",
+                    "transform": "matrix(0.83146961230255 0.5555702330196 -0.5555702330196 0.83146961230255 220 302)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "3",
+                    "onmousedown": "selectElement(6, evt)",
+                    "ontouchstart": "touched(6, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "jump6"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight6",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arrow6"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-18",
+                    "y1": "0",
+                    "x2": "12",
+                    "y2": "0",
+                    "fill": "rgb(0,0,0)",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "12, -3 18, 0 12, 3",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial6",
+                    "transform": "matrix(0.83146961230255 0.5555702330196 -0.5555702330196 0.83146961230255 220 302)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial6",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "main6",
+                    "x": "192",
+                    "y": "308",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "black",
+                    "fill": "black",
+                    "font-weight": "normal"
+                },
+                "content": "4"
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "reverse6",
+                    "x": "233",
+                    "y": "301",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "red",
+                    "fill": "red",
+                    "font-weight": "normal"
+                },
+                "content": "12"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "7",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Vertical",
+                    "hasarrow": "true",
+                    "transform": "matrix(0.5555702330196 -0.83146961230255 0.83146961230255 0.5555702330196 119 351)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "27",
+                    "onmousedown": "selectElement(7, evt)",
+                    "ontouchstart": "touched(7, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "jump7"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight7",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arrow7"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-18",
+                    "y1": "0",
+                    "x2": "12",
+                    "y2": "0",
+                    "fill": "rgb(0,0,0)",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "12, -3 18, 0 12, 3",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial7",
+                    "transform": "matrix(0.5555702330196 -0.83146961230255 0.83146961230255 0.5555702330196 119 351)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial7",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "8",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Vertical",
+                    "hasarrow": "true",
+                    "transform": "matrix(0.83146961230255 0.5555702330196 -0.5555702330196 0.83146961230255 224 471)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "3",
+                    "onmousedown": "selectElement(8, evt)",
+                    "ontouchstart": "touched(8, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "jump8"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight8",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arrow8"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-18",
+                    "y1": "0",
+                    "x2": "12",
+                    "y2": "0",
+                    "fill": "rgb(0,0,0)",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "12, -3 18, 0 12, 3",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial8",
+                    "transform": "matrix(0.83146961230255 0.5555702330196 -0.5555702330196 0.83146961230255 224 471)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial8",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "main8",
+                    "x": "186",
+                    "y": "477",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "red",
+                    "fill": "red",
+                    "font-weight": "normal"
+                },
+                "content": "11"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "9",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Vertical",
+                    "hasarrow": "true",
+                    "transform": "matrix(-1 1.2246467991474E-16 -1.2246467991474E-16 -1 390 605)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "16",
+                    "onmousedown": "selectElement(9, evt)",
+                    "ontouchstart": "touched(9, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "jump9"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight9",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arrow9"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-18",
+                    "y1": "0",
+                    "x2": "12",
+                    "y2": "0",
+                    "fill": "rgb(0,0,0)",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "12, -3 18, 0 12, 3",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial9",
+                    "transform": "matrix(-1 1.2246467991474E-16 -1.2246467991474E-16 -1 390 605)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial9",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "main9",
+                    "x": "399",
+                    "y": "597",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "black",
+                    "fill": "black",
+                    "font-weight": "normal"
+                },
+                "content": "2"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "10",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Oxer",
+                    "hasarrow": "true",
+                    "transform": "matrix(0.83146961230255 0.5555702330196 -0.5555702330196 0.83146961230255 397 404)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "3",
+                    "onmousedown": "selectElement(10, evt)",
+                    "ontouchstart": "touched(10, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "jump10"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(-5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight10",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(-5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arrow10"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-18",
+                    "y1": "0",
+                    "x2": "12",
+                    "y2": "0",
+                    "fill": "rgb(0,0,0)",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "12, -3 18, 0 12, 3",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial10",
+                    "transform": "matrix(0.83146961230255 0.5555702330196 -0.5555702330196 0.83146961230255 397 404)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial10",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "main10",
+                    "x": "369",
+                    "y": "410",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "black",
+                    "fill": "black",
+                    "font-weight": "normal"
+                },
+                "content": "5"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "11",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Oxer",
+                    "hasarrow": "true",
+                    "transform": "matrix(-0.70710678118655 0.70710678118655 -0.70710678118655 -0.70710678118655 449 495)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "12",
+                    "onmousedown": "selectElement(11, evt)",
+                    "ontouchstart": "touched(11, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "jump11"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(-5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight11",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(-5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arrow11"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-18",
+                    "y1": "0",
+                    "x2": "12",
+                    "y2": "0",
+                    "fill": "rgb(0,0,0)",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "12, -3 18, 0 12, 3",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial11",
+                    "transform": "matrix(-0.70710678118655 0.70710678118655 -0.70710678118655 -0.70710678118655 449 495)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial11",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "main11",
+                    "x": "443",
+                    "y": "478",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "black",
+                    "fill": "black",
+                    "font-weight": "normal"
+                },
+                "content": "9"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "12",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Oxer",
+                    "hasarrow": "true",
+                    "transform": "matrix(-1 1.2246467991474E-16 -1.2246467991474E-16 -1 185 605)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "16",
+                    "onmousedown": "selectElement(12, evt)",
+                    "ontouchstart": "touched(12, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "jump12"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(-5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight12",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(-5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arrow12"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-18",
+                    "y1": "0",
+                    "x2": "12",
+                    "y2": "0",
+                    "fill": "rgb(0,0,0)",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "12, -3 18, 0 12, 3",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial12",
+                    "transform": "matrix(-1 1.2246467991474E-16 -1.2246467991474E-16 -1 185 605)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial12",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "main12",
+                    "x": "194",
+                    "y": "597",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "black",
+                    "fill": "black",
+                    "font-weight": "normal"
+                },
+                "content": "3"
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "second12",
+                    "x": "199",
+                    "y": "582",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "red",
+                    "fill": "red",
+                    "font-weight": "normal"
+                },
+                "content": "10"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "13",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Oxer",
+                    "hasarrow": "true",
+                    "transform": "matrix(-1 1.2246467991474E-16 -1.2246467991474E-16 -1 452 188)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "16",
+                    "onmousedown": "selectElement(13, evt)",
+                    "ontouchstart": "touched(13, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "jump13"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(-5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight13",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(-5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arrow13"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-18",
+                    "y1": "0",
+                    "x2": "12",
+                    "y2": "0",
+                    "fill": "rgb(0,0,0)",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "12, -3 18, 0 12, 3",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial13",
+                    "transform": "matrix(-1 1.2246467991474E-16 -1.2246467991474E-16 -1 452 188)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial13",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "main13",
+                    "x": "461",
+                    "y": "180",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "black",
+                    "fill": "black",
+                    "font-weight": "normal"
+                },
+                "content": "6"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "14",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Vertical",
+                    "hasarrow": "true",
+                    "transform": "matrix(0.5555702330196 -0.83146961230255 0.83146961230255 0.5555702330196 250.83256276647 382.65215464588)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "27",
+                    "onmousedown": "selectElement(14, evt)",
+                    "ontouchstart": "touched(14, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "jump14"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight14",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arrow14"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-18",
+                    "y1": "0",
+                    "x2": "12",
+                    "y2": "0",
+                    "fill": "rgb(0,0,0)",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "12, -3 18, 0 12, 3",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial14",
+                    "transform": "matrix(0.5555702330196 -0.83146961230255 0.83146961230255 0.5555702330196 250.83256276647 382.65215464588)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial14",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "main14",
+                    "x": "236.83256276647",
+                    "y": "410.65215464588",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "black",
+                    "fill": "black",
+                    "font-weight": "normal"
+                },
+                "content": "8A"
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "second14",
+                    "x": "250.83256276647",
+                    "y": "420.65215464588",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "red",
+                    "fill": "red",
+                    "font-weight": "normal"
+                },
+                "content": "13A"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "15",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Oxer",
+                    "hasarrow": "true",
+                    "transform": "matrix(0.5555702330196 -0.83146961230255 0.83146961230255 0.5555702330196 309.16743723353 295.34784535412)",
+                    "width": "18",
+                    "height": "54",
+                    "deg": "27",
+                    "onmousedown": "selectElement(15, evt)",
+                    "ontouchstart": "touched(15, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "jump15"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(-5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "stroke": "black"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_1",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -18 1, -18 1, -12 -1, -12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_2",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, -12 1, -12 1, -6 -1, -6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_3",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, -6 1, -6 1, 0 -1, 0",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_4",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 0 1, 0 1, 6 -1, 6",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_5",
+                    "class": [
+                        "black"
+                    ],
+                    "points": "-1, 6 1, 6 1, 12 -1, 12",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon_6",
+                    "class": [
+                        "white"
+                    ],
+                    "points": "-1, 12 1, 12 1, 18 -1, 18",
+                    "fill": "rgb(255,255,255)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight15",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(-5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "transform": "translate(5.4)"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "polygon",
+                    "points": "-1, -18  -2, -18 -2, -18.9 -4, -18.9 -4, -19.8 -2, -19.8  -2, -25.2 -4, -25.2 -4, -26.1 -2, -26.1 -2, -27 2, -27 2, -26.1 4, -26.1 4, -25.2 2, -25.2  2, -19.8 4, -19.8 4, -18.9 2, -18.9 2, -18  1, -18  1, 18  2, 18 2, 18 2, 18.9 4, 18.9 4, 19.8 2, 19.8  2, 25.2 4, 25.2 4, 26.1 2, 26.1 2, 27 -2,  27-2, 26.1 -4, 26.1 -4, 25.2 -2, 25.2  -2, 19.8 -4, 19.8 -4, 18.9 -2, 18.9 -2, 18 -1, 18",
+                    "fill": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "arrow15"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "-18",
+                    "y1": "0",
+                    "x2": "12",
+                    "y2": "0",
+                    "fill": "rgb(0,0,0)",
+                    "stroke": "rgb(0,0,0)",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "12, -3 18, 0 12, 3",
+                    "fill": "rgb(0,0,0)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial15",
+                    "transform": "matrix(0.5555702330196 -0.83146961230255 0.83146961230255 0.5555702330196 309.16743723353 295.34784535412)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "turnDial15",
+                    "transform": "translate(0, -27)",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y": "0",
+                    "x2": "0",
+                    "y2": "-16",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)"
+                },
+                "content": null
+            },
+            {
+                "tag": "circle",
+                "attributes": {
+                    "cx": "0",
+                    "cy": "-20",
+                    "r": "12",
+                    "stroke-width": "1",
+                    "stroke": "rgb(50, 255, 50)",
+                    "fill": "white",
+                    "onmousedown": "setTurn('true')",
+                    "ontouchstart": "setTurn('true')",
+                    "onmouseup": "setTurn('false')"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "main15",
+                    "x": "295.16743723353",
+                    "y": "323.34784535412",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "black",
+                    "fill": "black",
+                    "font-weight": "normal"
+                },
+                "content": "8B"
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "second15",
+                    "x": "309.16743723353",
+                    "y": "333.34784535412",
+                    "jwidth": "13.5",
+                    "jlength": "13",
+                    "transform": "matrix(1 0 0 1 0 0)",
+                    "font-size": "16",
+                    "stroke": "red",
+                    "fill": "red",
+                    "font-weight": "normal"
+                },
+                "content": "13B"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "16",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Start Line",
+                    "deg": "0",
+                    "transform": "matrix(1 0 0 1 369 142)",
+                    "onmousedown": "selectElement(16, evt)",
+                    "ontouchstart": "touched(16, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": "Start"
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "poly16",
+                    "points": "0,0 10,10 24, 176 14, 166 4, 156 -10,-10, 0,0",
+                    "stroke": "black",
+                    "fill": "white",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "id": "sfline16",
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "14",
+                    "y2": "166",
+                    "stroke": "black",
+                    "stroke-width": "1",
+                    "stroke-dasharray": "10 10"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight16",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "id": "highlightedLine16",
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "14",
+                    "y2": "166",
+                    "stroke": "rgb(50, 255, 50)",
+                    "stroke-width": "1",
+                    "stroke-dasharray": "10 10"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "LineTxt16",
+                    "x": "-8",
+                    "y": "85.5"
+                },
+                "content": "Start"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "left16",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "leftFlag",
+                    "transform": "matrix(1 0 0 1 369 142)",
+                    "onmousedown": "selectElement('left16', evt)",
+                    "ontouchstart": "touched('left16', evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "rect",
+                "attributes": {
+                    "x": "-10",
+                    "y": "-30",
+                    "width": "30",
+                    "height": "30",
+                    "stroke": "white",
+                    "fill": "white",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "0",
+                    "y2": "-30",
+                    "stroke": "black",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "0,-20 0,-30 10, -25",
+                    "fill": "white",
+                    "stroke": "black",
+                    "stroke-width": "1"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlightleft16",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "0",
+                    "y2": "-30",
+                    "stroke": "rgb(50, 255, 50)",
+                    "stroke-width": "2",
+                    "opacitiy": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "0,-20 0,-30 10, -25",
+                    "fill": "rgb(50, 255, 50)",
+                    "stroke": "rgb(50, 255, 50)",
+                    "opacitiy": "0",
+                    "stroke-width": "1"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDialleft16",
+                    "transform": "matrix(1 0 0 1 369 142)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "right16",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "rightFlag",
+                    "transform": "matrix(1 0 0 1 383 308)",
+                    "onmousedown": "selectElement('right16', evt)",
+                    "ontouchstart": "touched('right16', evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "rect",
+                "attributes": {
+                    "x": "-10",
+                    "y": "-30",
+                    "width": "30",
+                    "height": "30",
+                    "stroke": "white",
+                    "fill": "white",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "0",
+                    "y2": "-30",
+                    "stroke": "black",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "0,-20 0,-30 10, -25",
+                    "fill": "red",
+                    "stroke": "black",
+                    "stroke-width": "1"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlightright16",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "0",
+                    "y2": "-30",
+                    "stroke": "rgb(50, 255, 50)",
+                    "stroke-width": "2",
+                    "opacitiy": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "0,-20 0,-30 10, -25",
+                    "fill": "rgb(50, 255, 50)",
+                    "stroke": "rgb(50, 255, 50)",
+                    "opacitiy": "0",
+                    "stroke-width": "1"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDialright16",
+                    "transform": "matrix(1 0 0 1 383 308)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial16",
+                    "transform": "matrix(1 0 0 1 369 142)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "17",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Finish Line",
+                    "deg": "0",
+                    "transform": "matrix(1 0 0 1 351 127)",
+                    "onmousedown": "selectElement(17, evt)",
+                    "ontouchstart": "touched(17, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": "Finish"
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "poly17",
+                    "points": "0,0 10,10 24, 166 14, 156 4, 146 -10,-10, 0,0",
+                    "stroke": "black",
+                    "fill": "white",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "id": "sfline17",
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "14",
+                    "y2": "156",
+                    "stroke": "black",
+                    "stroke-width": "1",
+                    "stroke-dasharray": "10 10"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight17",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "id": "highlightedLine17",
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "14",
+                    "y2": "156",
+                    "stroke": "rgb(50, 255, 50)",
+                    "stroke-width": "1",
+                    "stroke-dasharray": "10 10"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "LineTxt17",
+                    "x": "-8",
+                    "y": "80.5"
+                },
+                "content": "Finish"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "left17",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "leftFlag",
+                    "transform": "matrix(1 0 0 1 351 127)",
+                    "onmousedown": "selectElement('left17', evt)",
+                    "ontouchstart": "touched('left17', evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "rect",
+                "attributes": {
+                    "x": "-10",
+                    "y": "-30",
+                    "width": "30",
+                    "height": "30",
+                    "stroke": "white",
+                    "fill": "white",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "0",
+                    "y2": "-30",
+                    "stroke": "black",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "0,-20 0,-30 10, -25",
+                    "fill": "white",
+                    "stroke": "black",
+                    "stroke-width": "1"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlightleft17",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "0",
+                    "y2": "-30",
+                    "stroke": "rgb(50, 255, 50)",
+                    "stroke-width": "2",
+                    "opacitiy": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "0,-20 0,-30 10, -25",
+                    "fill": "rgb(50, 255, 50)",
+                    "stroke": "rgb(50, 255, 50)",
+                    "opacitiy": "0",
+                    "stroke-width": "1"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDialleft17",
+                    "transform": "matrix(1 0 0 1 351 127)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "right17",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "rightFlag",
+                    "transform": "matrix(1 0 0 1 365 283)",
+                    "onmousedown": "selectElement('right17', evt)",
+                    "ontouchstart": "touched('right17', evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "rect",
+                "attributes": {
+                    "x": "-10",
+                    "y": "-30",
+                    "width": "30",
+                    "height": "30",
+                    "stroke": "white",
+                    "fill": "white",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "0",
+                    "y2": "-30",
+                    "stroke": "black",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "0,-20 0,-30 10, -25",
+                    "fill": "red",
+                    "stroke": "black",
+                    "stroke-width": "1"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlightright17",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "0",
+                    "y2": "-30",
+                    "stroke": "rgb(50, 255, 50)",
+                    "stroke-width": "2",
+                    "opacitiy": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "0,-20 0,-30 10, -25",
+                    "fill": "rgb(50, 255, 50)",
+                    "stroke": "rgb(50, 255, 50)",
+                    "opacitiy": "0",
+                    "stroke-width": "1"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDialright17",
+                    "transform": "matrix(1 0 0 1 365 283)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial17",
+                    "transform": "matrix(1 0 0 1 351 127)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "18",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "Finish Line",
+                    "deg": "0",
+                    "transform": "matrix(1 0 0 1 435 574)",
+                    "onmousedown": "selectElement(18, evt)",
+                    "ontouchstart": "touched(18, evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": "Finish"
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "id": "poly18",
+                    "points": "0,0 10,10 -72, -75 -82, -85 -92, -95 -10,-10, 0,0",
+                    "stroke": "black",
+                    "fill": "white",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "id": "sfline18",
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "-82",
+                    "y2": "-85",
+                    "stroke": "black",
+                    "stroke-width": "1",
+                    "stroke-dasharray": "10 10"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlight18",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "id": "highlightedLine18",
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "-82",
+                    "y2": "-85",
+                    "stroke": "rgb(50, 255, 50)",
+                    "stroke-width": "1",
+                    "stroke-dasharray": "10 10"
+                },
+                "content": null
+            },
+            {
+                "tag": "text",
+                "attributes": {
+                    "id": "LineTxt18",
+                    "x": "-56",
+                    "y": "-40"
+                },
+                "content": "Finish"
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "left18",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "leftFlag",
+                    "transform": "matrix(1 0 0 1 435 574)",
+                    "onmousedown": "selectElement('left18', evt)",
+                    "ontouchstart": "touched('left18', evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "rect",
+                "attributes": {
+                    "x": "-10",
+                    "y": "-30",
+                    "width": "30",
+                    "height": "30",
+                    "stroke": "white",
+                    "fill": "white",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "0",
+                    "y2": "-30",
+                    "stroke": "black",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "0,-20 0,-30 10, -25",
+                    "fill": "white",
+                    "stroke": "black",
+                    "stroke-width": "1"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlightleft18",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "0",
+                    "y2": "-30",
+                    "stroke": "rgb(50, 255, 50)",
+                    "stroke-width": "2",
+                    "opacitiy": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "0,-20 0,-30 10, -25",
+                    "fill": "rgb(50, 255, 50)",
+                    "stroke": "rgb(50, 255, 50)",
+                    "opacitiy": "0",
+                    "stroke-width": "1"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDialleft18",
+                    "transform": "matrix(1 0 0 1 435 574)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "right18",
+                    "class": [
+                        "draggable"
+                    ],
+                    "type": "rightFlag",
+                    "transform": "matrix(1 0 0 1 353 489)",
+                    "onmousedown": "selectElement('right18', evt)",
+                    "ontouchstart": "touched('right18', evt)",
+                    "onmousemove": "moveElement(evt)"
+                },
+                "content": null
+            },
+            {
+                "tag": "rect",
+                "attributes": {
+                    "x": "-10",
+                    "y": "-30",
+                    "width": "30",
+                    "height": "30",
+                    "stroke": "white",
+                    "fill": "white",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "0",
+                    "y2": "-30",
+                    "stroke": "black",
+                    "stroke-width": "2"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "0,-20 0,-30 10, -25",
+                    "fill": "red",
+                    "stroke": "black",
+                    "stroke-width": "1"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "highlightright18",
+                    "opacity": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "line",
+                "attributes": {
+                    "x1": "0",
+                    "y1": "0",
+                    "x2": "0",
+                    "y2": "-30",
+                    "stroke": "rgb(50, 255, 50)",
+                    "stroke-width": "2",
+                    "opacitiy": "0"
+                },
+                "content": null
+            },
+            {
+                "tag": "polygon",
+                "attributes": {
+                    "points": "0,-20 0,-30 10, -25",
+                    "fill": "rgb(50, 255, 50)",
+                    "stroke": "rgb(50, 255, 50)",
+                    "opacitiy": "0",
+                    "stroke-width": "1"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDialright18",
+                    "transform": "matrix(1 0 0 1 353 489)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "g_turnDial18",
+                    "transform": "matrix(1 0 0 1 435 574)"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "relatedLines"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "round1",
+                    "name": "Second Phase",
+                    "distance": "297",
+                    "speed": "325"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "round1_jump0",
+                    "number": "10",
+                    "letter": ""
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "round1_jump1",
+                    "number": "11",
+                    "letter": ""
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "round1_jump2",
+                    "number": "12",
+                    "letter": ""
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "round1_jump3",
+                    "number": "13",
+                    "letter": "A"
+                },
+                "content": null
+            },
+            {
+                "tag": "g",
+                "attributes": {
+                    "id": "round1_jump4",
+                    "number": "13",
+                    "letter": "B"
+                },
+                "content": null
+            }
+        ]
+    }
+]

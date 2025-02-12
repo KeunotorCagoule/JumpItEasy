@@ -1,0 +1,143 @@
+{
+    "arena": {
+        "levels": "Silver Level: EV100  ",
+        "roundJumps": "1 - 10",
+        "roundDetails": "Distance: 400, Speed: 350",
+        "roundTimes": "Time Allowed: 69s, Time limit: 138s",
+        "lengthX": "810",
+        "lengthY": "365"
+    },
+    "obstacles": [
+        {
+            "id": "3",
+            "type": "Vertical",
+            "x": 321.0,
+            "y": 295.0,
+            "rotation": -135.0
+        },
+        {
+            "id": "4",
+            "type": "Vertical",
+            "x": 659.0,
+            "y": 160.0,
+            "rotation": -90.0
+        },
+        {
+            "id": "5",
+            "type": "Vertical",
+            "x": 319.0,
+            "y": 234.0,
+            "rotation": -236.25000000000026
+        },
+        {
+            "id": "6",
+            "type": "Oxer",
+            "x": 535.0,
+            "y": 338.0,
+            "rotation": -236.25000000000026
+        },
+        {
+            "id": "7",
+            "type": "Vertical",
+            "x": 123.0,
+            "y": 347.0,
+            "rotation": -45.0
+        },
+        {
+            "id": "8",
+            "type": "Oxer",
+            "x": 317.0,
+            "y": 418.0,
+            "rotation": -90.0
+        },
+        {
+            "id": "9",
+            "type": "Oxer",
+            "x": 561.0,
+            "y": 419.0,
+            "rotation": -90.0
+        },
+        {
+            "id": "10",
+            "type": "Oxer",
+            "x": 532.0,
+            "y": 260.0,
+            "rotation": 45.0
+        },
+        {
+            "id": "11",
+            "type": "Vertical",
+            "x": 299.0,
+            "y": 160.0,
+            "rotation": -90.0
+        },
+        {
+            "id": "12",
+            "type": "Vertical",
+            "x": 400.0,
+            "y": 160.0,
+            "rotation": -90.0
+        },
+        {
+            "id": "13",
+            "type": "Vertical",
+            "x": 695.0,
+            "y": 283.0,
+            "rotation": -45.0
+        },
+        {
+            "id": "14",
+            "type": "Finish Line",
+            "x": 750.0,
+            "y": 280.0,
+            "rotation": -90.0
+        },
+        {
+            "id": "left14",
+            "type": "leftFlag",
+            "x": 750.0,
+            "y": 280.0,
+            "rotation": -90.0
+        },
+        {
+            "id": "right14",
+            "type": "rightFlag",
+            "x": 674.0,
+            "y": 444.0,
+            "rotation": -90.0
+        },
+        {
+            "id": "15",
+            "type": "Start Line",
+            "x": 208.0,
+            "y": 289.0,
+            "rotation": -90.0
+        },
+        {
+            "id": "left15",
+            "type": "leftFlag",
+            "x": 208.0,
+            "y": 289.0,
+            "rotation": -90.0
+        },
+        {
+            "id": "right15",
+            "type": "rightFlag",
+            "x": 324.0,
+            "y": 348.0,
+            "rotation": -90.0
+        }
+    ],
+    "line_start": {
+        "x1": 0.0,
+        "y1": 0.0,
+        "x2": 116.0,
+        "y2": 59.0
+    },
+    "line_end": {
+        "x1": 0.0,
+        "y1": 0.0,
+        "x2": -76.0,
+        "y2": 164.0
+    }
+}

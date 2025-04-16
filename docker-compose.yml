@@ -25,7 +25,7 @@ services:
     volumes:
       - ./frontend:/usr/src/app
     ports:
-      - "8080:5173"
+      - "80:5173"
     environment:
       NODE_ENV: development
       CHOKIDAR_USEPOLLING: "true"

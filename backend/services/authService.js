@@ -52,21 +52,23 @@ async function login({ identifier, password }) {
   }
 }
 
-
 // Middleware to verify token
 function verifyToken(req, res, next) {
-  const token = req.headers['authorization'];
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1]; // Format: "Bearer TOKEN"
+  
   if (!token) {
-    return res.status(403).json({ error: 'No token provided' });
+    return res.status(401).json({ error: 'No token provided' });
   }
 
-  jwt.verify(token, SECRET_KEY, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ error: 'Unauthorized' });
-    }
+  try {
+    const decoded = jwt.verify(token, SECRET_KEY);
     req.user = decoded;
     next();
-  });
+  } catch (error) {
+    console.error("Token verification error:", error.message);
+    return res.status(401).json({ error: 'Invalid or expired token' });
+  }
 }
 
 module.exports = { register, login, verifyToken };

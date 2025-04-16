@@ -1,7 +1,7 @@
 ## BASE STAGE ##
 
 # Use Node.js as base image
-FROM node:22
+FROM node:22 as base
 
 # Set working directory
 WORKDIR /usr/src/app

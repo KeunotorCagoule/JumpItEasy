@@ -1,6 +1,6 @@
 ## BASE STAGE ##
 
-FROM node:22
+FROM node:22 as base
 
 WORKDIR /usr/src/app
 

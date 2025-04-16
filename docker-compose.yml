@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    working_dir: /usr/src/app
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules # Évite d'écraser node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+    command: sh -c "npm ci && npx nodemon --legacy-watch --config nodemon.json"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    working_dir: /usr/src/app
+    volumes:
+      - ./frontend:/usr/src/app
+    ports:
+      - "8080:5173"
+    environment:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: "true"
+    command: sh -c "npm ci && npm run dev -- --host"
+

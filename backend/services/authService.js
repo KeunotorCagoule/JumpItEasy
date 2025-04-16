@@ -2,7 +2,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { pool } = require('./dbService');
 
-const SECRET_KEY = 'f98f9837eae3ac2120530f2490e9af7171e6a3b1fadf2c8270340406143bd7601a9ca20159f9d83f95aca03f3238e47778110be0410201521a773312b52bf8c217e91f7b1bc10452c32039487539a327871ed6ecd08aa981115eef62df2f2d72cae35d35724e9b8eb2a93b1cb5ba677f6e86bbfb6a1868d38f105342ecb22f439d56e9ebe04ab2a2b46084c4eb02d48708e918501e289e53ce13080aa5269afbc39a142ec91586a7f0bf5902bdd3a4ba5352462db81d10ff1db26ed1cce1ace2541524abfcb962bed84ee9da0d4ccc711912ede30d37784c283401cec9dc58a9e444f2af0d1722872b94e2505f031d7c7fa0dd9247369e7a045a6c77834038b0';
+require('dotenv').config();
+const SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 // Register a new user
 async function register({ username, email, password }) {
@@ -18,7 +19,11 @@ async function register({ username, email, password }) {
       'INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email',
       [username, email, hashedPassword]
     );
-    return insertResult.rows[0];
+
+    const user = insertResult.rows[0];
+    const token = jwt.sign({ id: user.id, username: user.username }, SECRET_KEY, { expiresIn: '1h' });
+
+    return { user, token };
   } finally {
     client.release();
   }

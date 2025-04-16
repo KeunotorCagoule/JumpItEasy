@@ -1,3 +1,5 @@
+## BASE STAGE ##
+
 # Use Node.js as base image
 FROM node:22
 
@@ -18,3 +20,8 @@ EXPOSE 3000
 
 # Use nodemon in development
 CMD ["npm", "run", "dev"]
+
+## TEST STAGE ##
+
+FROM base AS test
+RUN npm run lint && npm test

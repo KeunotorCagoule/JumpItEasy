@@ -2,9 +2,9 @@
 
 FROM node:22 as base
 WORKDIR /usr/src/app
-COPY package.json package-lock.json ./
+COPY frontend/package.json frontend/package-lock.json ./
 RUN npm ci
-COPY . .
+COPY frontend/ .
 RUN rm -rf node_modules # Ensure no conflicts
 EXPOSE 80
 CMD ["npm", "run", "dev"]

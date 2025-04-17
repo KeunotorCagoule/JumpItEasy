@@ -1,6 +1,6 @@
 ## BASE STAGE ##
 
-FROM node:22 as base
+FROM node:22 AS base
 WORKDIR /usr/src/app
 COPY frontend/package.json frontend/package-lock.json ./
 RUN npm ci

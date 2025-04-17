@@ -11,7 +11,7 @@ CMD ["npm", "run", "dev"]
 ## LINT STAGE ##
 
 FROM base AS lint
-RUN npm run lint && npm test
+RUN npm run lint
 
 ## TEST STAGE ##
 

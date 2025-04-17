@@ -9,8 +9,12 @@ RUN rm -rf node_modules # Ensure no conflicts
 EXPOSE 80
 CMD ["npm", "run", "dev"]
 
+## LINT STAGE ##
+
+FROM base AS lint
+RUN npm run lint
+
 ## TEST STAGE ##
 
 FROM base AS test
-RUN npm run lint && npm run test
-
+RUN npm run test

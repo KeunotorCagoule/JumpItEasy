@@ -4,10 +4,8 @@ export default [
   eslintPluginJs.configs.recommended,
   {
     languageOptions: {
-      env: {
-        node: true,
-        es2022: true,
-      },
+      ecmaVersion: 2022,
+      sourceType: 'module',
       globals: {
         console: 'readonly',
         process: 'readonly',
@@ -15,7 +13,8 @@ export default [
         require: 'readonly',
         __dirname: 'readonly',
         __filename: 'readonly',
-      }
-    }
-  }
+      },
+    },
+  },
 ];
+

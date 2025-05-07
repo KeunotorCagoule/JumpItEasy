@@ -19,6 +19,7 @@ describe("Front page", () => {
     );
 
     // Adjust this text to match something visible on your actual home page
-    expect(screen.getByText(/JumpItEasy/i)).toBeInTheDocument();
+    const elements = screen.getAllByText(/JumpItEasy/i);
+    expect(elements.length).toBeGreaterThan(0); // ou une valeur précise
   });
 });

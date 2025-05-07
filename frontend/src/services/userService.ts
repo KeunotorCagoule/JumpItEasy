@@ -1,11 +1,10 @@
 import { UserProfile, Course, UserSettings, PasswordChangeRequest } from '../types/user';
-
-const API_URL = 'http://localhost:3000';
+import { API_URL } from '../config/api';
 
 // Fonction utilitaire pour les requêtes authentifiées
 const authFetch = async (url: string, options: RequestInit = {}) => {
   const token = localStorage.getItem('token');
-  
+
   if (!token) {
     throw new Error('No authentication token available');
   }

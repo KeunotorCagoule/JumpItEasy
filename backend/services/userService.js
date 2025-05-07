@@ -266,11 +266,28 @@ async function getRecentCourses(userId) {
   }
 }
 
+async function updateUserLanguage(userId, language) {
+  const client = await pool.connect();
+  try {
+    // Mettre à jour la langue de l'utilisateur dans la table users
+    await client.query(
+      'UPDATE users SET language = $1 WHERE id = $2',
+      [language, userId]
+    );
+    
+    return true;
+  } finally {
+    client.release();
+  }
+}
+
+
 module.exports = {
   getUserProfile,
   updateUserProfile,
   getUserSettings,
   updateUserSettings,
   changeUserPassword,
-  getRecentCourses
+  getRecentCourses,
+  updateUserLanguage
 };

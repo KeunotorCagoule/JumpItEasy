@@ -1,5 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
+import { updateLanguagePreference } from '../../services/userService';
+import { useAuth } from '../../context/AuthContext';
 
 interface LanguageToggleProps {
   className?: string;
@@ -7,9 +9,23 @@ interface LanguageToggleProps {
 
 const LanguageToggle: React.FC<LanguageToggleProps> = ({ className = '' }) => {
   const { language, changeLanguage } = useLanguage();
+  const { isLoggedIn } = useAuth();
 
-  const toggleLanguage = () => {
-    changeLanguage(language === 'en' ? 'fr' : 'en');
+  const toggleLanguage = async () => {
+    const newLanguage = language === 'en' ? 'fr' : 'en';
+    
+    // Change language locally
+    changeLanguage(newLanguage);
+    
+    // If user is logged in, update language preference in database
+    if (isLoggedIn) {
+      try {
+        await updateLanguagePreference(newLanguage);
+        console.log('Language preference updated in database');
+      } catch (error) {
+        console.error('Failed to update language preference in database:', error);
+      }
+    }
   };
 
   return (

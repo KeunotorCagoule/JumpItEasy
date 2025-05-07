@@ -346,6 +346,7 @@ const enTranslations = {
     legal: "Legal",
     copyright: "© 2023 JumpItEasy. All rights reserved.",
     designedBy: "Designed with ❤️ by JumpItEasy Team",
+    contact: "Contact Us",
     company: "Company",
     aboutUs: "About Us",
     documentation: "Documentation",

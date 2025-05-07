@@ -346,6 +346,7 @@ const fr = {
     legal: "Mentions légales",
     copyright: "© 2023 JumpItEasy. Tous droits réservés.",
     designedBy: "Conçu avec ❤️ par l'équipe JumpItEasy",
+    contact: "Contact",
     company: "Entreprise",
     aboutUs: "À propos de nous",
     documentation: "Documentation",

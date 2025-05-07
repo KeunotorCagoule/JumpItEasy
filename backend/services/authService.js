@@ -6,7 +6,7 @@ require('dotenv').config();
 const SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 // Register a new user
-async function register({ username, email, password }) {
+async function register({ username, email, password, country, language = 'fr' }) {
   const client = await pool.connect();
   try {
     const result = await client.query('SELECT * FROM users WHERE username = $1', [username]);
@@ -16,8 +16,8 @@ async function register({ username, email, password }) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const insertResult = await client.query(
-      'INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email',
-      [username, email, hashedPassword]
+      'INSERT INTO users (username, email, password, country, language) VALUES ($1, $2, $3, $4, $5) RETURNING id, username, email, country, language',
+      [username, email, hashedPassword, country, language]
     );
 
     const user = insertResult.rows[0];

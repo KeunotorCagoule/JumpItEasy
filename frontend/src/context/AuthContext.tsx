@@ -1,61 +1,88 @@
-import React, { createContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
-interface AuthContextProps {
+type AuthContextType = {
   isLoggedIn: boolean;
   username: string | null;
   login: (username: string) => void;
   logout: () => void;
-}
+};
 
-const AuthContext = createContext<AuthContextProps>({
+const AuthContext = createContext<AuthContextType>({
   isLoggedIn: false,
   username: null,
   login: () => {},
   logout: () => {},
 });
 
-interface AuthProviderProps {
-  children: ReactNode;
-}
-
-export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState<string | null>(null);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    // Check if there's a stored token
+    const token = localStorage.getItem('token');
+    
     if (token) {
       try {
-        const base64Url = token.split(".")[1];
-        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-        const jsonPayload = decodeURIComponent(
-          atob(base64)
-            .split("")
-            .map(function (c) {
-              return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-            })
-            .join("")
-        );
+        // Check for user in localStorage first (for "remember me")
+        let userStr = localStorage.getItem('user');
+        
+        // If not found in localStorage, check sessionStorage
+        if (!userStr) {
+          userStr = sessionStorage.getItem('user');
+        }
+        
+        if (userStr) {
+          const user = JSON.parse(userStr);
+          
+          // Set username from user object (handling both possible structures)
+          if (user.username) {
+            setUsername(user.username);
+          } else if (user.identifier) {
+            setUsername(user.identifier);
+          }
+          
+          setIsLoggedIn(true);
+        } else {
+          // If we have a token but no user info, try to decode the token
+          try {
+            const base64Url = token.split(".")[1];
+            const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+            const jsonPayload = decodeURIComponent(
+              atob(base64)
+                .split("")
+                .map(function (c) {
+                  return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+                })
+                .join("")
+            );
 
-        const payload = JSON.parse(jsonPayload);
-        setUsername(payload.username || "User");
-        setIsLoggedIn(true);
-      } catch (error) {
-        console.error("Error decoding token:", error);
-        setUsername(null);
-        setIsLoggedIn(false);
-        localStorage.removeItem("token");
+            const payload = JSON.parse(jsonPayload);
+            if (payload.username) {
+              setUsername(payload.username);
+              setIsLoggedIn(true);
+            }
+          } catch (tokenError) {
+            console.error('Failed to parse JWT token', tokenError);
+            logout(); // Invalid token, log out the user
+          }
+        }
+      } catch (e) {
+        console.error('Error parsing stored user data', e);
+        logout(); // Something went wrong, log out the user
       }
     }
   }, []);
 
-  const login = (username: string) => {
+  const login = (name: string) => {
     setIsLoggedIn(true);
-    setUsername(username);
+    setUsername(name);
   };
 
   const logout = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    sessionStorage.removeItem('user');
     setIsLoggedIn(false);
     setUsername(null);
   };
@@ -67,4 +94,4 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   );
 };
 
-export const useAuth = () => React.useContext(AuthContext);
+export const useAuth = () => useContext(AuthContext);

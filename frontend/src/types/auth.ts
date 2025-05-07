@@ -9,5 +9,7 @@ export interface RegisterFormData {
   email: string;
   password: string;
   confirmPassword: string;
+  country: string;
+  language: string; // Nouvelle propriété pour la langue
   acceptTerms: boolean;
 }

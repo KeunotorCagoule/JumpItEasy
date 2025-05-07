@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Users as Horse } from "lucide-react";
 import UserHeader from "./UserHeader";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useLanguage } from "../../context/LanguageContext";
+import LanguageToggle from "../common/LanguageToggle";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const { isLoggedIn, username, logout } = useAuth();
+  const { t } = useLanguage();
 
   const handleLogout = () => {
     logout();
@@ -31,32 +34,35 @@ const NavBar: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className="text-gray-700 hover:text-blue-600">
-              Home
+              {t("navigation.home")}
             </Link>
             <Link to="/about" className="text-gray-700 hover:text-blue-600">
-              About
+              {t("navigation.about")}
             </Link>
             <Link to="/parcours" className="text-gray-700 hover:text-blue-600">
-              Courses
+              {t("navigation.courses")}
             </Link>
             <Link
               to="/parcours/generate"
               className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
             >
-              Generate Course
+              {t("navigation.generateCourse")}
             </Link>
+
+            {/* Language Toggle Flag */}
+            <LanguageToggle className="ml-3" />
 
             {/* Conditional rendering based on login status */}
             {!isLoggedIn ? (
               <>
                 <Link to="/login" className="text-gray-700 hover:text-blue-600">
-                  Login
+                  {t("navigation.login")}
                 </Link>
                 <Link
                   to="/register"
                   className="text-gray-700 hover:text-blue-600"
                 >
-                  Register
+                  {t("navigation.register")}
                 </Link>
               </>
             ) : (
@@ -86,35 +92,42 @@ const NavBar: React.FC = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden z-50">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white">
             <Link
               to="/"
               className="block px-3 py-2 text-gray-700 hover:bg-gray-50"
               onClick={() => setIsOpen(false)}
             >
-              Home
+              {t("navigation.home")}
             </Link>
             <Link
               to="/about"
               className="block px-3 py-2 text-gray-700 hover:bg-gray-50"
               onClick={() => setIsOpen(false)}
             >
-              About
+              {t("navigation.about")}
             </Link>
             <Link
               to="/parcours"
               className="block px-3 py-2 text-gray-700 hover:bg-gray-50"
               onClick={() => setIsOpen(false)}
             >
-              Courses
+              {t("navigation.courses")}
             </Link>
             <Link
               to="/parcours/generate"
               className="block px-3 py-2 text-blue-600 hover:bg-gray-50"
               onClick={() => setIsOpen(false)}
             >
-              Generate Course
+              {t("navigation.generateCourse")}
             </Link>
+            
+            {/* Language Toggle for Mobile */}
+            <div className="px-3 py-2 flex">
+              <span className="mr-2 text-gray-700">{t("common.language")}:</span>
+              <LanguageToggle />
+            </div>
+            
             {/* Conditional rendering based on login status */}
             {isLoggedIn ? (
               <button
@@ -124,7 +137,7 @@ const NavBar: React.FC = () => {
                   setIsOpen(false);
                 }}
               >
-                Logout
+                {t("navigation.logout")}
               </button>
             ) : (
               <>
@@ -133,14 +146,14 @@ const NavBar: React.FC = () => {
                   className="block px-3 py-2 text-gray-700 hover:bg-gray-50"
                   onClick={() => setIsOpen(false)}
                 >
-                  Login
+                  {t("navigation.login")}
                 </Link>
                 <Link
                   to="/register"
                   className="block px-3 py-2 text-gray-700 hover:bg-gray-50"
                   onClick={() => setIsOpen(false)}
                 >
-                  Register
+                  {t("navigation.register")}
                 </Link>
               </>
             )}

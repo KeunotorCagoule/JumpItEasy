@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { User, LogOut, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../../context/LanguageContext";
 
 interface UserHeaderProps {
   user: { username: string };
@@ -8,6 +9,7 @@ interface UserHeaderProps {
 }
 
 const UserHeader: React.FC<UserHeaderProps> = ({ user, onLogout }) => {
+  const { t } = useLanguage();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -51,7 +53,7 @@ const UserHeader: React.FC<UserHeaderProps> = ({ user, onLogout }) => {
             onClick={() => setIsDropdownOpen(false)}
           >
             <User className="mr-3 h-4 w-4" />
-            Profile
+            {t("userHeader.profile")}
           </Link>
           <Link
             to="/settings"
@@ -59,7 +61,7 @@ const UserHeader: React.FC<UserHeaderProps> = ({ user, onLogout }) => {
             onClick={() => setIsDropdownOpen(false)}
           >
             <Settings className="mr-3 h-4 w-4" />
-            Settings
+            {t("userHeader.settings")}
           </Link>
           <button
             onClick={() => {
@@ -69,7 +71,7 @@ const UserHeader: React.FC<UserHeaderProps> = ({ user, onLogout }) => {
             className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
           >
             <LogOut className="mr-3 h-4 w-4" />
-            Sign out
+            {t("userHeader.signOut")}
           </button>
         </div>
       )}

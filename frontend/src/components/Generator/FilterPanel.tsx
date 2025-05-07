@@ -1,5 +1,6 @@
 import React from 'react';
 import { CourseFilters } from '../../types/course';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface FilterPanelProps {
   filters: CourseFilters;
@@ -7,62 +8,75 @@ interface FilterPanelProps {
 }
 
 const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
+  const { t } = useLanguage();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    const newValue = type === 'checkbox' 
+      ? (e.target as HTMLInputElement).checked 
+      : type === 'number' 
+        ? parseFloat(value) 
+        : value;
+
+    onChange({ [name]: newValue } as any);
+  };
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Course Parameters</h2>
+      <h2 className="text-xl font-semibold mb-4">{t('courses.generate.filters.title')}</h2>
       
-      <div className="space-y-4">
+      <div className="space-y-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Duration (minutes): {filters.duration}
+            {t('courses.generate.filters.duration')}
           </label>
           <input
             type="range"
-            min="5"
-            max="60"
+            name="duration"
+            min="10"
+            max="120"
+            step="5"
             value={filters.duration}
-            onChange={(e) => onChange({ duration: parseInt(e.target.value) })}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            onChange={handleChange}
+            className="w-full"
           />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Number of Obstacles: {filters.obstacleCount}
-          </label>
-          <input
-            type="range"
-            min="5"
-            max="30"
-            value={filters.obstacleCount}
-            onChange={(e) => onChange({ obstacleCount: parseInt(e.target.value) })}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Water Elements
-          </label>
-          <div className="flex items-center gap-2">
-            <input
-              type="checkbox"
-              checked={filters.hasWaterElements}
-              onChange={(e) => onChange({ hasWaterElements: e.target.checked })}
-              className="rounded text-blue-600"
-            />
-            <span className="text-sm">Include water elements</span>
+          <div className="flex justify-between text-sm text-gray-500">
+            <span>10 min</span>
+            <span>{filters.duration} min</span>
+            <span>120 min</span>
           </div>
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Difficulty Level
+            {t('courses.generate.filters.obstacleCount')}
+          </label>
+          <input
+            type="range"
+            name="obstacleCount"
+            min="5"
+            max="30"
+            step="1"
+            value={filters.obstacleCount}
+            onChange={handleChange}
+            className="w-full"
+          />
+          <div className="flex justify-between text-sm text-gray-500">
+            <span>5</span>
+            <span>{filters.obstacleCount}</span>
+            <span>30</span>
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            {t('courses.generate.filters.difficulty')}
           </label>
           <select
+            name="difficulty"
             value={filters.difficulty}
-            onChange={(e) => onChange({ difficulty: e.target.value as CourseFilters['difficulty'] })}
-            className="w-full p-2 border rounded-md"
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="Beginner">Beginner</option>
             <option value="Intermediate">Intermediate</option>
@@ -71,13 +85,29 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
         </div>
 
         <div>
+          <label className="flex items-center space-x-3">
+            <input
+              type="checkbox"
+              name="hasWaterElements"
+              checked={filters.hasWaterElements}
+              onChange={handleChange}
+              className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+            />
+            <span className="text-sm font-medium text-gray-700">
+              {t('courses.generate.filters.hasWaterElements')}
+            </span>
+          </label>
+        </div>
+
+        <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Terrain Type
+            {t('courses.generate.filters.terrainType')}
           </label>
           <select
+            name="terrainType"
             value={filters.terrainType}
-            onChange={(e) => onChange({ terrainType: e.target.value as CourseFilters['terrainType'] })}
-            className="w-full p-2 border rounded-md"
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="Urban">Urban</option>
             <option value="Nature">Nature</option>
@@ -87,12 +117,13 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Height Range
+            {t('courses.generate.filters.heightRange')}
           </label>
           <select
+            name="heightRange"
             value={filters.heightRange}
-            onChange={(e) => onChange({ heightRange: e.target.value as CourseFilters['heightRange'] })}
-            className="w-full p-2 border rounded-md"
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="Ground Level">Ground Level</option>
             <option value="Medium">Medium</option>
@@ -102,12 +133,13 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Required Equipment
+            {t('courses.generate.filters.equipment')}
           </label>
           <select
+            name="equipment"
             value={filters.equipment}
-            onChange={(e) => onChange({ equipment: e.target.value as CourseFilters['equipment'] })}
-            className="w-full p-2 border rounded-md"
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="None">None</option>
             <option value="Basic">Basic</option>
@@ -117,12 +149,13 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Course Type
+            {t('courses.generate.filters.courseType')}
           </label>
           <select
+            name="courseType"
             value={filters.courseType}
-            onChange={(e) => onChange({ courseType: e.target.value as CourseFilters['courseType'] })}
-            className="w-full p-2 border rounded-md"
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="Linear">Linear</option>
             <option value="Circuit">Circuit</option>
@@ -132,12 +165,13 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Environment
+            {t('courses.generate.filters.environment')}
           </label>
           <select
+            name="environment"
             value={filters.environment}
-            onChange={(e) => onChange({ environment: e.target.value as CourseFilters['environment'] })}
-            className="w-full p-2 border rounded-md"
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="Indoor">Indoor</option>
             <option value="Outdoor">Outdoor</option>
@@ -146,12 +180,13 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Safety Features
+            {t('courses.generate.filters.safetyFeatures')}
           </label>
           <select
+            name="safetyFeatures"
             value={filters.safetyFeatures}
-            onChange={(e) => onChange({ safetyFeatures: e.target.value as CourseFilters['safetyFeatures'] })}
-            className="w-full p-2 border rounded-md"
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="Basic">Basic</option>
             <option value="Standard">Standard</option>

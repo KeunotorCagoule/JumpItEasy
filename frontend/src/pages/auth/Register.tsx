@@ -1,14 +1,21 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import RegisterForm from "../../components/Auth/RegisterForm";
 import { RegisterFormData } from "../../types/auth";
 import { useAuth } from "../../context/AuthContext";
+import { useLanguage } from "../../context/LanguageContext"; // Added import
 
 const Register: React.FC = () => {
+  const { t } = useLanguage(); // Added translation hook
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, isLoggedIn } = useAuth();
+
+  // Redirect to home if already logged in
+  if (isLoggedIn) {
+    return <Navigate to="/" replace />;
+  }
 
   const handleRegister = async (data: RegisterFormData) => {
     setIsLoading(true);
@@ -24,27 +31,31 @@ const Register: React.FC = () => {
           username: data.username,
           email: data.email,
           password: data.password,
+          country: data.country,
+          language: data.language, // Include language preference
         }),
       });
 
       const responseData = await response.json();
 
       if (!response.ok) {
-        throw new Error(responseData.error || "L'inscription a échoué");
+        throw new Error(responseData.error || t("auth.register.failed"));
       }
 
       // Stocker le token JWT dans localStorage
       localStorage.setItem("token", responseData.token);
 
-      // Stocker les données utilisateur retournées par le backend
-      sessionStorage.setItem(
-        "user",
-        JSON.stringify({
-          id: responseData.user.id,
-          username: responseData.user.username,
-          email: responseData.user.email,
-        })
-      );
+      // Créer un objet user complet avec toutes les informations nécessaires
+      const userData = {
+        id: responseData.user.id,
+        username: responseData.user.username,
+        email: responseData.user.email,
+        country: responseData.user.country,
+        language: responseData.user.language,
+      };
+
+      // Par défaut, stockons les données utilisateur dans sessionStorage
+      sessionStorage.setItem("user", JSON.stringify(userData));
 
       // Connecter l'utilisateur
       login(responseData.user.username);

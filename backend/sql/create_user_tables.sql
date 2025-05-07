@@ -4,22 +4,7 @@
 ALTER TABLE users ADD COLUMN IF NOT EXISTS email VARCHAR(255) UNIQUE;
 ALTER TABLE users ADD COLUMN IF NOT EXISTS bio TEXT;
 ALTER TABLE users ADD COLUMN IF NOT EXISTS location VARCHAR(255);
-
--- Table des préférences utilisateur
-CREATE TABLE IF NOT EXISTS user_preferences (
-  id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  language VARCHAR(10) DEFAULT 'fr',
-  dark_mode BOOLEAN DEFAULT FALSE,
-  email_notifications BOOLEAN DEFAULT TRUE,
-  app_notifications BOOLEAN DEFAULT TRUE,
-  marketing_emails BOOLEAN DEFAULT FALSE,
-  two_factor_auth BOOLEAN DEFAULT FALSE,
-  public_profile BOOLEAN DEFAULT TRUE,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE(user_id)
-);
+ALTER TABLE users ADD COLUMN IF NOT EXISTS language VARCHAR(10) DEFAULT 'fr';
 
 -- Table des favoris
 CREATE TABLE IF NOT EXISTS user_favorites (

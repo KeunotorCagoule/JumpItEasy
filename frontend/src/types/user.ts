@@ -3,7 +3,8 @@ export interface UserProfile {
   username: string;
   email: string;
   bio?: string;
-  location?: string;
+  country?: string;
+  language?: string;
   joinedDate: string;
   favoriteCourses: number;
   completedCourses: number;
@@ -13,6 +14,7 @@ export interface UserProfile {
 export interface Course {
   id: string;
   title: string;
+  description: string;
   difficulty: string;
   date: string;
   completionRate?: number;
@@ -22,14 +24,8 @@ export interface UserSettings {
   username: string;
   email: string;
   bio: string;
-  location: string;
+  country: string;
   language: string;
-  darkMode: boolean;
-  emailNotifications: boolean;
-  appNotifications: boolean;
-  marketingEmails: boolean;
-  twoFactorAuth: boolean;
-  publicProfile: boolean;
 }
 
 export interface PasswordChangeRequest {

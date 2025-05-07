@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
-import { Lock, User, Bell, Shield, Globe } from "lucide-react";
+import { Lock, User } from "lucide-react";
 import {
   getUserSettings,
   updateUserSettings,
   changePassword,
 } from "../services/userService";
-import { UserSettings, PasswordChangeRequest } from "../types/user";
+import CountryDropdown from "../components/common/CountryDropdown";
+import { useLanguage } from "../context/LanguageContext";
 
 const Settings: React.FC = () => {
   const { isLoggedIn, username } = useAuth();
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState("profile");
   const [isSaving, setIsSaving] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +26,15 @@ const Settings: React.FC = () => {
     username: username || "",
     email: "user@example.com",
     bio: "",
-    location: "",
+    country: "",
+  });
+
+  // États pour stocker les valeurs originales du profil
+  const [originalProfileForm, setOriginalProfileForm] = useState({
+    username: username || "",
+    email: "user@example.com",
+    bio: "",
+    country: "",
   });
 
   // États pour le formulaire de mot de passe
@@ -34,17 +44,6 @@ const Settings: React.FC = () => {
     confirmPassword: "",
   });
 
-  // États pour les préférences
-  const [preferences, setPreferences] = useState({
-    language: "fr",
-    darkMode: false,
-    emailNotifications: true,
-    appNotifications: true,
-    marketingEmails: false,
-    twoFactorAuth: false,
-    publicProfile: true,
-  });
-
   useEffect(() => {
     if (isLoggedIn) {
       const fetchSettings = async () => {
@@ -52,24 +51,18 @@ const Settings: React.FC = () => {
         try {
           const settings = await getUserSettings();
 
-          // Mettre à jour le formulaire de profil
-          setProfileForm({
+          // Créer les objets de données pour le profil
+          const profileData = {
             username: settings.username,
             email: settings.email,
             bio: settings.bio || "",
-            location: settings.location || "",
-          });
+            country: settings.country || "",
+          };
 
-          // Mettre à jour les préférences
-          setPreferences({
-            language: settings.language,
-            darkMode: settings.darkMode,
-            emailNotifications: settings.emailNotifications,
-            appNotifications: settings.appNotifications,
-            marketingEmails: settings.marketingEmails,
-            twoFactorAuth: settings.twoFactorAuth,
-            publicProfile: settings.publicProfile,
-          });
+          // Mettre à jour le formulaire de profil et sa copie originale
+          setProfileForm(profileData);
+          setOriginalProfileForm(profileData);
+          
         } catch (error) {
           console.error("Erreur lors du chargement des paramètres:", error);
           setSaveMessage({
@@ -92,7 +85,7 @@ const Settings: React.FC = () => {
   }
 
   const handleProfileChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setProfileForm({
@@ -105,22 +98,6 @@ const Settings: React.FC = () => {
     const { name, value } = e.target;
     setPasswordForm({
       ...passwordForm,
-      [name]: value,
-    });
-  };
-
-  const handleToggleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target;
-    setPreferences({
-      ...preferences,
-      [name]: checked,
-    });
-  };
-
-  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setPreferences({
-      ...preferences,
       [name]: value,
     });
   };
@@ -139,12 +116,12 @@ const Settings: React.FC = () => {
           username: profileForm.username,
           email: profileForm.email,
           bio: profileForm.bio,
-          location: profileForm.location,
+          country: profileForm.country,
         };
       } else if (activeTab === "password") {
         // Vérifier que les mots de passe correspondent
         if (passwordForm.newPassword !== passwordForm.confirmPassword) {
-          throw new Error("Les mots de passe ne correspondent pas");
+          throw new Error(t("settings.passwordError"));
         }
 
         // Changer le mot de passe via l'API
@@ -159,14 +136,11 @@ const Settings: React.FC = () => {
 
         setSaveMessage({
           type: "success",
-          text: "Votre mot de passe a été modifié avec succès.",
+          text: t("settings.passwordChanged"),
         });
 
         setIsSaving(false);
         return;
-      } else {
-        // Pour les autres onglets, envoyez les préférences
-        updatedData = preferences;
       }
 
       // Mettre à jour les paramètres via l'API
@@ -174,15 +148,13 @@ const Settings: React.FC = () => {
 
       setSaveMessage({
         type: "success",
-        text: "Les modifications ont été enregistrées avec succès.",
+        text: t("settings.saved"),
       });
     } catch (error: any) {
       console.error("Erreur lors de l'enregistrement des paramètres:", error);
       setSaveMessage({
         type: "error",
-        text:
-          error.message ||
-          "Une erreur est survenue lors de l'enregistrement des modifications.",
+        text: error.message || t("settings.error"),
       });
     } finally {
       setIsSaving(false);
@@ -192,6 +164,28 @@ const Settings: React.FC = () => {
         setSaveMessage(null);
       }, 3000);
     }
+  };
+
+  // Fonction pour annuler les modifications
+  const handleCancelChanges = () => {
+    if (activeTab === "profile") {
+      setProfileForm({ ...originalProfileForm });
+    } else if (activeTab === "password") {
+      setPasswordForm({
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: "",
+      });
+    }
+
+    setSaveMessage({
+      type: "success",
+      text: t("settings.changesDiscarded"),
+    });
+
+    setTimeout(() => {
+      setSaveMessage(null);
+    }, 3000);
   };
 
   if (isLoading) {
@@ -206,9 +200,9 @@ const Settings: React.FC = () => {
     <div className="max-w-6xl mx-auto px-4 py-8">
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
         <div className="bg-blue-600 text-white p-6">
-          <h1 className="text-2xl font-bold">Paramètres du compte</h1>
+          <h1 className="text-2xl font-bold">{t("settings.title")}</h1>
           <p className="text-blue-100">
-            Gérez vos informations personnelles et vos préférences
+            {t("settings.subtitle")}
           </p>
         </div>
 
@@ -225,7 +219,7 @@ const Settings: React.FC = () => {
                 }`}
               >
                 <User size={18} />
-                Profil
+                {t("settings.profile")}
               </button>
               <button
                 onClick={() => setActiveTab("password")}
@@ -236,40 +230,7 @@ const Settings: React.FC = () => {
                 }`}
               >
                 <Lock size={18} />
-                Mot de passe
-              </button>
-              <button
-                onClick={() => setActiveTab("notifications")}
-                className={`flex items-center gap-3 px-3 py-2 w-full text-left rounded-md ${
-                  activeTab === "notifications"
-                    ? "bg-blue-50 text-blue-700"
-                    : "text-gray-700 hover:bg-gray-100"
-                }`}
-              >
-                <Bell size={18} />
-                Notifications
-              </button>
-              <button
-                onClick={() => setActiveTab("privacy")}
-                className={`flex items-center gap-3 px-3 py-2 w-full text-left rounded-md ${
-                  activeTab === "privacy"
-                    ? "bg-blue-50 text-blue-700"
-                    : "text-gray-700 hover:bg-gray-100"
-                }`}
-              >
-                <Shield size={18} />
-                Confidentialité
-              </button>
-              <button
-                onClick={() => setActiveTab("preferences")}
-                className={`flex items-center gap-3 px-3 py-2 w-full text-left rounded-md ${
-                  activeTab === "preferences"
-                    ? "bg-blue-50 text-blue-700"
-                    : "text-gray-700 hover:bg-gray-100"
-                }`}
-              >
-                <Globe size={18} />
-                Préférences
+                {t("settings.password")}
               </button>
             </nav>
           </div>
@@ -293,7 +254,7 @@ const Settings: React.FC = () => {
               {activeTab === "profile" && (
                 <div>
                   <h2 className="text-xl font-semibold mb-4">
-                    Information du profil
+                    {t("settings.profileInfo")}
                   </h2>
                   <div className="space-y-4">
                     <div>
@@ -301,7 +262,7 @@ const Settings: React.FC = () => {
                         htmlFor="username"
                         className="block text-sm font-medium text-gray-700 mb-1"
                       >
-                        Nom d'utilisateur
+                        {t("settings.username")}
                       </label>
                       <input
                         type="text"
@@ -317,7 +278,7 @@ const Settings: React.FC = () => {
                         htmlFor="email"
                         className="block text-sm font-medium text-gray-700 mb-1"
                       >
-                        Adresse e-mail
+                        {t("settings.email")}
                       </label>
                       <input
                         type="email"
@@ -333,7 +294,7 @@ const Settings: React.FC = () => {
                         htmlFor="bio"
                         className="block text-sm font-medium text-gray-700 mb-1"
                       >
-                        Biographie
+                        {t("settings.bio")}
                       </label>
                       <textarea
                         id="bio"
@@ -345,19 +306,12 @@ const Settings: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label
-                        htmlFor="location"
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                      >
-                        Localisation
-                      </label>
-                      <input
-                        type="text"
-                        id="location"
-                        name="location"
-                        value={profileForm.location}
+                      <CountryDropdown
+                        value={profileForm.country}
                         onChange={handleProfileChange}
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        label={t("settings.country")}
+                        id="country"
+                        name="country"
                       />
                     </div>
                   </div>
@@ -368,7 +322,7 @@ const Settings: React.FC = () => {
               {activeTab === "password" && (
                 <div>
                   <h2 className="text-xl font-semibold mb-4">
-                    Modifier le mot de passe
+                    {t("settings.changePassword")}
                   </h2>
                   <div className="space-y-4">
                     <div>
@@ -376,7 +330,7 @@ const Settings: React.FC = () => {
                         htmlFor="currentPassword"
                         className="block text-sm font-medium text-gray-700 mb-1"
                       >
-                        Mot de passe actuel
+                        {t("settings.currentPassword")}
                       </label>
                       <input
                         type="password"
@@ -392,7 +346,7 @@ const Settings: React.FC = () => {
                         htmlFor="newPassword"
                         className="block text-sm font-medium text-gray-700 mb-1"
                       >
-                        Nouveau mot de passe
+                        {t("settings.newPassword")}
                       </label>
                       <input
                         type="password"
@@ -408,7 +362,7 @@ const Settings: React.FC = () => {
                         htmlFor="confirmPassword"
                         className="block text-sm font-medium text-gray-700 mb-1"
                       >
-                        Confirmer le nouveau mot de passe
+                        {t("settings.confirmNewPassword")}
                       </label>
                       <input
                         type="password"
@@ -423,184 +377,14 @@ const Settings: React.FC = () => {
                 </div>
               )}
 
-              {/* Onglet Notifications */}
-              {activeTab === "notifications" && (
-                <div>
-                  <h2 className="text-xl font-semibold mb-4">
-                    Préférences de notification
-                  </h2>
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between py-2 border-b">
-                      <div>
-                        <h3 className="font-medium">
-                          Notifications par e-mail
-                        </h3>
-                        <p className="text-sm text-gray-500">
-                          Recevoir des notifications par e-mail sur vos parcours
-                          et activités
-                        </p>
-                      </div>
-                      <label className="relative inline-flex items-center cursor-pointer">
-                        <input
-                          type="checkbox"
-                          name="emailNotifications"
-                          checked={preferences.emailNotifications}
-                          onChange={handleToggleChange}
-                          className="sr-only peer"
-                        />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                      </label>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b">
-                      <div>
-                        <h3 className="font-medium">
-                          Notifications de l'application
-                        </h3>
-                        <p className="text-sm text-gray-500">
-                          Recevoir des notifications push dans l'application
-                        </p>
-                      </div>
-                      <label className="relative inline-flex items-center cursor-pointer">
-                        <input
-                          type="checkbox"
-                          name="appNotifications"
-                          checked={preferences.appNotifications}
-                          onChange={handleToggleChange}
-                          className="sr-only peer"
-                        />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                      </label>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b">
-                      <div>
-                        <h3 className="font-medium">E-mails marketing</h3>
-                        <p className="text-sm text-gray-500">
-                          Recevoir des e-mails sur les nouveautés et offres
-                          spéciales
-                        </p>
-                      </div>
-                      <label className="relative inline-flex items-center cursor-pointer">
-                        <input
-                          type="checkbox"
-                          name="marketingEmails"
-                          checked={preferences.marketingEmails}
-                          onChange={handleToggleChange}
-                          className="sr-only peer"
-                        />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Onglet Confidentialité */}
-              {activeTab === "privacy" && (
-                <div>
-                  <h2 className="text-xl font-semibold mb-4">
-                    Paramètres de confidentialité
-                  </h2>
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between py-2 border-b">
-                      <div>
-                        <h3 className="font-medium">
-                          Authentification à deux facteurs
-                        </h3>
-                        <p className="text-sm text-gray-500">
-                          Renforcer la sécurité de votre compte avec
-                          l'authentification à deux facteurs
-                        </p>
-                      </div>
-                      <label className="relative inline-flex items-center cursor-pointer">
-                        <input
-                          type="checkbox"
-                          name="twoFactorAuth"
-                          checked={preferences.twoFactorAuth}
-                          onChange={handleToggleChange}
-                          className="sr-only peer"
-                        />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                      </label>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b">
-                      <div>
-                        <h3 className="font-medium">Profil public</h3>
-                        <p className="text-sm text-gray-500">
-                          Permettre aux autres utilisateurs de voir votre profil
-                          et vos parcours
-                        </p>
-                      </div>
-                      <label className="relative inline-flex items-center cursor-pointer">
-                        <input
-                          type="checkbox"
-                          name="publicProfile"
-                          checked={preferences.publicProfile}
-                          onChange={handleToggleChange}
-                          className="sr-only peer"
-                        />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Onglet Préférences */}
-              {activeTab === "preferences" && (
-                <div>
-                  <h2 className="text-xl font-semibold mb-4">
-                    Préférences générales
-                  </h2>
-                  <div className="space-y-4">
-                    <div>
-                      <label
-                        htmlFor="language"
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                      >
-                        Langue
-                      </label>
-                      <select
-                        id="language"
-                        name="language"
-                        value={preferences.language}
-                        onChange={handleSelectChange}
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      >
-                        <option value="fr">Français</option>
-                        <option value="en">English</option>
-                        <option value="de">Deutsch</option>
-                        <option value="es">Español</option>
-                      </select>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b">
-                      <div>
-                        <h3 className="font-medium">Mode sombre</h3>
-                        <p className="text-sm text-gray-500">
-                          Activer l'interface en mode sombre
-                        </p>
-                      </div>
-                      <label className="relative inline-flex items-center cursor-pointer">
-                        <input
-                          type="checkbox"
-                          name="darkMode"
-                          checked={preferences.darkMode}
-                          onChange={handleToggleChange}
-                          className="sr-only peer"
-                        />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              )}
-
               {/* Boutons de soumission */}
               <div className="mt-6 flex justify-end gap-3">
                 <button
                   type="button"
+                  onClick={handleCancelChanges}
                   className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
                 >
-                  Annuler
+                  {t("common.cancel")}
                 </button>
                 <button
                   type="submit"
@@ -629,10 +413,10 @@ const Settings: React.FC = () => {
                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                         ></path>
                       </svg>
-                      Enregistrement...
+                      {t("common.saving")}
                     </>
                   ) : (
-                    "Enregistrer les modifications"
+                    t("common.save")
                   )}
                 </button>
               </div>

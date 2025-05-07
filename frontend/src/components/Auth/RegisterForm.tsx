@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { z } from 'zod';
 import { RegisterFormData } from '../../types/auth';
+import CountryDropdown from '../common/CountryDropdown';
+import LanguageDropdown from '../common/LanguageDropdown';
 
 const registerSchema = z.object({
   username: z.string().min(3, 'Username must be at least 3 characters'),
@@ -13,6 +15,7 @@ const registerSchema = z.object({
     .regex(/[0-9]/, 'Password must contain at least one number')
     .regex(/[^A-Za-z0-9]/, 'Password must contain at least one special character'),
   confirmPassword: z.string(),
+  country: z.string().min(1, 'Please select a country'),
   acceptTerms: z.boolean().refine(val => val === true, 'You must accept the terms and conditions')
 }).refine(data => data.password === data.confirmPassword, {
   message: "Passwords don't match",
@@ -30,6 +33,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isLoading }) => {
     email: '',
     password: '',
     confirmPassword: '',
+    country: '',
+    language: '', // Added missing language property
     acceptTerms: false
   });
 
@@ -67,8 +72,10 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isLoading }) => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
+    
     setFormData(prevFormData => ({
       ...prevFormData,
       [name]: type === 'checkbox' ? checked : value
@@ -77,24 +84,27 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isLoading }) => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+      <div className="max-w-md w-full space-y-10">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Create your account
           </h2>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="rounded-md shadow-sm -space-y-px">
+        <form className="mt-10 space-y-8" onSubmit={handleSubmit}>
+          {/* Username and Email on the same line */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="username" className="sr-only">Username</label>
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">
+                Username
+              </label>
               <input
                 id="username"
                 name="username"
                 type="text"
                 required
-                className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
+                className={`appearance-none rounded-md relative block w-full px-3 py-2 border ${
                   errors.username ? 'border-red-300' : 'border-gray-300'
-                } placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
+                } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
                 placeholder="Username"
                 value={formData.username}
                 onChange={handleChange}
@@ -104,14 +114,16 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isLoading }) => {
               )}
             </div>
             <div>
-              <label htmlFor="email" className="sr-only">Email address</label>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                Email address
+              </label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 autoComplete="email"
                 required
-                className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
+                className={`appearance-none rounded-md relative block w-full px-3 py-2 border ${
                   errors.email ? 'border-red-300' : 'border-gray-300'
                 } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
                 placeholder="Email address"
@@ -122,14 +134,50 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isLoading }) => {
                 <p className="mt-1 text-sm text-red-600">{errors.email}</p>
               )}
             </div>
+          </div>
+
+          {/* Country and Language on the same line */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
             <div>
-              <label htmlFor="password" className="sr-only">Password</label>
+              <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">Country</label>
+              <CountryDropdown
+                value={formData.country}
+                onChange={handleChange}
+                className={`appearance-none rounded-md relative block w-full px-3 py-2 border ${
+                  errors.country ? 'border-red-300' : 'border-gray-300'
+                } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
+                required
+              />
+              {errors.country && (
+                <p className="mt-1 text-sm text-red-600">{errors.country}</p>
+              )}
+            </div>
+            <div>
+              <label htmlFor="language" className="block text-sm font-medium text-gray-700 mb-2">Language</label>
+              <LanguageDropdown
+                value={formData.language}
+                onChange={handleChange}
+                className={`appearance-none rounded-md relative block w-full px-3 py-2 border ${
+                  errors.language ? 'border-red-300' : 'border-gray-300'
+                } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
+                required
+              />
+              {errors.language && (
+                <p className="mt-1 text-sm text-red-600">{errors.language}</p>
+              )}
+            </div>
+          </div>
+
+          {/* Password fields */}
+          <div className="space-y-6 mt-6">
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">Password</label>
               <input
                 id="password"
                 name="password"
                 type="password"
                 required
-                className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
+                className={`appearance-none rounded-md relative block w-full px-3 py-2 border ${
                   errors.password ? 'border-red-300' : 'border-gray-300'
                 } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
                 placeholder="Password"
@@ -163,16 +211,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isLoading }) => {
                 </p>
               </div>
             </div>
+            
             <div>
-              <label htmlFor="confirm-password" className="sr-only">Confirm password</label>
+              <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700 mb-2">Confirm password</label>
               <input
                 id="confirm-password"
                 name="confirmPassword"
                 type="password"
                 required
-                className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
+                className={`appearance-none rounded-md relative block w-full px-3 py-2 border ${
                   errors.confirmPassword ? 'border-red-300' : 'border-gray-300'
-                } placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
+                } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
                 placeholder="Confirm password"
                 value={formData.confirmPassword}
                 onChange={handleChange}
@@ -183,7 +232,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isLoading }) => {
             </div>
           </div>
 
-          <div className="flex items-center">
+          <div className="flex items-center mt-8">
             <input
               id="accept-terms"
               name="acceptTerms"
@@ -203,11 +252,11 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isLoading }) => {
             <p className="mt-1 text-sm text-red-600">{errors.acceptTerms}</p>
           )}
 
-          <div>
+          <div className="mt-8">
             <button
               type="submit"
               disabled={isLoading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
@@ -221,7 +270,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isLoading }) => {
             </button>
           </div>
 
-          <div className="text-center">
+          <div className="text-center mt-6">
             <p className="text-sm text-gray-600">
               Already have an account?{' '}
               <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">

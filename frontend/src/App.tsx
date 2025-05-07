@@ -1,38 +1,54 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout/Layout";
-import Home from "./pages/Home";
-import List from "./pages/parcours/List";
-import Generate from "./pages/parcours/Generate";
-import View from "./pages/parcours/View";
-import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
-import { AuthProvider } from "./context/AuthContext";
-import About from "./pages/About";
-import Profile from "./pages/Profile";
-import Settings from "./pages/Settings";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
+import Home from './pages/Home';
+import About from './pages/About';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
+import Profile from './pages/Profile';
+import Settings from './pages/Settings';
+import List from './pages/parcours/List';
+import View from './pages/parcours/View';
+import Documentation from './pages/Documentation';
+import TermsAndConditions from './pages/TermsAndConditions';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Faq from './pages/FAQ';
+import Generate from './pages/parcours/Generate';
+import PrivateRoute from './components/Auth/PrivateRoute';
+import PublicOnlyRoute from './components/Auth/PublicOnlyRoute';
+import ScrollToTop from './components/common/ScrollToTop';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <AuthProvider>
-      <Router>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            {/* Protected routes */}
-            <Route path="/parcours" element={<List />} />
-            <Route path="/parcours/generate" element={<Generate />} />
-            <Route path="/parcours/:id" element={<View />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-        </Layout>
-      </Router>
-    </AuthProvider>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="parcours" element={<List />} />
+          <Route path="documentation" element={<Documentation />} />
+          <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="faq" element={<Faq />} />
+          
+          {/* Public routes - accessible only when not logged in */}
+          <Route element={<PublicOnlyRoute />}>
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+          </Route>
+          
+          {/* Private routes - require authentication */}
+          <Route element={<PrivateRoute />}>
+            <Route path="profile" element={<Profile />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="parcours/generate" element={<Generate />} />
+            <Route path="parcours/:id" element={<View />} />
+          </Route>
+        </Route>
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;

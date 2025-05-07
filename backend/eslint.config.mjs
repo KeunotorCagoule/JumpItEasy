@@ -28,6 +28,11 @@ export default [
         describe: 'readonly',
         it: 'readonly',
         expect: 'readonly',
+        jest: 'readonly',        // Ajout de jest
+        beforeEach: 'readonly',  // Ajout de beforeEach
+        beforeAll: 'readonly',   // Ajout de beforeAll
+        afterEach: 'readonly',   // Ajout de afterEach
+        afterAll: 'readonly',    // Ajout de afterAll
       },
     },
   },

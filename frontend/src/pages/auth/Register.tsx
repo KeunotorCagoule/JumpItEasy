@@ -3,7 +3,8 @@ import { useNavigate, Navigate } from "react-router-dom";
 import RegisterForm from "../../components/Auth/RegisterForm";
 import { RegisterFormData } from "../../types/auth";
 import { useAuth } from "../../context/AuthContext";
-import { useLanguage } from "../../context/LanguageContext"; // Added import
+import { useLanguage } from "../../context/LanguageContext";
+import { API_URL } from "../../config/api";
 
 const Register: React.FC = () => {
   const { t } = useLanguage(); // Added translation hook
@@ -22,7 +23,7 @@ const Register: React.FC = () => {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:3000/auth/register", {
+      const response = await fetch(`${API_URL}/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

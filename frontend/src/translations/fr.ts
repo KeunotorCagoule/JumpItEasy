@@ -30,8 +30,8 @@ const fr = {
   },
   home: {
     hero: {
-      title: "Créez votre parcours de parkour facilement",
-      subtitle: "Créez des parcours de parkour personnalisés avec notre générateur alimenté par IA. Parfait pour les instructeurs et les passionnés.",
+      title: "Créez votre parcours équestre facilement",
+      subtitle: "Créez des parcours équestres personnalisés avec notre générateur alimenté par IA. Parfait pour les instructeurs et les passionnés.",
       viewCourses: "Voir les parcours",
       generateCourse: "Créer un parcours"
     },
@@ -116,12 +116,44 @@ const fr = {
     login: {
       title: "Connexion",
       subtitle: "Connectez-vous à votre compte",
-      invalidCredentials: "Nom d'utilisateur/email ou mot de passe invalide"
+      invalidCredentials: "Nom d'utilisateur/email ou mot de passe invalide",
+      usernameOrEmail: "Nom d'utilisateur ou Email",
+      usernameOrEmailPlaceholder: "Nom d'utilisateur / Adresse Email",
+      password: "Mot de passe",
+      passwordPlaceholder: "Mot de passe",
+      rememberMe: "Se souvenir de moi",
+      forgotPassword: "Mot de passe oublié ?",
+      signIn: "Se connecter",
+      noAccount: "Vous n'avez pas de compte ?",
+      registerHere: "Inscrivez-vous ici"
     },
     register: {
       title: "Créer un compte",
       subtitle: "Rejoignez la communauté JumpItEasy",
-      failed: "L'inscription a échoué"
+      failed: "L'inscription a échoué",
+      username: "Nom d'utilisateur",
+      usernamePlaceholder: "Nom d'utilisateur",
+      email: "Adresse email",
+      emailPlaceholder: "Adresse email",
+      password: "Mot de passe",
+      passwordPlaceholder: "Mot de passe",
+      confirmPassword: "Confirmer le mot de passe",
+      confirmPasswordPlaceholder: "Confirmer le mot de passe",
+      country: "Pays",
+      language: "Langue",
+      acceptTermsPrefix: "J'accepte les",
+      termsAndConditions: "conditions générales",
+      createAccount: "Créer un compte",
+      alreadyHaveAccount: "Vous avez déjà un compte ?",
+      signInHere: "Connectez-vous ici",
+      passwordStrength: "Force du mot de passe",
+      strength: {
+        veryWeak: "Très faible",
+        weak: "Faible",
+        fair: "Moyen",
+        good: "Bon",
+        strong: "Fort"
+      }
     }
   },
   courses: {
@@ -352,7 +384,9 @@ const fr = {
     faq: "FAQ",
     terms: "Conditions générales",
     privacy: "Politique de confidentialité",
-    courses: "Parcours"
+    courses: "Parcours",
+    allRightsReserved: "Tous droits réservés.",
+    contact: "Contact"
   },
   faq: {
     title: "Foire aux questions",

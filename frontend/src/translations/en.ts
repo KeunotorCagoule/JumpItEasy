@@ -30,8 +30,8 @@ const enTranslations = {
   },
   home: {
     hero: {
-      title: "Design Your Parkour Course Easily",
-      subtitle: "Create personalized parkour courses with our AI-powered generator. Perfect for instructors and enthusiasts.",
+      title: "Design Your Equestrian Course Easily",
+      subtitle: "Create personalized equestrian courses with our AI-powered generator. Perfect for instructors and enthusiasts.",
       viewCourses: "View Courses",
       generateCourse: "Generate a Course"
     },
@@ -116,12 +116,44 @@ const enTranslations = {
     login: {
       title: "Sign In",
       subtitle: "Sign in to your account",
-      invalidCredentials: "Invalid username/email or password"
+      invalidCredentials: "Invalid username/email or password",
+      usernameOrEmail: "Username or Email",
+      usernameOrEmailPlaceholder: "Username / Email Address",
+      password: "Password",
+      passwordPlaceholder: "Password",
+      rememberMe: "Remember me",
+      forgotPassword: "Forgot your password?",
+      signIn: "Sign in",
+      noAccount: "Don't have an account?",
+      registerHere: "Register here"
     },
     register: {
       title: "Create Account",
       subtitle: "Join the JumpItEasy community",
-      failed: "Registration failed"
+      failed: "Registration failed",
+      username: "Username",
+      usernamePlaceholder: "Username",
+      email: "Email address",
+      emailPlaceholder: "Email address",
+      password: "Password",
+      passwordPlaceholder: "Password",
+      confirmPassword: "Confirm password",
+      confirmPasswordPlaceholder: "Confirm password",
+      country: "Country",
+      language: "Language",
+      acceptTermsPrefix: "I accept the",
+      termsAndConditions: "terms and conditions",
+      createAccount: "Create Account",
+      alreadyHaveAccount: "Already have an account?",
+      signInHere: "Sign in here",
+      passwordStrength: "Password strength",
+      strength: {
+        veryWeak: "Very Weak",
+        weak: "Weak",
+        fair: "Fair",
+        good: "Good",
+        strong: "Strong"
+      }
     }
   },
   courses: {
@@ -352,7 +384,9 @@ const enTranslations = {
     faq: "FAQ",
     terms: "Terms & Conditions",
     privacy: "Privacy Policy",
-    courses: "Courses"
+    courses: "Courses",
+    allRightsReserved: "All rights reserved.",
+    contact: "Contact"
   },
   faq: {
     title: "Frequently Asked Questions",

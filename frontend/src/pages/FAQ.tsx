@@ -86,7 +86,11 @@ const FAQ: React.FC = () => {
     },
   ];
 
-  let questionIndex = 0;
+  // Déplacé à l'intérieur du composant pour résoudre l'erreur Fast Refresh
+  const questionIndex = (() => {
+    let index = 0;
+    return () => index++;
+  })();
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -106,7 +110,7 @@ const FAQ: React.FC = () => {
               </h2>
               <div className="space-y-4">
                 {section.questions.map((faq, i) => {
-                  const currentIndex = questionIndex++;
+                  const currentIndex = questionIndex();
                   const isOpen = openQuestions.includes(currentIndex);
 
                   return (

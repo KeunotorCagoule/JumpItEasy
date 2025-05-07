@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Users as Horse } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import UserHeader from "./UserHeader";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
@@ -24,7 +24,15 @@ const NavBar: React.FC = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <Horse className="h-8 w-8 text-blue-600" />
+              <img
+                src="src/public/logo.svg"
+                alt="JumpItEasy Logo"
+                className="h-14 w-14 mt-2 filter-blue"
+                style={{
+                  filter:
+                    "invert(23%) sepia(90%) saturate(1352%) hue-rotate(209deg) brightness(96%) contrast(96%)",
+                }}
+              />
               <span className="text-xl font-bold text-gray-900">
                 JumpItEasy
               </span>
@@ -121,13 +129,15 @@ const NavBar: React.FC = () => {
             >
               {t("navigation.generateCourse")}
             </Link>
-            
+
             {/* Language Toggle for Mobile */}
             <div className="px-3 py-2 flex">
-              <span className="mr-2 text-gray-700">{t("common.language")}:</span>
+              <span className="mr-2 text-gray-700">
+                {t("common.language")}:
+              </span>
               <LanguageToggle />
             </div>
-            
+
             {/* Conditional rendering based on login status */}
             {isLoggedIn ? (
               <button

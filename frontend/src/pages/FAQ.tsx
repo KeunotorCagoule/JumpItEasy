@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { ChevronDown, ChevronUp } from "lucide-react";

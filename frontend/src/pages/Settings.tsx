@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Lock, User } from "lucide-react";
 import {
   getUserSettings,
@@ -20,6 +21,8 @@ const Settings: React.FC = () => {
     type: "success" | "error";
     text: string;
   } | null>(null);
+  const navigate = useNavigate();
+
 
   // États pour le formulaire de profil
   const [profileForm, setProfileForm] = useState({
@@ -178,14 +181,8 @@ const Settings: React.FC = () => {
       });
     }
 
-    setSaveMessage({
-      type: "success",
-      text: t("settings.changesDiscarded"),
-    });
-
-    setTimeout(() => {
-      setSaveMessage(null);
-    }, 3000);
+    // Rediriger vers la page /profile
+    navigate("/profile");
   };
 
   if (isLoading) {

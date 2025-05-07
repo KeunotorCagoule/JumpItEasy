@@ -27,7 +27,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
       
       <div className="space-y-6">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-gray-500 mb-1">
             {t('courses.generate.filters.duration')}
           </label>
           <input
@@ -38,7 +38,8 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
             step="5"
             value={filters.duration}
             onChange={handleChange}
-            className="w-full"
+            className="w-full opacity-60 cursor-not-allowed"
+            disabled={true}
           />
           <div className="flex justify-between text-sm text-gray-500">
             <span>10 min</span>
@@ -48,7 +49,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-gray-500 mb-1">
             {t('courses.generate.filters.obstacleCount')}
           </label>
           <input
@@ -59,7 +60,8 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
             step="1"
             value={filters.obstacleCount}
             onChange={handleChange}
-            className="w-full"
+            className="w-full opacity-60 cursor-not-allowed"
+            disabled={true}
           />
           <div className="flex justify-between text-sm text-gray-500">
             <span>5</span>
@@ -100,46 +102,15 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            {t('courses.generate.filters.terrainType')}
-          </label>
-          <select
-            name="terrainType"
-            value={filters.terrainType}
-            onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option value="Urban">Urban</option>
-            <option value="Nature">Nature</option>
-            <option value="Mixed">Mixed</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            {t('courses.generate.filters.heightRange')}
-          </label>
-          <select
-            name="heightRange"
-            value={filters.heightRange}
-            onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option value="Ground Level">Ground Level</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-gray-500 mb-1">
             {t('courses.generate.filters.equipment')}
           </label>
           <select
             name="equipment"
             value={filters.equipment}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-100 cursor-not-allowed"
+            disabled={true}
           >
             <option value="None">None</option>
             <option value="Basic">Basic</option>
@@ -160,37 +131,6 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
             <option value="Linear">Linear</option>
             <option value="Circuit">Circuit</option>
             <option value="Freestyle">Freestyle</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            {t('courses.generate.filters.environment')}
-          </label>
-          <select
-            name="environment"
-            value={filters.environment}
-            onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option value="Indoor">Indoor</option>
-            <option value="Outdoor">Outdoor</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            {t('courses.generate.filters.safetyFeatures')}
-          </label>
-          <select
-            name="safetyFeatures"
-            value={filters.safetyFeatures}
-            onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option value="Basic">Basic</option>
-            <option value="Standard">Standard</option>
-            <option value="Enhanced">Enhanced</option>
           </select>
         </div>
       </div>

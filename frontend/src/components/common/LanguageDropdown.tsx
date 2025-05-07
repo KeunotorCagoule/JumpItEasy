@@ -23,14 +23,14 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
     { code: "", name: "Select a language" },
     { code: "en", name: "English" },
     { code: "fr", name: "French (Français)" },
-    { code: "es", name: "Spanish (Español)" },
-    { code: "de", name: "German (Deutsch)" },
-    { code: "it", name: "Italian (Italiano)" },
-    { code: "pt", name: "Portuguese (Português)" },
-    { code: "nl", name: "Dutch (Nederlands)" },
-    { code: "ru", name: "Russian (Русский)" },
-    { code: "zh", name: "Chinese (中文)" },
-    { code: "ja", name: "Japanese (日本語)" },
+    // { code: "es", name: "Spanish (Español)" },
+    // { code: "de", name: "German (Deutsch)" },
+    // { code: "it", name: "Italian (Italiano)" },
+    // { code: "pt", name: "Portuguese (Português)" },
+    // { code: "nl", name: "Dutch (Nederlands)" },
+    // { code: "ru", name: "Russian (Русский)" },
+    // { code: "zh", name: "Chinese (中文)" },
+    // { code: "ja", name: "Japanese (日本語)" },
   ];
 
   return (

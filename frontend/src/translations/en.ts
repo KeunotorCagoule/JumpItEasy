@@ -30,8 +30,8 @@ const enTranslations = {
   },
   home: {
     hero: {
-      title: "Design Your Parkour Course Easily",
-      subtitle: "Create personalized parkour courses with our AI-powered generator. Perfect for instructors and enthusiasts.",
+      title: "Design Your Equestrian Course Easily",
+      subtitle: "Create personalized equestrian courses with our AI-powered generator. Perfect for instructors and enthusiasts.",
       viewCourses: "View Courses",
       generateCourse: "Generate a Course"
     },

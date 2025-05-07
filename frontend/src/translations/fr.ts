@@ -30,8 +30,8 @@ const fr = {
   },
   home: {
     hero: {
-      title: "Créez votre parcours de parkour facilement",
-      subtitle: "Créez des parcours de parkour personnalisés avec notre générateur alimenté par IA. Parfait pour les instructeurs et les passionnés.",
+      title: "Créez votre parcours équestre facilement",
+      subtitle: "Créez des parcours équestres personnalisés avec notre générateur alimenté par IA. Parfait pour les instructeurs et les passionnés.",
       viewCourses: "Voir les parcours",
       generateCourse: "Créer un parcours"
     },

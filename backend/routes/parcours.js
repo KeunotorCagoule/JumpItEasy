@@ -1,5 +1,5 @@
 const express = require('express');
-const { getParcoursList, getParcoursDetails, generateParcours } = require('../services/parcoursService');
+const { getParcoursList, getParcoursDetails, generateParcours, getParcoursByUser } = require('../services/parcoursService');
 const { verifyToken } = require('../services/authService');
 
 const router = express.Router();
@@ -34,6 +34,18 @@ router.post('/', verifyToken, async (req, res) => {
     res.status(201).json(newParcours);
   } catch (error) {
     console.error('Error generating parcours:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Protected route: Get user's parcours
+router.get('/user/me', verifyToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const parcours = await getParcoursByUser(userId);
+    res.status(200).json(parcours);
+  } catch (error) {
+    console.error('Error fetching user parcours:', error);
     res.status(500).json({ error: error.message });
   }
 });

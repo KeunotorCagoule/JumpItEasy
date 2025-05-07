@@ -17,6 +17,7 @@ import Generate from './pages/parcours/Generate';
 import PrivateRoute from './components/Auth/PrivateRoute';
 import PublicOnlyRoute from './components/Auth/PublicOnlyRoute';
 import ScrollToTop from './components/common/ScrollToTop';
+import UserCourses from './pages/parcours/UserCourses';
 
 const App: React.FC = () => {
   return (
@@ -44,6 +45,7 @@ const App: React.FC = () => {
             <Route path="settings" element={<Settings />} />
             <Route path="parcours/generate" element={<Generate />} />
             <Route path="parcours/:id" element={<View />} />
+            <Route path="/parcours/mes-parcours" element={<UserCourses />} />
           </Route>
         </Route>
       </Routes>

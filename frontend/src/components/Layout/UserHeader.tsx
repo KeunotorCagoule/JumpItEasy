@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { User, LogOut, Settings } from "lucide-react";
+import { User, LogOut, Settings, LandPlot } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -55,6 +55,15 @@ const UserHeader: React.FC<UserHeaderProps> = ({ user, onLogout }) => {
             <User className="mr-3 h-4 w-4" />
             {t("userHeader.profile")}
           </Link>
+          <Link
+            to="/parcours/mes-parcours"
+            className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            onClick={() => setIsDropdownOpen(false)}
+          >
+            <LandPlot className="mr-3 h-4 w-4" />
+            {t("userHeader.ownCourses")}
+          </Link>
+
           <Link
             to="/settings"
             className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"

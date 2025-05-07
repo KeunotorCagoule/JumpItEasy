@@ -229,8 +229,8 @@ const Profile: React.FC = () => {
               )}
 
               <div className="mt-6 text-center">
-                <Link to="/parcours" className="text-blue-600 dark:text-blue-400 hover:underline">
-                  {t("profile.viewAllCourses")} →
+                <Link to="/parcours/mes-parcours" className="text-blue-600 dark:text-blue-400 hover:underline">
+                  {t("profile.viewAllOwnCourses")} →
                 </Link>
               </div>
             </div>

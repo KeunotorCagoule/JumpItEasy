@@ -25,6 +25,7 @@ const enTranslations = {
   },
   userHeader: {
     profile: "Profile",
+    ownCourses: "My Courses",
     settings: "Settings",
     signOut: "Sign Out"
   },
@@ -87,7 +88,7 @@ const enTranslations = {
     completed: "completed",
     noCourses: "You haven't used any courses yet.",
     createCourse: "Create Your First Course",
-    viewAllCourses: "View all courses",
+    viewAllOwnCourses: "View all your courses",
     defaultBio: "Parkour enthusiast exploring new movement possibilities.",
     joinedDate: "January 2023",
     errorLoading: "There was an error loading your profile data. Please try again later."
@@ -212,6 +213,22 @@ const enTranslations = {
         share: "Share"
       }
     }
+  },
+  userCourses: {
+    title: "My Courses",
+    subtitle: "Courses you have created or completed",
+    created: "Created Courses",
+    completed: "Completed Courses",
+    favorites: "Favorite Courses",
+    all: "All Courses",
+    noCoursesFound: "No courses found",
+    createOne: "Create a Course",
+    lastUsed: "Last Used",
+    progress: "Progress",
+    difficulty: "Difficulty",
+    filter: "Filter by",
+    markFavorite: "Mark as Favorite",
+    removeFavorite: "Remove from Favorites"
   },
   documentation: {
     title: "Documentation",

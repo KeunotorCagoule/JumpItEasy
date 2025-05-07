@@ -21,10 +21,12 @@ const fr = {
     profile: "Profil",
     settings: "Paramètres",
     logout: "Déconnexion",
-    documentation: "Documentation"
+    documentation: "Documentation",
+    myCourses: "Mes parcours"
   },
   userHeader: {
     profile: "Profil",
+    ownCourses: "Mes parcours",
     settings: "Paramètres",
     signOut: "Déconnexion"
   },
@@ -87,7 +89,7 @@ const fr = {
     completed: "terminé",
     noCourses: "Vous n'avez pas encore utilisé de parcours.",
     createCourse: "Créer votre premier parcours",
-    viewAllCourses: "Voir tous les parcours",
+    viewAllOwnCourses: "Voir tous mes parcours",
     defaultBio: "Passionné de parkour explorant de nouvelles possibilités de mouvement.",
     joinedDate: "Janvier 2023",
     errorLoading: "Une erreur s'est produite lors du chargement de vos données de profil. Veuillez réessayer plus tard."
@@ -195,8 +197,6 @@ const fr = {
         },
         environment: "Environnement",
         safetyFeatures: "Fonctionnalités de sécurité"
-
-
       },
       details: {
         title: "Détails du parcours",
@@ -213,6 +213,22 @@ const fr = {
         print: "Imprimer",
         share: "Partager"
       }
+    },
+    userCourses: {
+      title: "Mes parcours",
+      subtitle: "Parcours que vous avez créés ou complétés",
+      created: "Parcours créés",
+      completed: "Parcours complétés",
+      favorites: "Parcours favoris",
+      all: "Tous les parcours",
+      noCoursesFound: "Aucun parcours trouvé",
+      createOne: "Créer un parcours",
+      lastUsed: "Dernière utilisation",
+      progress: "Progression",
+      difficulty: "Difficulté",
+      filter: "Filtrer par",
+      markFavorite: "Marquer comme favori",
+      removeFavorite: "Retirer des favoris"
     }
   },
   documentation: {

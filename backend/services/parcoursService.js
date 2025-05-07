@@ -62,4 +62,26 @@ async function generateParcours(parcoursData, userId) {
   }
 }
 
-module.exports = { getParcoursList, getParcoursDetails, generateParcours };
+// Get parcours created by a specific user
+async function getParcoursByUser(userId) {
+  const client = await pool.connect();
+  try {
+    // Get all parcours created by the user
+    const result = await client.query(`
+      SELECT p.*, 
+             CASE WHEN uc.completion_rate IS NOT NULL THEN uc.completion_rate ELSE NULL END as completion_rate,
+             CASE WHEN uf.id IS NOT NULL THEN true ELSE false END as is_favorite
+      FROM parcours p
+      LEFT JOIN user_completed_courses uc ON p.id = uc.course_id AND uc.user_id = $1
+      LEFT JOIN user_favorites uf ON p.id = uf.course_id AND uf.user_id = $1
+      WHERE p.creator_id = $1 OR uc.user_id = $1
+      ORDER BY p.created_at DESC
+    `, [userId]);
+    
+    return result.rows;
+  } finally {
+    client.release();
+  }
+}
+
+module.exports = { getParcoursList, getParcoursDetails, generateParcours, getParcoursByUser };

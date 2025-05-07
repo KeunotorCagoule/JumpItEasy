@@ -9,7 +9,8 @@
     "start:frontend": "cd frontend && npm run dev"
   },
   "dependencies": {
-    "jumpiteasy-root": "file:"
+    "jumpiteasy-root": "file:",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@types/node": "^22.15.14"

@@ -1,6 +1,9 @@
 import { Course } from '../types/user';
 import { API_URL } from '../config/api';
 
+// Ajout de cette ligne pour résoudre le problème RequestInit
+type RequestInit = globalThis.RequestInit;
+
 const authFetch = async (url: string, options: RequestInit = {}) => {
     const token = localStorage.getItem('token');
   
@@ -40,4 +43,8 @@ export const generateParcours = async (parcoursData: Partial<Course>): Promise<C
         method: 'POST',
         body: JSON.stringify(parcoursData)
     });
+}
+
+export const getUserParcours = async (): Promise<Course[]> => {
+    return authFetch(`${API_URL}/parcours/user/me`);
 }

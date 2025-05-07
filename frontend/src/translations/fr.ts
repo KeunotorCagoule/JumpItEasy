@@ -346,7 +346,6 @@ const fr = {
     legal: "Mentions légales",
     copyright: "© 2023 JumpItEasy. Tous droits réservés.",
     designedBy: "Conçu avec ❤️ par l'équipe JumpItEasy",
-    contact: "Contact",
     company: "Entreprise",
     aboutUs: "À propos de nous",
     documentation: "Documentation",
@@ -387,7 +386,45 @@ const fr = {
         question: "Comment contacter le support ?",
         answer: "Vous pouvez joindre notre équipe de support en envoyant un e-mail à support@jumpiteasy.com ou en utilisant le formulaire de contact sur notre page Contact. Nous répondons généralement dans les 24-48 heures."
       }
-    }
+    },
+    general: {
+      title: "Questions générales",
+      q1: "Quelle est la philosophie derrière JumpItEasy ?",
+      a1: "Notre philosophie est de démocratiser la création de parcours de parkour et de rendre cette discipline plus accessible à tous. Nous croyons que la technologie peut aider à surmonter les barrières d'entrée et permettre à plus de personnes de découvrir les bienfaits du parkour.",
+      q2: "JumpItEasy convient-il aux débutants ?",
+      a2: "Absolument ! JumpItEasy est conçu pour tous les niveaux de compétence. Notre générateur de parcours permet de spécifier votre niveau d'expérience, de débutant à avancé, et adapte les parcours en conséquence avec des mouvements et des obstacles appropriés.",
+      q3: "Les parcours générés sont-ils sûrs ?",
+      a3: "Nous prenons la sécurité très au sérieux. Tous les parcours générés incluent des recommandations de sécurité et sont créés selon les meilleures pratiques du parkour. Cependant, la pratique du parkour comporte des risques inhérents, et nous encourageons toujours les utilisateurs à s'échauffer correctement, à évaluer leur environnement et à ne jamais dépasser leurs capacités."
+    },
+    account: {
+      title: "Compte et abonnement",
+      q1: "Comment modifier mes informations de profil ?",
+      a1: "Pour modifier vos informations de profil, connectez-vous à votre compte, cliquez sur votre avatar dans le coin supérieur droit, sélectionnez 'Profil', puis cliquez sur 'Modifier le profil'. Vous pourrez y mettre à jour votre nom d'utilisateur, votre photo, votre biographie et d'autres informations.",
+      q2: "Quels sont les avantages d'un abonnement premium ?",
+      a2: "Un abonnement premium vous donne accès à des fonctionnalités avancées comme la génération de parcours illimitée, des options de personnalisation supplémentaires, l'exportation PDF de haute qualité, la suppression des publicités, et un accès prioritaire aux nouvelles fonctionnalités.",
+      q3: "Comment puis-je annuler mon abonnement ?",
+      a3: "Pour annuler votre abonnement, accédez à votre Profil, cliquez sur 'Paramètres', puis 'Abonnement', et sélectionnez 'Annuler l'abonnement'. Vous continuerez à bénéficier des avantages premium jusqu'à la fin de votre période de facturation actuelle."
+    },
+    courses: {
+      title: "Parcours",
+      q1: "Puis-je modifier un parcours après sa génération ?",
+      a1: "Oui, tous les parcours générés peuvent être modifiés. Après la génération, vous pouvez ajuster l'emplacement des obstacles, changer les types d'obstacles, modifier la difficulté de sections spécifiques, et personnaliser d'autres aspects pour répondre parfaitement à vos besoins.",
+      q2: "Comment partager mes parcours avec d'autres ?",
+      a2: "Pour partager un parcours, ouvrez-le depuis votre profil ou la page de détails du parcours, cliquez sur le bouton 'Partager', puis choisissez de le partager via un lien, les réseaux sociaux, ou en l'exportant au format PDF pour l'imprimer.",
+      q3: "Puis-je accéder à mes parcours hors ligne ?",
+      a3: "Oui, vous pouvez télécharger vos parcours au format PDF pour y accéder hors ligne. Pour les utilisateurs premium, nous proposons également une fonctionnalité de synchronisation hors ligne dans notre application mobile qui vous permet d'accéder à vos parcours enregistrés sans connexion internet.",
+      q4: "Comment trouver des parcours adaptés à mon environnement ?",
+      a4: "Lors de la génération d'un parcours, vous pouvez spécifier le type d'environnement disponible (urbain, naturel, gymnase, etc.) ainsi que l'équipement que vous avez à disposition. Le générateur créera alors un parcours adapté à ces contraintes. Vous pouvez également filtrer les parcours partagés par la communauté selon ces critères."
+    },
+    technical: {
+      title: "Problèmes techniques",
+      q1: "L'application ne charge pas correctement, que faire ?",
+      a1: "Si l'application ne charge pas correctement, essayez d'abord de rafraîchir la page. Si le problème persiste, videz le cache de votre navigateur, vérifiez votre connexion internet, et essayez d'utiliser un navigateur différent. Si aucune de ces solutions ne fonctionne, contactez notre support technique.",
+      q2: "Comment signaler un bug ou suggérer une amélioration ?",
+      a2: "Nous apprécions vos retours ! Pour signaler un bug ou suggérer une amélioration, utilisez la fonction 'Feedback' dans le menu principal ou envoyez un email à feedback@jumpiteasy.com. Veuillez inclure autant de détails que possible, y compris des captures d'écran si applicable."
+    },
+    notFound: "Vous n'avez pas trouvé la réponse à votre question ?",
+    contactSupport: "Contactez notre équipe de support"
   },
   docs: {
     title: "Documentation",

@@ -346,7 +346,6 @@ const enTranslations = {
     legal: "Legal",
     copyright: "© 2023 JumpItEasy. All rights reserved.",
     designedBy: "Designed with ❤️ by JumpItEasy Team",
-    contact: "Contact Us",
     company: "Company",
     aboutUs: "About Us",
     documentation: "Documentation",
@@ -387,7 +386,45 @@ const enTranslations = {
         question: "How do I contact support?",
         answer: "You can reach our support team by emailing support@jumpiteasy.com or by using the contact form on our Contact page. We typically respond within 24-48 hours."
       }
-    }
+    },
+    general: {
+      title: "General Questions",
+      q1: "What is the philosophy behind JumpItEasy?",
+      a1: "Our philosophy is to democratize parkour course creation and make the discipline more accessible to everyone. We believe technology can help overcome barriers to entry and enable more people to discover the benefits of parkour.",
+      q2: "Is JumpItEasy suitable for beginners?",
+      a2: "Absolutely! JumpItEasy is designed for all skill levels. Our course generator allows you to specify your experience level, from beginner to advanced, and tailors courses accordingly with appropriate movements and obstacles.",
+      q3: "Are the generated courses safe?",
+      a3: "We take safety very seriously. All generated courses include safety recommendations and are created according to parkour best practices. However, parkour inherently involves risk, and we always encourage users to warm up properly, assess their environment, and never exceed their capabilities."
+    },
+    account: {
+      title: "Account & Subscription",
+      q1: "How do I edit my profile information?",
+      a1: "To edit your profile information, log in to your account, click on your avatar in the top right corner, select 'Profile', then click 'Edit Profile'. There you can update your username, photo, bio, and other information.",
+      q2: "What are the benefits of a premium subscription?",
+      a2: "A premium subscription gives you access to advanced features such as unlimited course generation, additional customization options, high-quality PDF exports, ad removal, and priority access to new features.",
+      q3: "How do I cancel my subscription?",
+      a3: "To cancel your subscription, go to your Profile, click on 'Settings', then 'Subscription', and select 'Cancel Subscription'. You'll continue to enjoy premium benefits until the end of your current billing period."
+    },
+    courses: {
+      title: "Courses",
+      q1: "Can I modify a course after it's generated?",
+      a1: "Yes, all generated courses can be modified. After generation, you can adjust obstacle placement, change obstacle types, modify the difficulty of specific sections, and customize other aspects to perfectly meet your needs.",
+      q2: "How do I share my courses with others?",
+      a2: "To share a course, open it from your profile or the course details page, click the 'Share' button, then choose to share via link, social media, or export it as a PDF to print.",
+      q3: "Can I access my courses offline?",
+      a3: "Yes, you can download your courses as PDFs for offline access. For premium users, we also offer an offline sync feature in our mobile app that allows you to access your saved courses without an internet connection.",
+      q4: "How do I find courses suitable for my environment?",
+      a4: "When generating a course, you can specify the type of environment available (urban, natural, gym, etc.) and the equipment you have access to. The generator will then create a course adapted to these constraints. You can also filter community-shared courses according to these criteria."
+    },
+    technical: {
+      title: "Technical Issues",
+      q1: "The application isn't loading properly, what should I do?",
+      a1: "If the application isn't loading correctly, first try refreshing the page. If the problem persists, clear your browser's cache, check your internet connection, and try using a different browser. If none of these solutions work, contact our technical support.",
+      q2: "How do I report a bug or suggest an improvement?",
+      a2: "We appreciate your feedback! To report a bug or suggest an improvement, use the 'Feedback' function in the main menu or send an email to feedback@jumpiteasy.com. Please include as much detail as possible, including screenshots if applicable."
+    },
+    notFound: "Didn't find the answer to your question?",
+    contactSupport: "Contact our support team"
   },
   docs: {
     title: "Documentation",

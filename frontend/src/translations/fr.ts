@@ -352,7 +352,9 @@ const fr = {
     faq: "FAQ",
     terms: "Conditions générales",
     privacy: "Politique de confidentialité",
-    courses: "Parcours"
+    courses: "Parcours",
+    allRightsReserved: "Tous droits réservés.",
+    contact: "Contact"
   },
   faq: {
     title: "Foire aux questions",

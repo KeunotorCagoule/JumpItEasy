@@ -352,7 +352,9 @@ const enTranslations = {
     faq: "FAQ",
     terms: "Terms & Conditions",
     privacy: "Privacy Policy",
-    courses: "Courses"
+    courses: "Courses",
+    allRightsReserved: "All rights reserved.",
+    contact: "Contact"
   },
   faq: {
     title: "Frequently Asked Questions",

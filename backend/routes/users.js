@@ -109,4 +109,28 @@ router.post('/change-password', async (req, res) => {
   }
 });
 
+// changer la langue de l'utilisateur
+router.put('/language', async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { language } = req.body;
+    
+    // Vérifier que la langue est fournie
+    if (!language) {
+      return res.status(400).json({ error: 'La langue est requise' });
+    }
+    
+    // Utiliser le service pour changer la langue dans la BDD
+    await userService.updateUserLanguage(userId, language);
+    
+    res.status(200).json({ 
+      success: true, 
+      message: 'Langue modifiée avec succès'
+    });
+  } catch (error) {
+    console.error('Error changing language:', error);
+    res.status(500).json({ error: error.message || 'Une erreur est survenue' });
+  }
+});
+
 module.exports = router;

@@ -66,3 +66,16 @@ export const changePassword = async (passwordData: PasswordChangeRequest): Promi
     body: JSON.stringify(passwordData)
   });
 };
+
+export const deleteAccount = async (): Promise<{ success: boolean, message: string }> => {
+  return authFetch(`${API_URL}/users/delete-account`, {
+    method: 'DELETE'
+  });
+}
+
+export const updateLanguagePreference = async (language: string): Promise<{ success: boolean, message: string }> => {
+  return authFetch(`${API_URL}/users/language`, {
+    method: 'PUT',
+    body: JSON.stringify({ language })
+  });
+}

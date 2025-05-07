@@ -1,3 +1,5 @@
+/* eslint-disable react-refresh/only-export-components */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import enTranslations from '../translations/en';
 import frTranslations from '../translations/fr';
@@ -81,8 +83,13 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   const changeLanguage = (lang: Languages): void => {
     if (translations[lang]) {
       setLanguage(lang);
+      localStorage.setItem('language', lang); // Save to localStorage
+      document.documentElement.lang = lang; // Update HTML lang attribute
     } else {
-      console.warn(`Language ${lang} is not supported`);
+      console.warn(`Language ${lang} is not supported, defaulting to English`);
+      setLanguage('en');
+      localStorage.setItem('language', 'en');
+      document.documentElement.lang = 'en';
     }
   };
 

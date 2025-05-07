@@ -18,6 +18,10 @@ export interface Course {
   difficulty: string;
   date: string;
   completionRate?: number;
+  creatorId: string;
+  courseType: string;
+  waterElements: boolean;
+  private: boolean;
 }
 
 export interface UserSettings {

@@ -1,4 +1,7 @@
 export interface CourseFilters {
+  title: string;
+  description: string;
+  isPrivate: boolean;
   duration: number;
   obstacleCount: number;
   hasWaterElements: boolean;
@@ -6,7 +9,7 @@ export interface CourseFilters {
   terrainType: 'Urban' | 'Nature' | 'Mixed';
   heightRange: 'Ground Level' | 'Medium' | 'High';
   equipment: 'None' | 'Basic' | 'Full Set';
-  courseType: 'Linear' | 'Circuit' | 'Freestyle';
+  courseType: '1' | '2' | '3';
   environment: 'Indoor' | 'Outdoor';
   safetyFeatures: 'Basic' | 'Standard' | 'Enhanced';
 }

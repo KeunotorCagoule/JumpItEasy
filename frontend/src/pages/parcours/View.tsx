@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext'; // Added import
-
-interface Step {
-  title: string;
-  description: string;
-  duration: number;
-}
+import { getParcoursDetails } from '../../services/parcourService'; // Added import for parcourService
 
 interface Parcours {
   id: string;
   title: string;
   description: string;
   level: string;
-  duration: number;
-  topics: string[];
-  steps: Step[];
 }
 
 const View: React.FC = () => {
@@ -29,13 +21,18 @@ const View: React.FC = () => {
     const fetchParcoursDetails = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(`/api/parcours/${id}`);
-        if (response.ok) {
-          const data = await response.json();
-          setParcours(data);
-        } else {
-          setError(t('courses.view.errorLoading'));
+        if (!id) {
+          throw new Error(t('courses.view.invalidId'));
         }
+        const data = await getParcoursDetails(id);
+        const mappedData: Parcours = {
+          id: data.id,
+          title: data.title,
+          description: data.description,
+          level: data.description || 'Beginner', // Provide default values if necessary
+        };
+        
+        setParcours(mappedData);
       } catch (error) {
         console.error('Error fetching parcours details:', error);
         setError(t('courses.view.errorLoading'));
@@ -91,44 +88,9 @@ const View: React.FC = () => {
             <span className="bg-gray-100 px-3 py-1 rounded-full">
               {t('courses.view.level')}: {parcours.level}
             </span>
-            <span className="bg-gray-100 px-3 py-1 rounded-full">
-              {t('courses.view.duration')}: {parcours.duration}h
-            </span>
           </div>
 
           <p className="text-gray-700 mb-6">{parcours.description}</p>
-
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold mb-2">{t('courses.view.topics')}</h2>
-            <div className="flex flex-wrap gap-2">
-              {parcours.topics.map(topic => (
-                <span
-                  key={topic}
-                  className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full"
-                >
-                  {topic}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold mb-4">{t('courses.view.learningPath')}</h2>
-            <div className="space-y-4">
-              {parcours.steps.map((step, index) => (
-                <div
-                  key={index}
-                  className="border rounded p-4"
-                >
-                  <h3 className="font-semibold mb-2">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
-                  <div className="mt-2 text-sm text-gray-500">
-                    {t('courses.view.estimatedTime')}: {step.duration}h
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
           <div className="flex gap-4">
             <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">

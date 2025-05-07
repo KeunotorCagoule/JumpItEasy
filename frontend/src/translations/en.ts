@@ -33,7 +33,7 @@ const enTranslations = {
       title: "Design Your Equestrian Course Easily",
       subtitle: "Create personalized equestrian courses with our AI-powered generator. Perfect for instructors and enthusiasts.",
       viewCourses: "View Courses",
-      generateCourse: "Generate a Course"
+      generateCourse: "Generate a Course",
     },
     features: {
       intelligentDesign: {
@@ -189,7 +189,20 @@ const enTranslations = {
         equipment: "Equipment Required",
         courseType: "Course Type",
         environment: "Environment",
-        safetyFeatures: "Safety Features"
+        safetyFeatures: "Safety Features",
+        parcoursType: {
+          item1: "Grand Prix",
+          item2: "Speed",
+          item3: "Special"
+        }
+      },
+      details: {
+        title: "Course Details",
+        titleField: "Title",
+        titlePlaceholder: "Enter a title for your course",
+        descriptionField: "Description",
+        descriptionPlaceholder: "Describe your course",
+        privateField: "Make this course private"
       },
       preview: {
         title: "Course Preview",

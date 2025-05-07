@@ -133,9 +133,9 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
             onChange={handleChange}
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           >
-            <option value="Linear">Linear</option>
-            <option value="Circuit">Circuit</option>
-            <option value="Freestyle">Freestyle</option>
+            <option value="1">{t('courses.generate.filters.parcoursType.item1')}</option>
+            <option value="2">{t('courses.generate.filters.parcoursType.item2')}</option>
+            <option value="3">{t('courses.generate.filters.parcoursType.item3')}</option>
           </select>
         </div>
       </div>

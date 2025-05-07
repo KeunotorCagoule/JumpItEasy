@@ -177,7 +177,7 @@ const fr = {
       notFound: "Parcours non trouvé"
     },
     generate: {
-      title: "Générer un parcours de parkour",
+      title: "Générer un parcours",
       filters: {
         title: "Paramètres du parcours",
         duration: "Durée (minutes)",
@@ -188,8 +188,23 @@ const fr = {
         heightRange: "Plage de hauteur",
         equipment: "Équipement requis",
         courseType: "Type de parcours",
+        parcoursType:{
+          item1: "Grand Prix",
+          item2: "Vitesse",
+          item3: "Spéciale"
+        },
         environment: "Environnement",
         safetyFeatures: "Fonctionnalités de sécurité"
+
+
+      },
+      details: {
+        title: "Détails du parcours",
+        titleField: "Titre",
+        titlePlaceholder: "Entrez un titre pour votre parcours",
+        descriptionField: "Description",
+        descriptionPlaceholder: "Décrivez votre parcours",
+        privateField: "Rendre ce parcours privé"
       },
       preview: {
         title: "Aperçu du parcours",

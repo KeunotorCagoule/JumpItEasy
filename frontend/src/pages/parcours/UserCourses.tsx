@@ -28,10 +28,14 @@ const UserCourses: React.FC = () => {
     const fetchUserCourses = async () => {
       setIsLoading(true);
       try {
-        const data = await getUserParcours();
-        const userCourses = data.map((course: any) => ({
-          ...course,
+        const data: Partial<UserCourse>[] = await getUserParcours();
+        const userCourses = data.map((course) => ({
+          id: course.id || '',
+          title: course.title || '',
+          description: course.description || '',
+          difficulty: course.difficulty || '',
           created_at: course.created_at || '',
+          completion_rate: course.completion_rate,
           is_favorite: course.is_favorite || false,
           creator_id: course.creator_id || '',
         }));

@@ -158,7 +158,7 @@ const fr = {
   },
   courses: {
     list: {
-      title: "Parcours de parkour",
+      title: "Liste des parcours",
       createNew: "Créer un nouveau parcours",
       noCourses: "Aucun parcours disponible",
       createFirst: "Créer votre premier parcours",

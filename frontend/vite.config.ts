@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
+import * as process from 'node:process';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -12,7 +13,7 @@ export default defineConfig(({ mode }) => {
       exclude: ['lucide-react'],
     },
     server: {
-      port: import.meta.env.VITE_PORT ? parseInt(import.meta.env.VITE_PORT) : 5173,
+      port: env.VITE_PORT ? parseInt(env.VITE_PORT) : 5173,
       proxy: {
         '/api': {
           target: env.VITE_API_URL,

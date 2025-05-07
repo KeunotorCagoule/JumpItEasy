@@ -31,12 +31,5 @@ export default [
       },
     },
   },
-
-  // Optional rules section (disable or tweak specific rules)
-  {
-    rules: {
-      'no-useless-catch': 'off',
-    },
-  },
 ];
 

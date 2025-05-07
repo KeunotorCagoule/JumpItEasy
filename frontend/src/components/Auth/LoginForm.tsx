@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { z } from "zod";
 import { LoginFormData } from "../../types/auth";
+import { useLanguage } from "../../context/LanguageContext"; // Ajout de l'import
 
 interface LoginFormProps {
   onSubmit: (data: LoginFormData) => void;
@@ -9,7 +10,12 @@ interface LoginFormProps {
   authError?: string | null;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, authError }) => {
+const LoginForm: React.FC<LoginFormProps> = ({
+  onSubmit,
+  isLoading,
+  authError,
+}) => {
+  const { t } = useLanguage(); // Utilisation du hook de traduction
   const [formData, setFormData] = useState<LoginFormData>({
     usernameOrEmail: "",
     password: "",
@@ -50,8 +56,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, authError })
       <div className="max-w-md w-full space-y-10">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign in to your account
+            {t("auth.login.title")}
           </h2>
+          <p className="mt-2 text-center text-sm text-gray-600">
+            {t("auth.login.subtitle")}
+          </p>
         </div>
 
         {authError && (
@@ -63,8 +72,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, authError })
         <form className="mt-10 space-y-8" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm space-y-4">
             <div>
-              <label htmlFor="usernameOrEmail" className="block text-sm font-medium text-gray-700 mb-2">
-                Username or Email
+              <label
+                htmlFor="usernameOrEmail"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                {t("auth.login.usernameOrEmail")}
               </label>
               <input
                 id="usernameOrEmail"
@@ -75,17 +87,22 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, authError })
                 className={`appearance-none rounded-md relative block w-full px-3 py-2 border ${
                   errors.usernameOrEmail ? "border-red-300" : "border-gray-300"
                 } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
-                placeholder="Username / Email Address"
+                placeholder={t("auth.login.usernameOrEmailPlaceholder")}
                 value={formData.usernameOrEmail}
                 onChange={handleChange}
               />
               {errors.usernameOrEmail && (
-                <p className="mt-1 text-sm text-red-600">{errors.usernameOrEmail}</p>
+                <p className="mt-1 text-sm text-red-600">
+                  {errors.usernameOrEmail}
+                </p>
               )}
             </div>
             <div className="mt-4">
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                Password
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                {t("auth.login.password")}
               </label>
               <input
                 id="password"
@@ -96,7 +113,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, authError })
                 className={`appearance-none rounded-md relative block w-full px-3 py-2 border ${
                   errors.password ? "border-red-300" : "border-gray-300"
                 } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
-                placeholder="Password"
+                placeholder={t("auth.login.passwordPlaceholder")}
                 value={formData.password}
                 onChange={handleChange}
               />
@@ -120,7 +137,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, authError })
                 htmlFor="remember-me"
                 className="ml-2 block text-sm text-gray-900"
               >
-                Remember me
+                {t("auth.login.rememberMe")}
               </label>
             </div>
 
@@ -129,7 +146,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, authError })
                 to="/forgot-password"
                 className="font-medium text-blue-600 hover:text-blue-500"
               >
-                Forgot your password?
+                {t("auth.login.forgotPassword")}
               </Link>
             </div>
           </div>
@@ -164,18 +181,18 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, authError })
                   </svg>
                 </span>
               ) : null}
-              Sign in
+              {t("auth.login.signIn")}
             </button>
           </div>
 
           <div className="text-center mt-6">
             <p className="text-sm text-gray-600">
-              Don't have an account?{" "}
+              {t("auth.login.noAccount")}{" "}
               <Link
                 to="/register"
                 className="font-medium text-blue-600 hover:text-blue-500"
               >
-                Register here
+                {t("auth.login.registerHere")}
               </Link>
             </p>
           </div>

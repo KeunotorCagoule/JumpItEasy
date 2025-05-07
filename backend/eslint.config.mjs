@@ -1,7 +1,10 @@
 import eslintPluginJs from '@eslint/js';
 
 export default [
+  // Base recommended rules
   eslintPluginJs.configs.recommended,
+
+  // Global language options for all files
   {
     languageOptions: {
       ecmaVersion: 2022,
@@ -14,6 +17,25 @@ export default [
         __dirname: 'readonly',
         __filename: 'readonly',
       },
+    },
+  },
+
+  // Overrides for test files (to fix 'describe', 'it', 'expect' errors)
+  {
+    files: ['tests/**/*.js', 'tests/**/*.ts', '**/*.test.js', '**/*.test.ts'],
+    languageOptions: {
+      globals: {
+        describe: 'readonly',
+        it: 'readonly',
+        expect: 'readonly',
+      },
+    },
+  },
+
+  // Optional rules section (disable or tweak specific rules)
+  {
+    rules: {
+      'no-useless-catch': 'off',
     },
   },
 ];

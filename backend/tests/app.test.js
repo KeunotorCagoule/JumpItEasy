@@ -1,3 +1,4 @@
+/* eslint-env jest */
 // Mocks doivent être définis avant les imports
 jest.mock('bcrypt');
 jest.mock('jsonwebtoken');

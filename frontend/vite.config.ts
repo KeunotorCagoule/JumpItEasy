@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
       exclude: ['lucide-react'],
     },
     server: {
+      port: import.meta.env.VITE_PORT ? parseInt(import.meta.env.VITE_PORT) : 5173,
       proxy: {
         '/api': {
           target: env.VITE_API_URL,

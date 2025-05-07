@@ -35,7 +35,9 @@ const Login: React.FC = () => {
       const responseData = await response.json();
 
       if (!response.ok) {
-        throw new Error(responseData.message || t("auth.login.invalidCredentials"));
+        throw new Error(
+          responseData.message || t("auth.login.invalidCredentials")
+        );
       }
 
       // Store JWT token in localStorage
@@ -61,7 +63,7 @@ const Login: React.FC = () => {
       const userData = {
         id: userId,
         username: username,
-        identifier: data.usernameOrEmail
+        identifier: data.usernameOrEmail,
       };
 
       // Store user data in localStorage if remember me is checked, or sessionStorage if not
@@ -73,15 +75,28 @@ const Login: React.FC = () => {
 
       login(username);
       navigate("/", { replace: true });
-    } catch (error: any) {
-      console.error("Login error:", error.message);
-      setAuthError(error.message);
+    } catch (error: unknown) {
+      console.error(
+        "Login error:",
+        error instanceof Error ? error.message : "Unknown error"
+      );
+      setAuthError(
+        error instanceof Error
+          ? error.message
+          : "An error occurred during login"
+      );
     } finally {
       setIsLoading(false);
     }
   };
 
-  return <LoginForm onSubmit={handleLogin} isLoading={isLoading} authError={authError} />;
+  return (
+    <LoginForm
+      onSubmit={handleLogin}
+      isLoading={isLoading}
+      authError={authError}
+    />
+  );
 };
 
 export default Login;

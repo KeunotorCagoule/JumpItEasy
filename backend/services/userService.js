@@ -16,19 +16,19 @@ async function getUserProfile(userId) {
     }
 
     const user = userResult.rows[0];
-    
+
     // Compter les parcours favoris de l'utilisateur (exemple de requête)
     const favoritesResult = await client.query(
       'SELECT COUNT(*) as count FROM user_favorites WHERE user_id = $1',
       [userId]
     );
-    
+
     // Compter les parcours complétés
     const completedResult = await client.query(
       'SELECT COUNT(*) as count FROM user_completed_courses WHERE user_id = $1',
       [userId]
     );
-    
+
     // Compter les parcours créés
     const createdResult = await client.query(
       'SELECT COUNT(*) as count FROM parcours WHERE creator_id = $1',
@@ -69,79 +69,79 @@ async function updateUserProfile(userId, profileData) {
         'SELECT id FROM users WHERE username = $1 AND id != $2',
         [username, userId]
       );
-      
+
       if (existingUser.rows.length > 0) {
         throw new Error('Ce nom d\'utilisateur est déjà pris');
       }
     }
-    
+
     // Vérifier si l'email est déjà pris
     if (email) {
       const existingEmail = await client.query(
         'SELECT id FROM users WHERE email = $1 AND id != $2',
         [email, userId]
       );
-      
+
       if (existingEmail.rows.length > 0) {
         throw new Error('Cet email est déjà utilisé');
       }
     }
-    
+
     // Construire la requête de mise à jour dynamiquement
     let updateFields = [];
     let values = [];
     let counter = 1;
-    
+
     if (username) {
       updateFields.push(`username = $${counter}`);
       values.push(username);
       counter++;
     }
-    
+
     if (email) {
       updateFields.push(`email = $${counter}`);
       values.push(email);
       counter++;
     }
-    
+
     if (bio !== undefined) {
       updateFields.push(`bio = $${counter}`);
       values.push(bio);
       counter++;
     }
-    
+
     if (country !== undefined) {
       updateFields.push(`country = $${counter}`);
       values.push(country);
       counter++;
     }
-    
+
     if (language !== undefined) {
       updateFields.push(`language = $${counter}`);
       values.push(language);
       counter++;
     }
-    
+
     if (updateFields.length === 0) {
       return await getUserProfile(userId);
     }
-    
+
     // Ajouter l'ID utilisateur comme dernier paramètre
     values.push(userId);
-    
+
     const query = `
       UPDATE users 
       SET ${updateFields.join(', ')} 
       WHERE id = $${counter} 
       RETURNING id, username, email, bio, country, language, created_at
     `;
-    
+
     const result = await client.query(query, values);
-    
+
     if (result.rows.length === 0) {
       throw new Error('Failed to update user profile');
     }
-    
+
     // Récupérer le profil mis à jour
     return await getUserProfile(userId);
   } finally {
@@ -189,8 +189,6 @@ async function updateUserSettings(userId, settingsData) {
       country: settingsData.country,
       language: settingsData.language
     });
-  } catch (error) {
-    throw error;
   } finally {
     client.release();
   }
@@ -205,13 +203,13 @@ async function changeUserPassword(userId, currentPassword, newPassword) {
       'SELECT password FROM users WHERE id = $1',
       [userId]
     );
-    
+
     if (result.rows.length === 0) {
       throw new Error('User not found');
     }
-    
+
     const user = result.rows[0];
-    
+
     // Vérifier que le mot de passe actuel est correct
     const isPasswordValid = await bcrypt.compare(currentPassword, user.password);
     if (!isPasswordValid) {
@@ -219,16 +217,16 @@ async function changeUserPassword(userId, currentPassword, newPassword) {
       error.statusCode = 401;
       throw error;
     }
-    
+
     // Hasher le nouveau mot de passe
     const hashedPassword = await bcrypt.hash(newPassword, 10);
-    
+
     // Mettre à jour le mot de passe
     await client.query(
       'UPDATE users SET password = $1 WHERE id = $2',
       [hashedPassword, userId]
     );
-    
+
     return true;
   } finally {
     client.release();
@@ -249,7 +247,7 @@ async function getRecentCourses(userId) {
       ORDER BY p.created_at DESC
       LIMIT 3
     `, [userId]);
-    
+
     // Formater les résultats
     return result.rows.map(course => {
       const date = new Date(course.created_at);
@@ -274,7 +272,7 @@ async function updateUserLanguage(userId, language) {
       'UPDATE users SET language = $1 WHERE id = $2',
       [language, userId]
     );
-    
+
     return true;
   } finally {
     client.release();

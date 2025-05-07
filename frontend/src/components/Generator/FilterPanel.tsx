@@ -1,6 +1,6 @@
-import React from 'react';
-import { CourseFilters } from '../../types/course';
-import { useLanguage } from '../../context/LanguageContext';
+import React from "react";
+import { CourseFilters } from "../../types/course";
+import { useLanguage } from "../../context/LanguageContext";
 
 interface FilterPanelProps {
   filters: CourseFilters;
@@ -10,25 +10,30 @@ interface FilterPanelProps {
 const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
   const { t } = useLanguage();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value, type } = e.target;
-    const newValue = type === 'checkbox' 
-      ? (e.target as HTMLInputElement).checked 
-      : type === 'number' 
-        ? parseFloat(value) 
+    const newValue =
+      type === "checkbox"
+        ? (e.target as HTMLInputElement).checked
+        : type === "number"
+        ? parseFloat(value)
         : value;
 
-    onChange({ [name]: newValue } as any);
+    onChange({ [name]: newValue } as Partial<CourseFilters>);
   };
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4">{t('courses.generate.filters.title')}</h2>
-      
+      <h2 className="text-xl font-semibold mb-4">
+        {t("courses.generate.filters.title")}
+      </h2>
+
       <div className="space-y-6">
         <div>
           <label className="block text-sm font-medium text-gray-500 mb-1">
-            {t('courses.generate.filters.duration')}
+            {t("courses.generate.filters.duration")}
           </label>
           <input
             type="range"
@@ -50,7 +55,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
 
         <div>
           <label className="block text-sm font-medium text-gray-500 mb-1">
-            {t('courses.generate.filters.obstacleCount')}
+            {t("courses.generate.filters.obstacleCount")}
           </label>
           <input
             type="range"
@@ -72,7 +77,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            {t('courses.generate.filters.difficulty')}
+            {t("courses.generate.filters.difficulty")}
           </label>
           <select
             name="difficulty"
@@ -96,14 +101,14 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
               className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
             />
             <span className="text-sm font-medium text-gray-700">
-              {t('courses.generate.filters.hasWaterElements')}
+              {t("courses.generate.filters.hasWaterElements")}
             </span>
           </label>
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-500 mb-1">
-            {t('courses.generate.filters.equipment')}
+            {t("courses.generate.filters.equipment")}
           </label>
           <select
             name="equipment"
@@ -120,7 +125,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            {t('courses.generate.filters.courseType')}
+            {t("courses.generate.filters.courseType")}
           </label>
           <select
             name="courseType"

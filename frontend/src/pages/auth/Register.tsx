@@ -62,9 +62,12 @@ const Register: React.FC = () => {
       login(responseData.user.username);
 
       navigate("/");
-    } catch (error: any) {
-      console.error("Erreur d'inscription:", error.message);
-      setError(error.message);
+    } catch (error: unknown) {
+      console.error(
+        "Erreur d'inscription:",
+        error instanceof Error ? error.message : "Unknown error"
+      );
+      setError(error instanceof Error ? error.message : "Registration failed");
     } finally {
       setIsLoading(false);
     }

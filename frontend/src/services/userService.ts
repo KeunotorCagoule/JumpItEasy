@@ -1,6 +1,9 @@
 import { UserProfile, Course, UserSettings, PasswordChangeRequest } from '../types/user';
 import { API_URL } from '../config/api';
 
+// Ajout de cette ligne pour résoudre le problème RequestInit
+type RequestInit = globalThis.RequestInit;
+
 // Fonction utilitaire pour les requêtes authentifiées
 const authFetch = async (url: string, options: RequestInit = {}) => {
   const token = localStorage.getItem('token');

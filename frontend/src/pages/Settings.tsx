@@ -23,7 +23,6 @@ const Settings: React.FC = () => {
   } | null>(null);
   const navigate = useNavigate();
 
-
   // États pour le formulaire de profil
   const [profileForm, setProfileForm] = useState({
     username: username || "",
@@ -65,7 +64,6 @@ const Settings: React.FC = () => {
           // Mettre à jour le formulaire de profil et sa copie originale
           setProfileForm(profileData);
           setOriginalProfileForm(profileData);
-          
         } catch (error) {
           console.error("Erreur lors du chargement des paramètres:", error);
           setSaveMessage({
@@ -88,7 +86,9 @@ const Settings: React.FC = () => {
   }
 
   const handleProfileChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setProfileForm({
@@ -153,11 +153,11 @@ const Settings: React.FC = () => {
         type: "success",
         text: t("settings.saved"),
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Erreur lors de l'enregistrement des paramètres:", error);
       setSaveMessage({
         type: "error",
-        text: error.message || t("settings.error"),
+        text: error instanceof Error ? error.message : t("settings.error"),
       });
     } finally {
       setIsSaving(false);
@@ -198,9 +198,7 @@ const Settings: React.FC = () => {
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
         <div className="bg-blue-600 text-white p-6">
           <h1 className="text-2xl font-bold">{t("settings.title")}</h1>
-          <p className="text-blue-100">
-            {t("settings.subtitle")}
-          </p>
+          <p className="text-blue-100">{t("settings.subtitle")}</p>
         </div>
 
         <div className="flex flex-col md:flex-row">

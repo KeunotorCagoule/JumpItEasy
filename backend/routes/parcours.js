@@ -1,15 +1,39 @@
 const express = require('express');
-const { getParcoursList, getParcoursDetails, generateParcours, getParcoursByUser } = require('../services/parcoursService');
-const { verifyToken } = require('../services/authService');
+const { getParcoursList, getParcoursDetails, generateParcours, getParcoursByUser, toggleFavorite } = require('../services/parcoursService');
+const { verifyToken, optionalToken } = require('../services/authService');
 
 const router = express.Router();
 
-// Protected route: List of parcours
-router.get('/', async (req, res) => {
+// Optional auth route: List of parcours (with or without favorites)
+router.get('/', optionalToken, async (req, res) => {
   try {
-    const parcours = await getParcoursList();
+    const includeFavorites = req.query.includeFavorites === 'true';
+    const userId = req.user?.id; // Optional user ID from token
+    
+    // Enhanced debugging
+    console.log('=== DEBUG PARCOURS LIST ===');
+    console.log('User ID:', userId);
+    console.log('Include favorites:', includeFavorites);
+    console.log('========================');
+    
+    const parcours = await getParcoursList(userId, includeFavorites);
     res.status(200).json(parcours);
   } catch (error) {
+    console.error('Error in parcours list route:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Toggle favorite status
+router.post('/favorite/:id', verifyToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const parcoursId = req.params.id;
+    
+    const result = await toggleFavorite(parcoursId, userId);
+    res.status(200).json(result);
+  } catch (error) {
+    console.error('Error toggling favorite:', error);
     res.status(500).json({ error: error.message });
   }
 });

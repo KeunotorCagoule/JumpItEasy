@@ -22,6 +22,7 @@ export interface Course {
   courseType: string;
   waterElements: boolean;
   private: boolean;
+  is_favorite?: boolean; // Optional property to track if the course is a favorite
 }
 
 export interface UserSettings {

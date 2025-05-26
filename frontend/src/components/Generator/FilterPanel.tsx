@@ -66,7 +66,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
             value={filters.obstacleCount}
             onChange={handleChange}
             className="w-full opacity-60 cursor-not-allowed"
-            disabled={true}
+            // disabled={true}
           />
           <div className="flex justify-between text-sm text-gray-500">
             <span>5</span>

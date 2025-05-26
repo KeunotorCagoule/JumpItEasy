@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import { getUserParcours } from '../../services/parcourService';
+import { getUserParcours,addParcoursToFavorites } from '../../services/parcourService';
 import { FaHeart, FaRegHeart, FaFilter } from 'react-icons/fa';
 
 interface UserCourse {
@@ -71,12 +71,17 @@ const UserCourses: React.FC = () => {
   };
 
   const toggleFavorite = async (courseId: string) => {
-    // For now, just toggle state locally - API call would be implemented later
-    setCourses(courses.map(course => 
-      course.id === courseId 
-        ? { ...course, is_favorite: !course.is_favorite } 
-        : course
-    ));
+    try {
+      await addParcoursToFavorites(courseId);
+      setCourses((prevCourses) =>
+        prevCourses.map((course) =>
+          course.id === courseId ? { ...course, is_favorite: !course.is_favorite } : course
+        )
+      );
+    } catch (error) {
+      console.error('Error toggling favorite:', error);
+      setError(error instanceof Error ? error.message : 'An error occurred');
+    }
   };
 
   if (isLoading) {
@@ -184,6 +189,7 @@ const UserCourses: React.FC = () => {
                   <Link to={`/parcours/${course.id}`}>
                     <h2 className="text-xl font-semibold mb-2 hover:text-blue-600">{course.title}</h2>
                   </Link>
+                  
                   <button 
                     onClick={() => toggleFavorite(course.id)}
                     className="text-red-500 hover:text-red-700"

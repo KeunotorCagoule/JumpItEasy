@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
-import { getParcoursList } from "../../services/parcourService"; // Import the service function
+import { getParcoursList, addParcoursToFavorites } from "../../services/parcourService"; // Import the service function
+import { useAuth } from '../../context/AuthContext';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
 interface Parcours {
   id: string;
@@ -12,41 +14,81 @@ interface Parcours {
   courseType: string;
   waterElements: boolean;
   private: boolean;
+  is_favorite?: boolean; // Add this property to track favorite status
 }
 
 const List: React.FC = () => {
   const { t } = useLanguage();
   const [parcoursList, setParcoursList] = useState<Parcours[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null); // Add error state
+  const [error, setError] = useState<string | null>(null);
+  const { isLoggedIn } = useAuth();
+  const [favorites, setFavorites] = useState<string[]>([]);
+
+  const toggleFavorite = async (courseId: string, event: React.MouseEvent) => {
+    // Prevent clicking the heart from navigating to course detail
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (!isLoggedIn) return;
+
+    try {
+      await addParcoursToFavorites(courseId);
+      // Toggle in the local state
+      setFavorites(prev => 
+        prev.includes(courseId) 
+          ? prev.filter(id => id !== courseId) 
+          : [...prev, courseId]
+      );
+    } catch (error) {
+      console.error("Error toggling favorite:", error);
+      setError("Failed to update favorites. Please try again later.");
+    }
+  }
 
   useEffect(() => {
     const fetchParcours = async () => {
       setIsLoading(true);
       try {
-        // Replace direct fetch with service function
-        const data = await getParcoursList();
-        const mappedData = data.map((course) => ({
-          id: course.id,
-          title: course.title,
-          description: course.description,
-          creatorId: course.creatorId,
-          difficulty: course.difficulty,
-          courseType: course.courseType,
-          waterElements: course.waterElements,
-          private: course.private,
-        }));
+        // Include favorites parameter when user is logged in
+        const queryParams = isLoggedIn ? '?includeFavorites=true' : '';
+        const data = await getParcoursList(queryParams);
+        console.log("Fetched parcours data:", data);
+        // Extract favorite course IDs from the response
+        const favoriteIds: string[] = [];
+        
+        const mappedData = data.map((course) => {
+          // Check if the course has is_favorite property and it's true
+          if (course.is_favorite) {
+            favoriteIds.push(course.id);
+          }
+          
+          return {
+            id: course.id,
+            title: course.title,
+            description: course.description,
+            creatorId: course.creatorId,
+            difficulty: course.difficulty,
+            courseType: course.courseType,
+            waterElements: course.waterElements,
+            private: course.private,
+            is_favorite: course.is_favorite || false
+          };
+        });
+        
         setParcoursList(mappedData);
+        // Initialize favorites state with IDs of favorited courses
+        setFavorites(favoriteIds);
       } catch (error) {
         console.error("Error fetching parcours:", error);
-        setError("Failed to load courses. Please try again later."); // Set error message
+        setError("Failed to load courses. Please try again later.");
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchParcours();
-  }, []);
+  }, [isLoggedIn]);
 
   if (isLoading) {
     return (
@@ -100,8 +142,16 @@ const List: React.FC = () => {
           {parcoursList.map((parcours) => (
             <div
               key={parcours.id}
-              className="border rounded-lg p-4 hover:shadow-lg transition-shadow"
+              className="border rounded-lg p-4 hover:shadow-lg transition-shadow relative"
             >
+              {isLoggedIn && (
+                <button
+                  className="absolute top-4 right-4 text-xl text-red-500 hover:text-red-600 z-10"
+                  onClick={(e) => toggleFavorite(parcours.id, e)}
+                >
+                  {favorites.includes(parcours.id) ? <FaHeart /> : <FaRegHeart />}
+                </button>
+              )}
               <Link to={`/parcours/${parcours.id}`}>
                 <h2 className="text-xl font-semibold mb-2">{parcours.title}</h2>
                 <p className="text-gray-600 mb-2">{parcours.description}</p>
@@ -110,21 +160,7 @@ const List: React.FC = () => {
                   <span className="bg-gray-100 px-2 py-1 rounded text-sm">
                     {parcours.difficulty}
                   </span>
-                  {/* <span className="bg-gray-100 px-2 py-1 rounded text-sm">
-                  {parcours.duration} {t('common.hours')}
-                </span> */}
                 </div>
-                {/* 
-              <div className="flex flex-wrap gap-2 mb-4">
-                {parcours.topics.map(topic => (
-                  <span
-                    key={topic}
-                    className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm"
-                  >
-                    {topic}
-                  </span>
-                ))}
-              </div> */}
               </Link>
             </div>
           ))}

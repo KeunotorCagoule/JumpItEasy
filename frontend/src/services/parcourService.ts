@@ -28,10 +28,43 @@ const authFetch = async (url: string, options: RequestInit = {}) => {
     }
   
     return response.json();
-  };
+};
 
-export const getParcoursList = async (): Promise<Course[]> => {
-    return authFetch(`${API_URL}/parcours`);
+// New function for optionally authenticated requests
+const optionalAuthFetch = async (url: string, options: RequestInit = {}) => {
+    const token = localStorage.getItem('token');
+    const headers = {
+      ...options.headers,
+      'Content-Type': 'application/json'
+    } as Record<string, string>;
+    
+    // Add token only if available
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+    
+    const response = await fetch(url, {
+      ...options,
+      headers
+    });
+    
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message || 'Une erreur est survenue');
+    }
+    
+    return response.json();
+};
+
+export const getParcoursList = async (queryParams: string = ''): Promise<Course[]> => {
+    // Always try to send the token if available, even for optional auth routes
+    const token = localStorage.getItem('token');
+    console.log('=== FRONTEND DEBUG ===');
+    console.log('Token exists:', !!token);
+    console.log('Query params:', queryParams);
+    console.log('====================');
+    
+    return optionalAuthFetch(`${API_URL}/parcours${queryParams}`);
 }
 
 export const getParcoursDetails = async (id: string): Promise<Course> => {
@@ -47,4 +80,10 @@ export const generateParcours = async (parcoursData: Partial<Course>): Promise<C
 
 export const getUserParcours = async (): Promise<Course[]> => {
     return authFetch(`${API_URL}/parcours/user/me`);
+}
+
+export const addParcoursToFavorites = async (parcoursId: string): Promise<void> => {
+    return authFetch(`${API_URL}/parcours/favorite/${parcoursId}`, {
+        method: 'POST'
+    });
 }

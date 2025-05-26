@@ -6,12 +6,8 @@ export interface CourseFilters {
   obstacleCount: number;
   hasWaterElements: boolean;
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
-  terrainType: 'Urban' | 'Nature' | 'Mixed';
-  heightRange: 'Ground Level' | 'Medium' | 'High';
   equipment: 'None' | 'Basic' | 'Full Set';
   courseType: '1' | '2' | '3';
-  environment: 'Indoor' | 'Outdoor';
-  safetyFeatures: 'Basic' | 'Standard' | 'Enhanced';
 }
 
 export interface Obstacle {
@@ -27,6 +23,9 @@ export interface Obstacle {
     y: number;
   };
   safetyNotes: string[];
+  number?: number;     // Add number property for ordering
+  shape?: string;      // Add shape property (rectangle for hurdles, circle for water)
+  direction?: string;  // Add direction property for traversal direction
 }
 
 export interface CourseLayout {
@@ -37,8 +36,12 @@ export interface CourseLayout {
   obstacleCount: number;
   difficulty: CourseFilters['difficulty'];
   obstacles: Obstacle[];
-  warmupExercises: string[];
-  restPoints: Array<{ id: string; position: { x: number; y: number } }>;
-  progressMarkers: Array<{ id: string; position: { x: number; y: number }; checkpoint: number }>;
-  safetyConsiderations: string[];
+  startPoint: {
+    x: number;
+    y: number;
+  };
+  finishPoint: {
+    x: number;
+    y: number;
+  };
 }

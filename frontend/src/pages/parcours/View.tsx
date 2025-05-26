@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext'; // Added import
-import { getParcoursDetails } from '../../services/parcourService'; // Added import for parcourService
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { getParcoursDetails,addParcoursToFavorites } from '../../services/parcourService'; // Added import for parcourService
+import { useAuth } from '../../context/AuthContext';
+import { FaHeart, FaRegHeart, FaFilter } from 'react-icons/fa';
 
 interface Parcours {
   id: string;
@@ -16,6 +19,7 @@ const View: React.FC = () => {
   const [parcours, setParcours] = useState<Parcours | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     const fetchParcoursDetails = async () => {

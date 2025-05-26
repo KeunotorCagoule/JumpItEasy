@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const { pool } = require('./dbService');
+const { pool, executeQuery } = require('./dbService');
 
 require('dotenv').config();
 const SECRET_KEY = process.env.JWT_SECRET_KEY;
@@ -9,6 +9,9 @@ const SECRET_KEY = process.env.JWT_SECRET_KEY;
 async function register({ username, email, password, country, language = 'fr' }) {
   const client = await pool.connect();
   try {
+    // Check if the connection is valid
+    await client.query('SELECT 1');
+    
     const result = await client.query('SELECT * FROM users WHERE username = $1', [username]);
     if (result.rows.length > 0) {
       throw new Error('User already exists');
@@ -31,10 +34,10 @@ async function register({ username, email, password, country, language = 'fr' })
 
 // Login a user and generate a token
 async function login({ identifier, password }) {
-  const client = await pool.connect();
   try {
     console.log(identifier + " " + password);
-    const result = await client.query('SELECT * FROM users WHERE username = $1 OR email = $1', [identifier]);
+    const result = await executeQuery('SELECT * FROM users WHERE username = $1 OR email = $1', [identifier]);
+    
     if (result.rows.length === 0) {
       throw new Error('Invalid username/email or password');
     }
@@ -47,8 +50,9 @@ async function login({ identifier, password }) {
 
     const token = jwt.sign({ id: user.id, username: user.username }, SECRET_KEY, { expiresIn: '1h' });
     return token;
-  } finally {
-    client.release();
+  } catch (error) {
+    console.error('Login error:', error.message);
+    throw error;
   }
 }
 
@@ -71,4 +75,25 @@ function verifyToken(req, res, next) {
   }
 }
 
-module.exports = { register, login, verifyToken };
+// Middleware pour vérifier le token de manière optionnelle
+const optionalToken = (req, res, next) => {
+  const token = req.headers.authorization?.split(' ')[1];
+  
+  if (!token) {
+    // Pas de token, continuez sans données utilisateur
+    return next();
+  }
+
+  try {
+    // Vérifier le token avec la même variable que pour verifyToken
+    const decoded = jwt.verify(token, SECRET_KEY);
+    req.user = decoded; // Ajouter les données utilisateur à la requête
+    next();
+  } catch (error) {
+    // Token invalide, continuez sans données utilisateur
+    console.log('Optional auth: Invalid token, continuing without user:', error.message);
+    next();
+  }
+};
+
+module.exports = { register, login, verifyToken, optionalToken };

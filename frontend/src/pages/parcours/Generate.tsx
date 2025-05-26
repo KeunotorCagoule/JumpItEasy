@@ -17,12 +17,8 @@ const Generate: React.FC = () => {
     obstacleCount: 15,
     hasWaterElements: false,
     difficulty: 'Beginner',
-    terrainType: 'Urban',
-    heightRange: 'Ground Level',
     equipment: 'None',
     courseType: '1',
-    environment: 'Outdoor',
-    safetyFeatures: 'Standard'
   });
 
   const [courseLayout, setCourseLayout] = useState<CourseLayout | null>(null);
@@ -32,56 +28,79 @@ const Generate: React.FC = () => {
   useEffect(() => {
     // Generate preview based on filters
     const generatePreview = () => {
-      // Simulated course generation based on filters
+      // Calculate water obstacles based on a ratio (1 water obstacle per 4 regular obstacles)
+      const totalObstacles = filters.obstacleCount;
+      const waterObstaclesCount = filters.hasWaterElements 
+        ? Math.floor(totalObstacles / 4) 
+        : 0;
+      const regularObstaclesCount = totalObstacles - waterObstaclesCount;
+      
+      // Create obstacles array with numbered hurdles and water obstacles
+      const obstacles = [];
+      
+      // Create regular hurdle obstacles with sequential numbering
+      for (let i = 0; i < regularObstaclesCount; i++) {
+        obstacles.push({
+          id: `hurdle-${i + 1}`,
+          name: `Obstacle ${i + 1}`,
+          number: i + 1,
+          type: 'Hurdle', 
+          shape: 'rectangle',
+          difficulty: filters.difficulty as 'Easy' | 'Medium' | 'Hard',
+          description: `Hurdle obstacle ${i + 1} to jump over`,
+          techniques: ['Precision Jump'],
+          height: 1,
+          position: {
+            x: 10 + (i * (80 / totalObstacles)),
+            y: 50 + (Math.sin(i) * 10) // Create a slight wave pattern
+          },
+          safetyNotes: ['Check landing surface']
+        });
+      }
+      
+      // Add water obstacles as blue circles
+      if (filters.hasWaterElements) {
+        for (let i = 0; i < waterObstaclesCount; i++) {
+          // Insert water obstacles at regular intervals
+          const insertPosition = Math.floor((i + 1) * (regularObstaclesCount / (waterObstaclesCount + 1)));
+          obstacles.splice(insertPosition, 0, {
+            id: `water-${i + 1}`,
+            name: `Water ${i + 1}`,
+            number: insertPosition + 1,
+            type: 'Water',
+            shape: 'circle',
+            difficulty: filters.difficulty as 'Easy' | 'Medium' | 'Hard',
+            description: 'Water obstacle to jump over',
+            techniques: ['Jump'],
+            height: 1,
+            position: {
+              x: 10 + (insertPosition * (80 / totalObstacles)),
+              y: 50 + (Math.sin(insertPosition) * 10)
+            },
+            safetyNotes: ['Check water depth']
+          });
+        }
+      }
+      
+      // Ensure all obstacles are numbered correctly after insertion
+      obstacles.forEach((obstacle, index) => {
+        obstacle.number = index + 1;
+        obstacle.name = `${obstacle.type} ${index + 1}`;
+      });
+
+      // Create preview course layout
       const newCourse: CourseLayout = {
         id: Math.random().toString(36).substr(2, 9),
-        name: `${filters.difficulty} ${filters.terrainType} Course`,
+        name: `${filters.difficulty} Course`,
         description: `A ${filters.duration}-minute ${filters.courseType.toLowerCase()} course with ${filters.obstacleCount} obstacles`,
         duration: filters.duration,
         obstacleCount: filters.obstacleCount,
         difficulty: filters.difficulty,
-        obstacles: Array(filters.obstacleCount).fill(null).map((_, index) => ({
-          id: `obs-${index}`,
-          name: `Obstacle ${index + 1}`,
-          type: ['Jump', 'Vault', 'Climb', 'Balance'][Math.floor(Math.random() * 4)],
-          difficulty: ['Easy', 'Medium', 'Hard'][Math.floor(Math.random() * 3)] as 'Easy' | 'Medium' | 'Hard',
-          description: 'Dynamic obstacle requiring precise movement',
-          techniques: ['Precision Jump', 'Cat Leap', 'Kong Vault'],
-          height: Math.floor(Math.random() * 3) + 1,
-          position: {
-            x: Math.random() * 80 + 10,
-            y: Math.random() * 80 + 10
-          },
-          safetyNotes: ['Check landing surface', 'Maintain three points of contact']
-        })),
-        warmupExercises: [
-          'Dynamic stretching',
-          'Light jogging',
-          'Joint mobility exercises',
-          'Basic vaults practice'
-        ],
-        restPoints: Array(3).fill(null).map((_, index) => ({
-          id: `rest-${index}`,
-          position: {
-            x: Math.random() * 80 + 10,
-            y: Math.random() * 80 + 10
-          }
-        })),
-        progressMarkers: Array(5).fill(null).map((_, index) => ({
-          id: `prog-${index}`,
-          position: {
-            x: Math.random() * 80 + 10,
-            y: Math.random() * 80 + 10
-          },
-          checkpoint: index + 1
-        })),
-        safetyConsiderations: [
-          'Always check obstacle stability',
-          'Maintain safe landing zones',
-          'Be aware of surface conditions',
-          'Practice progressive difficulty'
-        ]
+        obstacles: obstacles,
+        startPoint: { x: 5, y: 50 },
+        finishPoint: { x: 95, y: 50 },
       };
+      
       setCourseLayout(newCourse);
     };
 
@@ -97,7 +116,60 @@ const Generate: React.FC = () => {
       setIsGenerating(true);
       setError(null);
       
-      // Simplified data for API
+      // Calculate water obstacles based on a ratio (1 water obstacle per 4 regular obstacles)
+      const totalObstacles = filters.obstacleCount;
+      const waterObstaclesCount = filters.hasWaterElements 
+        ? Math.floor(totalObstacles / 4) 
+        : 0;
+      const regularObstaclesCount = totalObstacles - waterObstaclesCount;
+      
+      // Create obstacles array with numbered hurdles and water obstacles
+      const obstacles = [];
+      
+      // Create regular hurdle obstacles with sequential numbering
+      for (let i = 0; i < regularObstaclesCount; i++) {
+        obstacles.push({
+          id: `hurdle-${i + 1}`,
+          number: i + 1, 
+          type: 'Hurdle',
+          shape: 'rectangle', // Hurdles are represented as rectangles
+          difficulty: filters.difficulty,
+          description: `Hurdle obstacle ${i + 1} to jump over`,
+          position: {
+            x: 10 + (i * (80 / totalObstacles)),
+            y: 50 + (Math.sin(i) * 10) // Create a slight wave pattern
+          }
+        });
+      }
+      
+      // Add water obstacles as blue circles
+      console.log(`Total obstacles: ${totalObstacles}, Regular: ${regularObstaclesCount}, Water: ${waterObstaclesCount}`);
+      if (filters.hasWaterElements) {
+        console.log(`Adding ${waterObstaclesCount} water obstacles`);
+        for (let i = 0; i < waterObstaclesCount; i++) {
+          // Insert water obstacles at regular intervals
+          const insertPosition = Math.floor((i + 1) * (regularObstaclesCount / (waterObstaclesCount + 1)));
+          obstacles.splice(insertPosition, 0, {
+            id: `water-${i + 1}`,
+            number: insertPosition + 1,
+            type: 'Water',
+            shape: 'circle', // Water elements are represented as circles
+            difficulty: filters.difficulty,
+            description: 'Water obstacle to jump over',
+            position: {
+              x: 10 + (insertPosition * (80 / totalObstacles)),
+              y: 50 + (Math.sin(insertPosition) * 10)
+            }
+          });
+        }
+      }
+      
+      // Ensure all obstacles are numbered correctly after insertion
+      obstacles.forEach((obstacle, index) => {
+        obstacle.number = index + 1;
+      });
+      
+      // Simplified data for API with explicit start and finish points
       const courseData = {
         title: filters.title || `${filters.difficulty} Course`,
         description: filters.description,
@@ -105,6 +177,11 @@ const Generate: React.FC = () => {
         water: filters.hasWaterElements,
         courseType: filters.courseType,
         isPrivate: filters.isPrivate,
+        startPoint: { x: 5, y: 50 },   // Fixed starting point
+        finishPoint: { x: 95, y: 50 }, // Fixed ending point
+        obstacles: obstacles,
+        // Ensure course has a logical flow from start to finish
+        courseDirection: 'left-to-right', 
       };
       
       // Call API to generate the course

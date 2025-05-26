@@ -1,25 +1,39 @@
 const { pool } = require('./dbService');
 
-// Get list of parcours
-async function getParcoursList() {
+// Get list of parcours with optional favorite status
+async function getParcoursList(userId = null, includeFavorites = false) {
   const client = await pool.connect();
   try {
-    const result = await client.query('SELECT * FROM parcours where private   = false');
-    return result.rows;
-  } finally {
-    client.release();
-  }
-}
-
-// Get details of a specific parcours
-async function getParcoursDetails(id) {
-  const client = await pool.connect();
-  try {
-    const result = await client.query('SELECT * FROM parcours WHERE id = $1', [id]);
-    if (result.rows.length === 0) {
-      throw new Error('Parcours not found');
+    let query = 'SELECT * FROM parcours WHERE private = false';
+    
+    // If we need to include favorite status and have a userId
+    console.log(`Fetching parcours with includeFavorites=${includeFavorites} for userId=${userId}`);
+    if (includeFavorites && userId) {
+      // First, get all public parcours
+      const parcoursResult = await client.query(query);
+      
+      // Then, get all favorites for this user
+      const favoritesResult = await client.query(
+        'SELECT course_id FROM user_favorites WHERE user_id = $1',
+        [userId]
+      );
+      
+      // Create a set of favorite course IDs for fast lookup
+      const favoriteIds = new Set(favoritesResult.rows.map(row => row.course_id));
+      
+      // Mark parcours as favorite if they're in the favorites list
+      const parcours = parcoursResult.rows.map(parcours => ({
+        ...parcours,
+        is_favorite: favoriteIds.has(parcours.id)
+      }));
+      
+      console.log(`Fetched ${parcours.length} parcours with ${favoriteIds.size} favorites for user ${userId}`);
+      return parcours;
+    } else {
+      console.log('Fetching parcours without favorites');
+      const result = await client.query(query);
+      return result.rows;
     }
-    return result.rows[0];
   } finally {
     client.release();
   }
@@ -84,4 +98,61 @@ async function getParcoursByUser(userId) {
   }
 }
 
-module.exports = { getParcoursList, getParcoursDetails, generateParcours, getParcoursByUser };
+async function getParcoursDetails(id) {
+  const client = await pool.connect();
+  try {
+    // Get parcours details
+    const result = await client.query(
+      'SELECT * FROM parcours WHERE id = $1',
+      [id]
+    );
+
+    if (result.rows.length === 0) {
+      throw new Error('Parcours not found');
+    }
+
+    return result.rows[0];
+  } finally {
+    client.release();
+  }
+}
+
+// Toggle favorite status for a parcours
+async function toggleFavorite(parcoursId, userId) {
+  const client = await pool.connect();
+  try {
+    // First check if it's already a favorite
+    const checkResult = await client.query(
+      'SELECT id FROM user_favorites WHERE user_id = $1 AND course_id = $2',
+      [userId, parcoursId]
+    );
+    
+    const isFavorite = checkResult.rows.length > 0;
+    
+    if (isFavorite) {
+      // Remove from favorites
+      await client.query(
+        'DELETE FROM user_favorites WHERE user_id = $1 AND course_id = $2',
+        [userId, parcoursId]
+      );
+      return { success: true, is_favorite: false };
+    } else {
+      // Add to favorites
+      await client.query(
+        'INSERT INTO user_favorites (user_id, course_id) VALUES ($1, $2)',
+        [userId, parcoursId]
+      );
+      return { success: true, is_favorite: true };
+    }
+  } finally {
+    client.release();
+  }
+}
+
+module.exports = { 
+  getParcoursList, 
+  getParcoursDetails, 
+  generateParcours, 
+  getParcoursByUser,
+  toggleFavorite,
+};

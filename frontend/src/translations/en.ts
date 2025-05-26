@@ -212,24 +212,25 @@ const enTranslations = {
         print: "Print",
         share: "Share"
       }
-    }
+    },
+    userCourses: {
+      title: "My Courses",
+      subtitle: "Courses you have created or completed",
+      created: "Created Courses",
+      completed: "Completed Courses",
+      favorites: "Favorite Courses",
+      all: "All Courses",
+      noCoursesFound: "No courses found",
+      createOne: "Create a Course",
+      lastUsed: "Last Used",
+      progress: "Progress",
+      difficulty: "Difficulty",
+      filter: "Filter by",
+      markFavorite: "Mark as Favorite",
+      removeFavorite: "Remove from Favorites"
+    },
   },
-  userCourses: {
-    title: "My Courses",
-    subtitle: "Courses you have created or completed",
-    created: "Created Courses",
-    completed: "Completed Courses",
-    favorites: "Favorite Courses",
-    all: "All Courses",
-    noCoursesFound: "No courses found",
-    createOne: "Create a Course",
-    lastUsed: "Last Used",
-    progress: "Progress",
-    difficulty: "Difficulty",
-    filter: "Filter by",
-    markFavorite: "Mark as Favorite",
-    removeFavorite: "Remove from Favorites"
-  },
+
   documentation: {
     title: "Documentation",
     subtitle: "Learn how to get the most out of JumpItEasy",

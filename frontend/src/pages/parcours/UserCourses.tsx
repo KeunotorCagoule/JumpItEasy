@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
+import { useAuth } from '../../context/AuthContext';
 import { getUserParcours,addParcoursToFavorites } from '../../services/parcourService';
 import { FaHeart, FaRegHeart, FaFilter } from 'react-icons/fa';
 import { Parcours } from '../../types/parcours';
 
 const UserCourses: React.FC = () => {
   const { t } = useLanguage();
+  const { user } = useAuth(); // Get current user info
   const [courses, setCourses] = useState<Parcours[]>([]);
   const [filteredCourses, setFilteredCourses] = useState<Parcours[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -18,18 +20,20 @@ const UserCourses: React.FC = () => {
     const fetchUserCourses = async () => {
       setIsLoading(true);
       try {        const data: Partial<Parcours>[] = await getUserParcours();
+        console.log('Fetched user courses:', data); // Debugging line
         const userCourses = data.map((course) => ({
           id: course.id || '',
           title: course.title || '',
           description: course.description || '',
           difficulty: course.difficulty || '',
           creatorId: course.creatorId || '',
-          courseType: course.courseType || '1',
+          course_type: course.course_type || '1',
           waterElements: course.waterElements || false,
           private: course.private || false,
           created_at: course.created_at || '',
           completion_rate: course.completion_rate,
           is_favorite: course.is_favorite || false,
+          username: course.username, // Creator's username
         }));
         setCourses(userCourses);
         setFilteredCourses(userCourses);
@@ -190,31 +194,41 @@ const UserCourses: React.FC = () => {
                   </button>
                 </div>
 
-                <p className="text-gray-600 mb-3 line-clamp-2">{course.description}</p>
-
-                <div className="flex flex-wrap gap-2 mb-3">
+                <p className="text-gray-600 mb-3 line-clamp-2">{course.description}</p>                <div className="flex flex-wrap gap-2 mb-3">
                   <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium">
                     {course.difficulty}
                   </span>
                   <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs font-medium">
                     {formatDate(course.created_at)}
                   </span>
+                  {/* Show creator name if it's not the current user's course */}
+                  {course.username && course.creatorId !== user?.id && (
+                    <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                      <span className="text-purple-600">👤</span>
+                      {course.username}
+                    </span>
+                  )}
                 </div>
 
-                {course.completion_rate !== undefined && (
-                  <div className="mt-3">
-                    <div className="flex justify-between text-xs text-gray-600 mb-1">
-                      <span>{t("courses.userCourses.progress")}</span>
-                      <span>{course.completion_rate}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div 
-                        className="bg-green-500 h-2 rounded-full" 
-                        style={{ width: `${course.completion_rate}%` }}
-                      ></div>
-                    </div>
+                {/* Progress bar with improved styling */}
+                <div className="mt-3">
+                  <div className="flex justify-between text-xs text-gray-600 mb-1">
+                    <span>{t("courses.userCourses.progress")}</span>
+                    <span>{course.completion_rate || 0}%</span>
                   </div>
-                )}
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div 
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        (course.completion_rate || 0) === 0 
+                          ? 'bg-red-500' 
+                          : (course.completion_rate || 0) < 50 
+                            ? 'bg-yellow-500' 
+                            : 'bg-green-500'
+                      }`}
+                      style={{ width: `${Math.max(course.completion_rate || 0, course.completion_rate === 0 ? 8 : 0)}%` }}
+                    ></div>
+                  </div>
+                </div>
               </div>
               
               <div className="border-t px-4 py-3 bg-gray-50">

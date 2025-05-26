@@ -167,8 +167,7 @@ const enTranslations = {
     },    view: {
       level: "Level",
       duration: "Duration",
-      topics: "Topics",
-      learningPath: "Learning Path",
+      topics: "Topics",      learningPath: "Learning Path",
       estimatedTime: "Estimated Time",
       startLearning: "Start Learning",
       saveForLater: "Save for Later",
@@ -179,11 +178,20 @@ const enTranslations = {
       confirmDelete: "Are you sure you want to delete this course?",
       delete: "Delete",
       deleting: "Deleting...",
-      errorDeleting: "Error deleting course",
-      createdBy: "Created by",
+      errorDeleting: "Error deleting course",      createdBy: "Created by",
       type: "Type",
+      status: "Status",
       waterElements: "Water Elements",
-      created: "Created"
+      created: "Created",
+      completed: "Completed",
+      markCompleted: "Mark as Completed",
+      markingCompleted: "Marking as completed...",
+      completedOn: "Completed on",
+      errorMarkingCompleted: "Error marking course as completed",      notCompleted: "Not completed yet",
+      congratulations: "Congratulations on completing this course!",
+      courseInfo: "Course Information",
+      description: "Description",
+      hoverForDetails: "Hover over the image to see details"
     },
     generate: {
       title: "Generate Parkour Course",
@@ -212,13 +220,18 @@ const enTranslations = {
         descriptionField: "Description",
         descriptionPlaceholder: "Describe your course",
         privateField: "Make this course private"
-      },
-      preview: {
+      },      preview: {
         title: "Course Preview",
         generateNew: "Generate New Course",
+        generating: "Generating...",
         save: "Save Course",
+        saving: "Saving...",
         print: "Print",
-        share: "Share"
+        share: "Share",
+        generatePreviewFirst: "Please generate a preview first"
+      },
+      validation: {
+        titleRequired: "Title is required"
       }
     },
     userCourses: {

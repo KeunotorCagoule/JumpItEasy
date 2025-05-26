@@ -16,7 +16,7 @@ export interface Obstacle {
   safetyNotes: string[];
   number?: number;     // Add number property for ordering
   shape?: string;      // Add shape property (rectangle for hurdles, circle for water)
-  direction?: string;  // Add direction property for traversal direction
+  direction?: number;  // Add direction property for traversal direction (0-360°)
 }
 
 export interface CourseLayout {
@@ -30,9 +30,11 @@ export interface CourseLayout {
   startPoint: {
     x: number;
     y: number;
+    direction?: number; // Direction in degrees (0-360°)
   };
   finishPoint: {
     x: number;
     y: number;
+    direction?: number; // Direction in degrees (0-360°)
   };
 }

@@ -61,17 +61,18 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
             type="range"
             name="obstacleCount"
             min="5"
-            max="30"
+            max="15"
             step="1"
             value={filters.obstacleCount}
             onChange={handleChange}
-            className="w-full opacity-60 cursor-not-allowed"
+            className="w-full opacity-60 cursor-pointer"
+            // className="w-full opacity-60 cursor-not-allowed"
             // disabled={true}
           />
           <div className="flex justify-between text-sm text-gray-500">
             <span>5</span>
             <span>{filters.obstacleCount}</span>
-            <span>30</span>
+            <span>15</span>
           </div>
         </div>
 

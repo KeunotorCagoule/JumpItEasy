@@ -1,5 +1,5 @@
 const express = require('express');
-const { getParcoursList, getParcoursDetails, generateParcours, getParcoursByUser, toggleFavorite, deleteParcours } = require('../services/parcoursService');
+const { getParcoursList, getParcoursDetails, generateParcours, getParcoursByUser, toggleFavorite, deleteParcours, markCourseCompleted, getCourseCompletionStatus, saveGeneratedCourse } = require('../services/parcoursService');
 const { verifyToken, optionalToken } = require('../services/authService');
 
 const router = express.Router();
@@ -57,6 +57,20 @@ router.post('/', verifyToken, async (req, res) => {
   }
 });
 
+// Protected route: Save a generated course with layout
+router.post('/save-generated', verifyToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const parcoursData = req.body;
+    
+    const savedParcours = await saveGeneratedCourse(parcoursData, userId);
+    res.status(201).json(savedParcours);
+  } catch (error) {
+    console.error('Error saving generated course:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Protected route: Get user's parcours
 router.get('/user/me', verifyToken, async (req, res) => {
   try {
@@ -88,6 +102,35 @@ router.delete('/:id', verifyToken, async (req, res) => {
       return res.status(403).json({ error: error.message });
     }
     
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Protected route: Mark course as completed
+router.post('/:id/complete', verifyToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const courseId = req.params.id;
+    const { completionRate = 100 } = req.body;
+    
+    const result = await markCourseCompleted(courseId, userId, completionRate);
+    res.status(200).json(result);
+  } catch (error) {
+    console.error('Error marking course as completed:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Protected route: Get course completion status
+router.get('/:id/completion', verifyToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const courseId = req.params.id;
+    
+    const completion = await getCourseCompletionStatus(courseId, userId);
+    res.status(200).json(completion);
+  } catch (error) {
+    console.error('Error getting completion status:', error);
     res.status(500).json({ error: error.message });
   }
 });

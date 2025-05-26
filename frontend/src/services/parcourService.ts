@@ -1,4 +1,4 @@
-import { Parcours, ParcoursData, ParcoursBackendResponse } from '../types/parcours';
+import { Parcours, ParcoursData, ParcoursBackendResponse, CourseCompletion } from '../types/parcours';
 import { API_URL } from '../config/api';
 
 // Ajout de cette ligne pour résoudre le problème RequestInit
@@ -78,6 +78,13 @@ export const generateParcours = async (parcoursData: Partial<ParcoursData>): Pro
     });
 }
 
+export const saveGeneratedCourse = async (parcoursData: ParcoursData): Promise<Parcours> => {
+    return authFetch(`${API_URL}/parcours/save-generated`, {
+        method: 'POST',
+        body: JSON.stringify(parcoursData)
+    });
+}
+
 export const getUserParcours = async (): Promise<Parcours[]> => {
     return authFetch(`${API_URL}/parcours/user/me`);
 }
@@ -92,4 +99,15 @@ export const deleteParcours = async (parcoursId: string): Promise<void> => {
     return authFetch(`${API_URL}/parcours/${parcoursId}`, {
         method: 'DELETE'
     });
+}
+
+export const markCourseCompleted = async (courseId: string, completionRate: number = 100): Promise<CourseCompletion> => {
+    return authFetch(`${API_URL}/parcours/${courseId}/complete`, {
+        method: 'POST',
+        body: JSON.stringify({ completionRate })
+    });
+}
+
+export const getCourseCompletionStatus = async (courseId: string): Promise<CourseCompletion> => {
+    return authFetch(`${API_URL}/parcours/${courseId}/completion`);
 }

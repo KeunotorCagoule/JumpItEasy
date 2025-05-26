@@ -167,8 +167,7 @@ const fr = {
       viewDetails: "Voir les détails"
     },    view: {
       level: "Niveau",
-      duration: "Durée",
-      topics: "Sujets",
+      duration: "Durée",      topics: "Sujets",
       learningPath: "Cheminement d'apprentissage",
       estimatedTime: "Temps estimé",
       startLearning: "Commencer l'apprentissage",
@@ -180,11 +179,20 @@ const fr = {
       confirmDelete: "Êtes-vous sûr de vouloir supprimer ce parcours ?",
       delete: "Supprimer",
       deleting: "Suppression...",
-      errorDeleting: "Erreur lors de la suppression du parcours",
-      createdBy: "Créé par",
+      errorDeleting: "Erreur lors de la suppression du parcours",      createdBy: "Créé par",
       type: "Type",
+      status: "Statut",
       waterElements: "Éléments aquatiques",
-      created: "Créé le"
+      created: "Créé le",
+      completed: "Terminé",
+      markCompleted: "Marquer comme terminé",
+      markingCompleted: "Marquage en cours...",
+      completedOn: "Terminé le",
+      errorMarkingCompleted: "Erreur lors du marquage du parcours comme terminé",      notCompleted: "Pas encore terminé",
+      congratulations: "Félicitations pour avoir terminé ce parcours !",
+      courseInfo: "Informations du parcours",
+      description: "Description",
+      hoverForDetails: "Survolez l'image pour voir les détails"
     },
     generate: {
       title: "Générer un parcours",
@@ -213,13 +221,18 @@ const fr = {
         descriptionField: "Description",
         descriptionPlaceholder: "Décrivez votre parcours",
         privateField: "Rendre ce parcours privé"
-      },
-      preview: {
+      },      preview: {
         title: "Aperçu du parcours",
         generateNew: "Générer un nouveau parcours",
+        generating: "Génération en cours...",
         save: "Enregistrer le parcours",
+        saving: "Enregistrement...",
         print: "Imprimer",
-        share: "Partager"
+        share: "Partager",
+        generatePreviewFirst: "Veuillez d'abord générer un aperçu"
+      },
+      validation: {
+        titleRequired: "Le titre est obligatoire"
       }
     },
     userCourses: {

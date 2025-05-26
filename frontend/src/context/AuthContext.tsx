@@ -1,7 +1,18 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { useLanguage } from '../context/LanguageContext';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
+import { useLanguage } from "../context/LanguageContext";
+import {
+  decodeJwtToken,
+  isTokenExpired,
+  getTokenRemainingTime,
+} from "../utils/tokenUtils";
 
 type AuthContextType = {
   isLoggedIn: boolean;
@@ -9,6 +20,7 @@ type AuthContextType = {
   language: string | null;
   login: (username: string, language: string) => void;
   logout: () => void;
+  tokenExpiresIn: number | null; // Temps restant avant expiration en secondes
 };
 
 const AuthContext = createContext<AuthContextType>({
@@ -17,6 +29,7 @@ const AuthContext = createContext<AuthContextType>({
   language: null,
   login: () => {},
   logout: () => {},
+  tokenExpiresIn: null,
 });
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -25,14 +38,58 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState<string | null>(null);
   const [language, setLanguage] = useState<string | null>(null);
+  const [tokenExpiresIn, setTokenExpiresIn] = useState<number | null>(null);
   const { changeLanguage } = useLanguage();
-  
+
+  // Fonction pour déconnecter l'utilisateur
+  const logout = useCallback(() => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
+    setIsLoggedIn(false);
+    setUsername(null);
+    setLanguage(null);
+    setTokenExpiresIn(null);
+  }, []);
+
+  // Fonction pour vérifier l'expiration du token
+  const checkTokenExpiration = useCallback(() => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
+    if (isTokenExpired(token)) {
+      console.log("Token expiré, déconnexion automatique");
+      logout();
+      return;
+    }
+
+    // Calcul du temps restant
+    const remainingTime = getTokenRemainingTime(token);
+    setTokenExpiresIn(remainingTime);
+
+    // Programmation de la prochaine vérification
+    // Plus fréquente si proche de l'expiration
+    const nextCheckInterval = remainingTime < 300 ? 10000 : 60000; // 10s ou 1min
+
+    const timerId = setTimeout(() => {
+      checkTokenExpiration();
+    }, nextCheckInterval);
+
+    return () => clearTimeout(timerId);
+  }, [logout]);
 
   useEffect(() => {
     // Check if there's a stored token
     const token = localStorage.getItem("token");
 
     if (token) {
+      // Vérifier d'abord si le token est expiré
+      if (isTokenExpired(token)) {
+        console.log("Token expiré au chargement, déconnexion automatique");
+        logout();
+        return;
+      }
+
       try {
         // Check for user in localStorage first (for "remember me")
         let userStr = localStorage.getItem("user");
@@ -59,30 +116,26 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
           }
 
           setIsLoggedIn(true);
+
+          // Démarrer la vérification périodique du token
+          checkTokenExpiration();
         } else {
           // If we have a token but no user info, try to decode the token
           try {
-            const base64Url = token.split(".")[1];
-            const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-            const jsonPayload = decodeURIComponent(
-              atob(base64)
-                .split("")
-                .map(function (c) {
-                  return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-                })
-                .join("")
-            );
+            const payload = decodeJwtToken(token);
 
-            const payload = JSON.parse(jsonPayload);
-            if (payload.username) {
+            if (payload.username && typeof payload.username === 'string') {
               setUsername(payload.username);
               setIsLoggedIn(true);
-              
+
               // Check for language in the token payload
               if (payload.language) {
-                setLanguage(payload.language);
+                setLanguage(payload.language as string);
                 changeLanguage(payload.language as any);
               }
+
+              // Démarrer la vérification périodique du token
+              checkTokenExpiration();
             }
           } catch (tokenError) {
             console.error("Failed to parse JWT token", tokenError);
@@ -94,36 +147,53 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         logout(); // Something went wrong, log out the user
       }
     }
-  }, [changeLanguage]); // Add changeLanguage to dependencies
+  }, [changeLanguage, logout, checkTokenExpiration]);
+
+  // Écouter les événements d'expiration de token émis par d'autres parties de l'application
+  useEffect(() => {
+    const handleTokenExpired = () => {
+      logout();
+    };
+
+    window.addEventListener("token-expired", handleTokenExpired);
+
+    return () => {
+      window.removeEventListener("token-expired", handleTokenExpired);
+    };
+  }, [logout]);
 
   const login = (name: string, language: string) => {
     setIsLoggedIn(true);
     setUsername(name);
-    
+
     // Ensure we have a valid language code
-    const validLanguage = language && (language === 'en' || language === 'fr') ? language : 'en';
-    
+    const validLanguage =
+      language && (language === "en" || language === "fr") ? language : "en";
+
     // Set the language in context
     setLanguage(validLanguage);
-    
-    // Apply the language change
-    changeLanguage(validLanguage as 'en' | 'fr');
-    
-    // Save language preference to localStorage for persistence
-    localStorage.setItem('language', validLanguage);
-  };
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    sessionStorage.removeItem("user");
-    setIsLoggedIn(false);
-    setUsername(null);
-    setLanguage(null);
+    // Apply the language change
+    changeLanguage(validLanguage as "en" | "fr");
+
+    // Save language preference to localStorage for persistence
+    localStorage.setItem("language", validLanguage);
+
+    // Démarrer la vérification périodique du token
+    checkTokenExpiration();
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, username, language, login, logout }}>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn,
+        username,
+        language,
+        login,
+        logout,
+        tokenExpiresIn,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

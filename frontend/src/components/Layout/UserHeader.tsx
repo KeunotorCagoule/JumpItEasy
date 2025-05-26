@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import { User, LogOut, Settings, LandPlot } from "lucide-react";
+import { User, LogOut, Settings, LandPlot, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
+import { useAuth } from "../../context/AuthContext";
 
 interface UserHeaderProps {
   user: { username: string };
@@ -10,8 +11,19 @@ interface UserHeaderProps {
 
 const UserHeader: React.FC<UserHeaderProps> = ({ user, onLogout }) => {
   const { t } = useLanguage();
+  const { tokenExpiresIn } = useAuth(); // Récupération du temps restant
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Format du temps restant en mm:ss
+  const formatTimeRemaining = (seconds: number | null): string => {
+    if (seconds === null) return "";
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes.toString().padStart(2, "0")}:${remainingSeconds
+      .toString()
+      .padStart(2, "0")}`;
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -47,6 +59,14 @@ const UserHeader: React.FC<UserHeaderProps> = ({ user, onLogout }) => {
 
       {isDropdownOpen && (
         <div className="absolute right-[-50px] mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5 z-50">
+          {/* Afficher le temps restant si le token expire dans moins de 10 minutes */}
+          {tokenExpiresIn !== null && tokenExpiresIn < 600 && (
+            <div className="flex items-center px-4 py-2 text-sm text-amber-600 border-b border-gray-100">
+              <Clock className="mr-3 h-4 w-4" />
+              <span>Session: {formatTimeRemaining(tokenExpiresIn)}</span>
+            </div>
+          )}
+
           <Link
             to="/profile"
             className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
@@ -63,7 +83,6 @@ const UserHeader: React.FC<UserHeaderProps> = ({ user, onLogout }) => {
             <LandPlot className="mr-3 h-4 w-4" />
             {t("userHeader.ownCourses")}
           </Link>
-
           <Link
             to="/settings"
             className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"

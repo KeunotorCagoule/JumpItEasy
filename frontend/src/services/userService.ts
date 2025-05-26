@@ -1,5 +1,6 @@
 import { UserProfile, Course, UserSettings, PasswordChangeRequest } from '../types/user';
 import { API_URL } from '../config/api';
+import { isTokenExpired } from '../utils/tokenUtils';
 
 // Ajout de cette ligne pour résoudre le problème RequestInit
 type RequestInit = globalThis.RequestInit;
@@ -12,6 +13,13 @@ const authFetch = async (url: string, options: RequestInit = {}) => {
     throw new Error('No authentication token available');
   }
 
+  // Vérifier si le token est expiré avant d'envoyer la requête
+  if (isTokenExpired(token)) {
+    // Déclencher un événement pour informer l'application que le token a expiré
+    window.dispatchEvent(new CustomEvent('token-expired'));
+    throw new Error('Authentication token has expired. Please log in again.');
+  }
+
   const headers = {
     ...options.headers,
     'Authorization': `Bearer ${token}`,
@@ -22,6 +30,13 @@ const authFetch = async (url: string, options: RequestInit = {}) => {
     ...options,
     headers
   });
+
+  // Vérifier si la réponse indique une erreur d'authentification (token expiré)
+  if (response.status === 401) {
+    // Déclencher un événement pour informer l'application que le token a expiré
+    window.dispatchEvent(new CustomEvent('token-expired'));
+    throw new Error('Authentication failed. Your session may have expired.');
+  }
 
   if (!response.ok) {
     const error = await response.json();

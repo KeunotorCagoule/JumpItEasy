@@ -4,18 +4,7 @@ import { useLanguage } from "../../context/LanguageContext";
 import { getParcoursList, addParcoursToFavorites } from "../../services/parcourService"; // Import the service function
 import { useAuth } from '../../context/AuthContext';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
-
-interface Parcours {
-  id: string;
-  title: string;
-  description: string;
-  creatorId: string;
-  difficulty: string;
-  courseType: string;
-  waterElements: boolean;
-  private: boolean;
-  is_favorite?: boolean; // Add this property to track favorite status
-}
+import { Parcours } from '../../types/parcours';
 
 const List: React.FC = () => {
   const { t } = useLanguage();
@@ -72,7 +61,8 @@ const List: React.FC = () => {
             courseType: course.courseType,
             waterElements: course.waterElements,
             private: course.private,
-            is_favorite: course.is_favorite || false
+            is_favorite: course.is_favorite || false,
+            username: course?.username || 'Unknown', // Fallback to 'Unknown' if creator is not available
           };
         });
         
@@ -155,6 +145,10 @@ const List: React.FC = () => {
               <Link to={`/parcours/${parcours.id}`}>
                 <h2 className="text-xl font-semibold mb-2">{parcours.title}</h2>
                 <p className="text-gray-600 mb-2">{parcours.description}</p>
+                
+                <p className="text-sm text-gray-500 mb-2">
+                  Created by {parcours.username || 'Unknown'}
+                </p>
 
                 <div className="flex items-center gap-2 mb-2">
                   <span className="bg-gray-100 px-2 py-1 rounded text-sm">

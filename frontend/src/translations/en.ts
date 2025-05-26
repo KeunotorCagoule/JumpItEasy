@@ -164,8 +164,7 @@ const enTranslations = {
       noCourses: "No courses available",
       createFirst: "Create Your First Course",
       viewDetails: "View Details"
-    },
-    view: {
+    },    view: {
       level: "Level",
       duration: "Duration",
       topics: "Topics",
@@ -175,7 +174,16 @@ const enTranslations = {
       saveForLater: "Save for Later",
       backToList: "Back to Courses",
       errorLoading: "Error loading course",
-      notFound: "Course not found"
+      notFound: "Course not found",
+      invalidId: "Invalid course ID",
+      confirmDelete: "Are you sure you want to delete this course?",
+      delete: "Delete",
+      deleting: "Deleting...",
+      errorDeleting: "Error deleting course",
+      createdBy: "Created by",
+      type: "Type",
+      waterElements: "Water Elements",
+      created: "Created"
     },
     generate: {
       title: "Generate Parkour Course",
@@ -227,8 +235,12 @@ const enTranslations = {
       difficulty: "Difficulty",
       filter: "Filter by",
       markFavorite: "Mark as Favorite",
-      removeFavorite: "Remove from Favorites"
-    },
+      removeFavorite: "Remove from Favorites"    },
+  },
+
+  generator: {
+    generating: "Generating...",
+    create: "Create Course"
   },
 
   documentation: {

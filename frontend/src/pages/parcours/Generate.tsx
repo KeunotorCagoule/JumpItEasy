@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CourseFilters, CourseLayout } from '../../types/course';
+import { ParcoursData } from '../../types/parcours';
 import FilterPanel from '../../components/Generator/FilterPanel';
 import CoursePreview from '../../components/Generator/CoursePreview';
 import { generateParcours } from '../../services/parcourService';
@@ -168,20 +169,14 @@ const Generate: React.FC = () => {
       obstacles.forEach((obstacle, index) => {
         obstacle.number = index + 1;
       });
-      
-      // Simplified data for API with explicit start and finish points
-      const courseData = {
+        // Simplified data for API with explicit start and finish points
+      const courseData: ParcoursData = {
         title: filters.title || `${filters.difficulty} Course`,
         description: filters.description,
         difficulty: filters.difficulty,
         water: filters.hasWaterElements,
         courseType: filters.courseType,
         isPrivate: filters.isPrivate,
-        startPoint: { x: 5, y: 50 },   // Fixed starting point
-        finishPoint: { x: 95, y: 50 }, // Fixed ending point
-        obstacles: obstacles,
-        // Ensure course has a logical flow from start to finish
-        courseDirection: 'left-to-right', 
       };
       
       // Call API to generate the course

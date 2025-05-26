@@ -165,8 +165,7 @@ const fr = {
       noCourses: "Aucun parcours disponible",
       createFirst: "Créer votre premier parcours",
       viewDetails: "Voir les détails"
-    },
-    view: {
+    },    view: {
       level: "Niveau",
       duration: "Durée",
       topics: "Sujets",
@@ -176,7 +175,16 @@ const fr = {
       saveForLater: "Enregistrer pour plus tard",
       backToList: "Retour à la liste des parcours",
       errorLoading: "Erreur lors du chargement du parcours",
-      notFound: "Parcours non trouvé"
+      notFound: "Parcours non trouvé",
+      invalidId: "ID de parcours invalide",
+      confirmDelete: "Êtes-vous sûr de vouloir supprimer ce parcours ?",
+      delete: "Supprimer",
+      deleting: "Suppression...",
+      errorDeleting: "Erreur lors de la suppression du parcours",
+      createdBy: "Créé par",
+      type: "Type",
+      waterElements: "Éléments aquatiques",
+      created: "Créé le"
     },
     generate: {
       title: "Générer un parcours",
@@ -228,9 +236,14 @@ const fr = {
       difficulty: "Difficulté",
       filter: "Filtrer par",
       markFavorite: "Marquer comme favori",
-      removeFavorite: "Retirer des favoris"
-    }
+      removeFavorite: "Retirer des favoris"    }
   },
+
+  generator: {
+    generating: "Génération...",
+    create: "Créer le parcours"
+  },
+
   documentation: {
     title: "Documentation",
     subtitle: "Apprenez à tirer le meilleur parti de JumpItEasy",

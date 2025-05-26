@@ -5,13 +5,12 @@ import { useLanguage } from "../../context/LanguageContext";
 import { useAuth } from "../../context/AuthContext";
 
 interface UserHeaderProps {
-  user: { username: string };
   onLogout: () => void;
 }
 
-const UserHeader: React.FC<UserHeaderProps> = ({ user, onLogout }) => {
+const UserHeader: React.FC<UserHeaderProps> = ({ onLogout }) => {
   const { t } = useLanguage();
-  const { tokenExpiresIn } = useAuth(); // Récupération du temps restant
+  const { tokenExpiresIn, user } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -40,6 +39,8 @@ const UserHeader: React.FC<UserHeaderProps> = ({ user, onLogout }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  if (!user) return null;
 
   return (
     <div className="relative ml-3" ref={dropdownRef}>

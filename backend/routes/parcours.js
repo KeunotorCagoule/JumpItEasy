@@ -1,5 +1,5 @@
 const express = require('express');
-const { getParcoursList, getParcoursDetails, generateParcours, getParcoursByUser, toggleFavorite } = require('../services/parcoursService');
+const { getParcoursList, getParcoursDetails, generateParcours, getParcoursByUser, toggleFavorite, deleteParcours } = require('../services/parcoursService');
 const { verifyToken, optionalToken } = require('../services/authService');
 
 const router = express.Router();
@@ -9,12 +9,6 @@ router.get('/', optionalToken, async (req, res) => {
   try {
     const includeFavorites = req.query.includeFavorites === 'true';
     const userId = req.user?.id; // Optional user ID from token
-    
-    // Enhanced debugging
-    console.log('=== DEBUG PARCOURS LIST ===');
-    console.log('User ID:', userId);
-    console.log('Include favorites:', includeFavorites);
-    console.log('========================');
     
     const parcours = await getParcoursList(userId, includeFavorites);
     res.status(200).json(parcours);
@@ -38,10 +32,11 @@ router.post('/favorite/:id', verifyToken, async (req, res) => {
   }
 });
 
-// Protected route: Details of a parcours
-router.get('/:id', async (req, res) => {
+// Optional auth route: Details of a parcours (with optional favorite status)
+router.get('/:id', optionalToken, async (req, res) => {
   try {
-    const parcours = await getParcoursDetails(req.params.id);
+    const userId = req.user?.id; // Optional user ID from token
+    const parcours = await getParcoursDetails(req.params.id, userId);
     res.status(200).json(parcours);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -70,6 +65,29 @@ router.get('/user/me', verifyToken, async (req, res) => {
     res.status(200).json(parcours);
   } catch (error) {
     console.error('Error fetching user parcours:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Protected route: Delete a parcours (only by creator)
+router.delete('/:id', verifyToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const parcoursId = req.params.id;
+    
+    const result = await deleteParcours(parcoursId, userId);
+    res.status(200).json({ 
+      message: 'Parcours deleted successfully', 
+      ...result 
+    });
+  } catch (error) {
+    console.error('Error deleting parcours:', error);
+    
+    // Handle specific error cases
+    if (error.statusCode === 403) {
+      return res.status(403).json({ error: error.message });
+    }
+    
     res.status(500).json({ error: error.message });
   }
 });

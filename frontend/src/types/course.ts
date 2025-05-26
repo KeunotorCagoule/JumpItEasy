@@ -1,14 +1,5 @@
-export interface CourseFilters {
-  title: string;
-  description: string;
-  isPrivate: boolean;
-  duration: number;
-  obstacleCount: number;
-  hasWaterElements: boolean;
-  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
-  equipment: 'None' | 'Basic' | 'Full Set';
-  courseType: '1' | '2' | '3';
-}
+// Re-export types from parcours for compatibility
+export type { ParcoursFilters as CourseFilters } from './parcours';
 
 export interface Obstacle {
   id: string;
@@ -34,7 +25,7 @@ export interface CourseLayout {
   description: string;
   duration: number;
   obstacleCount: number;
-  difficulty: CourseFilters['difficulty'];
+  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   obstacles: Obstacle[];
   startPoint: {
     x: number;

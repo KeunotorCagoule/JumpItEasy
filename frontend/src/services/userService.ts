@@ -1,4 +1,5 @@
-import { UserProfile, Course, UserSettings, PasswordChangeRequest } from '../types/user';
+import { UserProfile, UserSettings, PasswordChangeRequest, AuthUser } from '../types/user';
+import { Parcours } from '../types/parcours';
 import { API_URL } from '../config/api';
 import { isTokenExpired } from '../utils/tokenUtils';
 
@@ -52,7 +53,7 @@ export const getUserProfile = async (): Promise<UserProfile> => {
 };
 
 // Récupérer les parcours récents de l'utilisateur
-export const getUserRecentCourses = async (): Promise<Course[]> => {
+export const getUserRecentCourses = async (): Promise<Parcours[]> => {
   return authFetch(`${API_URL}/users/courses/recent`);
 };
 
@@ -97,3 +98,8 @@ export const updateLanguagePreference = async (language: string): Promise<{ succ
     body: JSON.stringify({ language })
   });
 }
+
+// Récupérer les informations de l'utilisateur connecté
+export const getCurrentUser = async (): Promise<AuthUser> => {
+  return authFetch(`${API_URL}/auth/me`);
+};

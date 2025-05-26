@@ -11,20 +11,6 @@ export interface UserProfile {
   createdCourses: number;
 }
 
-export interface Course {
-  id: string;
-  title: string;
-  description: string;
-  difficulty: string;
-  date: string;
-  completionRate?: number;
-  creatorId: string;
-  courseType: string;
-  waterElements: boolean;
-  private: boolean;
-  is_favorite?: boolean; // Optional property to track if the course is a favorite
-}
-
 export interface UserSettings {
   username: string;
   email: string;
@@ -37,4 +23,11 @@ export interface PasswordChangeRequest {
   currentPassword: string;
   newPassword: string;
   confirmPassword: string;
+}
+
+export interface AuthUser {
+  id: string;
+  username: string;
+  email?: string;
+  language?: string;
 }

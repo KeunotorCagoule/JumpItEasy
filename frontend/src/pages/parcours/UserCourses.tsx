@@ -3,22 +3,12 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import { getUserParcours,addParcoursToFavorites } from '../../services/parcourService';
 import { FaHeart, FaRegHeart, FaFilter } from 'react-icons/fa';
-
-interface UserCourse {
-  id: string;
-  title: string;
-  description: string;
-  difficulty: string;
-  created_at: string;
-  completion_rate?: number;
-  is_favorite: boolean;
-  creator_id: string;
-}
+import { Parcours } from '../../types/parcours';
 
 const UserCourses: React.FC = () => {
   const { t } = useLanguage();
-  const [courses, setCourses] = useState<UserCourse[]>([]);
-  const [filteredCourses, setFilteredCourses] = useState<UserCourse[]>([]);
+  const [courses, setCourses] = useState<Parcours[]>([]);
+  const [filteredCourses, setFilteredCourses] = useState<Parcours[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState('all'); // 'all', 'created', 'completed', 'favorites'
@@ -27,17 +17,19 @@ const UserCourses: React.FC = () => {
   useEffect(() => {
     const fetchUserCourses = async () => {
       setIsLoading(true);
-      try {
-        const data: Partial<UserCourse>[] = await getUserParcours();
+      try {        const data: Partial<Parcours>[] = await getUserParcours();
         const userCourses = data.map((course) => ({
           id: course.id || '',
           title: course.title || '',
           description: course.description || '',
           difficulty: course.difficulty || '',
+          creatorId: course.creatorId || '',
+          courseType: course.courseType || '1',
+          waterElements: course.waterElements || false,
+          private: course.private || false,
           created_at: course.created_at || '',
           completion_rate: course.completion_rate,
           is_favorite: course.is_favorite || false,
-          creator_id: course.creator_id || '',
         }));
         setCourses(userCourses);
         setFilteredCourses(userCourses);
@@ -52,20 +44,19 @@ const UserCourses: React.FC = () => {
     fetchUserCourses();
   }, []);
 
-  useEffect(() => {
-    // Apply filter to courses
+  useEffect(() => {    // Apply filter to courses
     if (filter === 'all') {
       setFilteredCourses(courses);
     } else if (filter === 'created') {
-      setFilteredCourses(courses.filter(course => course.creator_id)); // Assuming creator_id exists if user created it
+      setFilteredCourses(courses.filter(course => course.creatorId)); // Fixed: use creatorId instead of creator_id
     } else if (filter === 'completed') {
       setFilteredCourses(courses.filter(course => course.completion_rate && course.completion_rate > 0));
     } else if (filter === 'favorites') {
       setFilteredCourses(courses.filter(course => course.is_favorite));
     }
   }, [filter, courses]);
-
-  const formatDate = (dateString: string) => {
+  const formatDate = (dateString: string | undefined) => {
+    if (!dateString) return 'N/A';
     const date = new Date(dateString);
     return date.toLocaleDateString();
   };

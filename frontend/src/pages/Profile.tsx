@@ -3,14 +3,15 @@ import { useAuth } from "../context/AuthContext";
 import { Link, Navigate } from "react-router-dom";
 import { User, Edit, Star, Calendar, Award, MapPin } from "lucide-react";
 import { getUserProfile, getUserRecentCourses } from "../services/userService";
-import { UserProfile, Course } from "../types/user";
+import { UserProfile } from "../types/user";
+import { Parcours } from "../types/parcours";
 import { useLanguage } from "../context/LanguageContext"; // Added import
 
 const Profile: React.FC = () => {
   const { isLoggedIn, username } = useAuth();
   const { t } = useLanguage(); // Added translation hook
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
-  const [recentCourses, setRecentCourses] = useState<Course[]>([]);
+  const [recentCourses, setRecentCourses] = useState<Parcours[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -197,15 +198,14 @@ const Profile: React.FC = () => {
                           <div className="flex items-center gap-4 mt-2 text-sm text-gray-600 dark:text-gray-400">
                             <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full">
                               {course.difficulty}
-                            </span>
-                            <span>{course.date}</span>
+                            </span>                            <span>{course.created_at ? new Date(course.created_at).toLocaleDateString() : 'N/A'}</span>
                           </div>
                         </div>
-                        {course.completionRate !== undefined && (
+                        {course.completion_rate !== undefined && (
                           <div className="text-right">
                             <div className="inline-flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 px-2.5 py-0.5 text-gray-700 dark:text-gray-300">
                               <span className="text-sm">
-                                {course.completionRate}% {t("profile.completed")}
+                                {course.completion_rate}% {t("profile.completed")}
                               </span>
                             </div>
                           </div>

@@ -51,15 +51,14 @@ const Register: React.FC = () => {
         id: responseData.user.id,
         username: responseData.user.username,
         email: responseData.user.email,
-        country: responseData.user.country,
         language: responseData.user.language,
       };
 
       // Par défaut, stockons les données utilisateur dans sessionStorage
       sessionStorage.setItem("user", JSON.stringify(userData));
 
-      // Connecter l'utilisateur
-      login(responseData.user.username);
+      // Connecter l'utilisateur avec l'objet utilisateur complet
+      login(responseData.user.username, responseData.user.language || 'en', userData);
 
       navigate("/");
     } catch (error: unknown) {

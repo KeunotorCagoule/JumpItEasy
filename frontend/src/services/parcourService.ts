@@ -1,4 +1,4 @@
-import { Course } from '../types/user';
+import { Parcours, ParcoursData, ParcoursBackendResponse } from '../types/parcours';
 import { API_URL } from '../config/api';
 
 // Ajout de cette ligne pour résoudre le problème RequestInit
@@ -56,7 +56,7 @@ const optionalAuthFetch = async (url: string, options: RequestInit = {}) => {
     return response.json();
 };
 
-export const getParcoursList = async (queryParams: string = ''): Promise<Course[]> => {
+export const getParcoursList = async (queryParams: string = ''): Promise<Parcours[]> => {
     // Always try to send the token if available, even for optional auth routes
     const token = localStorage.getItem('token');
     console.log('=== FRONTEND DEBUG ===');
@@ -67,23 +67,29 @@ export const getParcoursList = async (queryParams: string = ''): Promise<Course[
     return optionalAuthFetch(`${API_URL}/parcours${queryParams}`);
 }
 
-export const getParcoursDetails = async (id: string): Promise<Course> => {
-    return authFetch(`${API_URL}/parcours/${id}`);
+export const getParcoursDetails = async (id: string): Promise<ParcoursBackendResponse> => {
+    return optionalAuthFetch(`${API_URL}/parcours/${id}`);
 }
 
-export const generateParcours = async (parcoursData: Partial<Course>): Promise<Course> => {
+export const generateParcours = async (parcoursData: Partial<ParcoursData>): Promise<Parcours> => {
     return authFetch(`${API_URL}/parcours`, {
         method: 'POST',
         body: JSON.stringify(parcoursData)
     });
 }
 
-export const getUserParcours = async (): Promise<Course[]> => {
+export const getUserParcours = async (): Promise<Parcours[]> => {
     return authFetch(`${API_URL}/parcours/user/me`);
 }
 
 export const addParcoursToFavorites = async (parcoursId: string): Promise<void> => {
     return authFetch(`${API_URL}/parcours/favorite/${parcoursId}`, {
         method: 'POST'
+    });
+}
+
+export const deleteParcours = async (parcoursId: string): Promise<void> => {
+    return authFetch(`${API_URL}/parcours/${parcoursId}`, {
+        method: 'DELETE'
     });
 }

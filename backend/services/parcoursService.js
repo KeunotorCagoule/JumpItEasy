@@ -4,12 +4,13 @@ const { pool } = require('./dbService');
 async function getParcoursList(userId = null, includeFavorites = false) {
   const client = await pool.connect();
   try {
-    let query = 'SELECT * FROM parcours WHERE private = false';
+    let query = `SELECT p.*, u.username 
+                 FROM parcours p 
+                 LEFT JOIN users u ON p.creator_id = u.id 
+                 WHERE p.private = false`;
     
-    // If we need to include favorite status and have a userId
-    console.log(`Fetching parcours with includeFavorites=${includeFavorites} for userId=${userId}`);
     if (includeFavorites && userId) {
-      // First, get all public parcours
+      // First, get all public parcours with creator username
       const parcoursResult = await client.query(query);
       
       // Then, get all favorites for this user
@@ -98,20 +99,35 @@ async function getParcoursByUser(userId) {
   }
 }
 
-async function getParcoursDetails(id) {
+async function getParcoursDetails(id, userId = null) {
   const client = await pool.connect();
   try {
-    // Get parcours details
-    const result = await client.query(
-      'SELECT * FROM parcours WHERE id = $1',
-      [id]
-    );
+    // Get parcours details with creator username
+    const result = await client.query(`
+      SELECT p.*, u.username 
+      FROM parcours p 
+      LEFT JOIN users u ON p.creator_id = u.id 
+      WHERE p.id = $1
+    `, [id]);
 
     if (result.rows.length === 0) {
       throw new Error('Parcours not found');
     }
 
-    return result.rows[0];
+    let parcours = result.rows[0];
+
+    // If user is logged in, check if it's a favorite
+    if (userId) {
+      const favoriteResult = await client.query(
+        'SELECT id FROM user_favorites WHERE user_id = $1 AND course_id = $2',
+        [userId, id]
+      );
+      parcours.is_favorite = favoriteResult.rows.length > 0;
+    } else {
+      parcours.is_favorite = false;
+    }
+
+    return parcours;
   } finally {
     client.release();
   }
@@ -149,10 +165,63 @@ async function toggleFavorite(parcoursId, userId) {
   }
 }
 
+// Delete a parcours (only by creator)
+async function deleteParcours(parcoursId, userId) {
+  const client = await pool.connect();
+  try {
+    // First check if the parcours exists and if the user is the creator
+    const checkResult = await client.query(
+      'SELECT id, creator_id, title FROM parcours WHERE id = $1',
+      [parcoursId]
+    );
+
+    if (checkResult.rows.length === 0) {
+      throw new Error('Parcours not found');
+    }
+
+    const parcours = checkResult.rows[0];
+
+    // Verify that the user is the creator
+    if (parcours.creator_id !== userId) {
+      const error = new Error('Unauthorized: Only the creator can delete this parcours');
+      error.statusCode = 403;
+      throw error;
+    }
+
+    // Begin transaction to delete all related data
+    await client.query('BEGIN');
+
+    try {
+      // Delete related records first (to maintain referential integrity)
+      await client.query('DELETE FROM user_favorites WHERE course_id = $1', [parcoursId]);
+      await client.query('DELETE FROM user_completed_courses WHERE course_id = $1', [parcoursId]);
+      
+      // Delete the parcours itself
+      const deleteResult = await client.query(
+        'DELETE FROM parcours WHERE id = $1 RETURNING *',
+        [parcoursId]
+      );
+
+      await client.query('COMMIT');
+      
+      return {
+        success: true,
+        deletedParcours: deleteResult.rows[0]
+      };
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    }
+  } finally {
+    client.release();
+  }
+}
+
 module.exports = { 
   getParcoursList, 
   getParcoursDetails, 
   generateParcours, 
   getParcoursByUser,
   toggleFavorite,
+  deleteParcours,
 };

@@ -13,19 +13,22 @@ import {
   isTokenExpired,
   getTokenRemainingTime,
 } from "../utils/tokenUtils";
+import { AuthUser } from "../types/user";
 
 type AuthContextType = {
   isLoggedIn: boolean;
   username: string | null;
+  user: AuthUser | null;
   language: string | null;
-  login: (username: string, language: string) => void;
+  login: (username: string, language: string, user?: AuthUser) => void;
   logout: () => void;
-  tokenExpiresIn: number | null; // Temps restant avant expiration en secondes
+  tokenExpiresIn: number | null;
 };
 
 const AuthContext = createContext<AuthContextType>({
   isLoggedIn: false,
   username: null,
+  user: null,
   language: null,
   login: () => {},
   logout: () => {},
@@ -37,6 +40,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState<string | null>(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
   const [language, setLanguage] = useState<string | null>(null);
   const [tokenExpiresIn, setTokenExpiresIn] = useState<number | null>(null);
   const { changeLanguage } = useLanguage();
@@ -48,6 +52,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     sessionStorage.removeItem("user");
     setIsLoggedIn(false);
     setUsername(null);
+    setUser(null);
     setLanguage(null);
     setTokenExpiresIn(null);
   }, []);
@@ -100,24 +105,26 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         }
 
         if (userStr) {
-          const user = JSON.parse(userStr);
+          const userData = JSON.parse(userStr);
 
-          // Set username from user object (handling both possible structures)
-          if (user.username) {
-            setUsername(user.username);
-          } else if (user.identifier) {
-            setUsername(user.identifier);
-          }
+          // Create AuthUser object
+          const authUser: AuthUser = {
+            id: userData.id || userData.user_id || '',
+            username: userData.username || userData.identifier || '',
+            email: userData.email || '',
+            language: userData.language || ''
+          };
+
+          setUser(authUser);
+          setUsername(authUser.username);
 
           // Set language preference if available in the stored user data
-          if (user.language) {
-            setLanguage(user.language);
-            changeLanguage(user.language as any); // Apply the language change
+          if (authUser.language) {
+            setLanguage(authUser.language);
+            changeLanguage(authUser.language as any);
           }
 
           setIsLoggedIn(true);
-
-          // Démarrer la vérification périodique du token
           checkTokenExpiration();
         } else {
           // If we have a token but no user info, try to decode the token
@@ -125,26 +132,33 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
             const payload = decodeJwtToken(token);
 
             if (payload.username && typeof payload.username === 'string') {
-              setUsername(payload.username);
+              const authUser: AuthUser = {
+                id: payload.id || payload.user_id || '',
+                username: payload.username,
+                email: payload.email || '',
+                language: payload.language || ''
+              };
+
+              setUser(authUser);
+              setUsername(authUser.username);
               setIsLoggedIn(true);
 
               // Check for language in the token payload
-              if (payload.language) {
-                setLanguage(payload.language as string);
-                changeLanguage(payload.language as any);
+              if (authUser.language) {
+                setLanguage(authUser.language);
+                changeLanguage(authUser.language as any);
               }
 
-              // Démarrer la vérification périodique du token
               checkTokenExpiration();
             }
           } catch (tokenError) {
             console.error("Failed to parse JWT token", tokenError);
-            logout(); // Invalid token, log out the user
+            logout();
           }
         }
       } catch (e) {
         console.error("Error parsing stored user data", e);
-        logout(); // Something went wrong, log out the user
+        logout();
       }
     }
   }, [changeLanguage, logout, checkTokenExpiration]);
@@ -162,9 +176,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     };
   }, [logout]);
 
-  const login = (name: string, language: string) => {
+  const login = (name: string, language: string, userData?: AuthUser) => {
     setIsLoggedIn(true);
     setUsername(name);
+
+    if (userData) {
+      setUser(userData);
+    }
 
     // Ensure we have a valid language code
     const validLanguage =
@@ -188,6 +206,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       value={{
         isLoggedIn,
         username,
+        user,
         language,
         login,
         logout,

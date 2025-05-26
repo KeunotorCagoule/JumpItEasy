@@ -1,25 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useLanguage } from '../../context/LanguageContext'; // Added import
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { getParcoursDetails,addParcoursToFavorites } from '../../services/parcourService'; // Added import for parcourService
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useLanguage } from '../../context/LanguageContext';
+import { getParcoursDetails, deleteParcours } from '../../services/parcourService';
 import { useAuth } from '../../context/AuthContext';
-import { FaHeart, FaRegHeart, FaFilter } from 'react-icons/fa';
-
-interface Parcours {
-  id: string;
-  title: string;
-  description: string;
-  level: string;
-}
+import { FaTrash } from 'react-icons/fa';
+import { Parcours, ParcoursBackendResponse } from '../../types/parcours';
 
 const View: React.FC = () => {
-  const { t } = useLanguage(); // Added translation hook
+  const { t } = useLanguage();
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const [parcours, setParcours] = useState<Parcours | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const { isLoggedIn } = useAuth();
+  const [error, setError] = useState<string | null>(null);  const [isDeleting, setIsDeleting] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     const fetchParcoursDetails = async () => {
@@ -27,13 +21,20 @@ const View: React.FC = () => {
       try {
         if (!id) {
           throw new Error(t('courses.view.invalidId'));
-        }
-        const data = await getParcoursDetails(id);
+        }        const data: ParcoursBackendResponse = await getParcoursDetails(id);
+        console.log('Fetched parcours data:', data);
         const mappedData: Parcours = {
           id: data.id,
           title: data.title,
           description: data.description,
-          level: data.description || 'Beginner', // Provide default values if necessary
+          creatorId: data.creator_id || '',
+          difficulty: data.difficulty || 'Beginner',
+          courseType: data.course_type || '1',
+          waterElements: data.water_elements || false,
+          private: data.private || false,
+          created_at: data.created_at,
+          is_favorite: data.is_favorite || false,
+          username: data.username || 'Unknown',
         };
         
         setParcours(mappedData);
@@ -47,6 +48,30 @@ const View: React.FC = () => {
 
     fetchParcoursDetails();
   }, [id, t]);
+
+  const handleDelete = async () => {
+    if (!parcours || !id) return;
+
+    const confirmDelete = window.confirm(t('courses.view.confirmDelete'));
+    if (!confirmDelete) return;
+
+    setIsDeleting(true);
+    try {
+      await deleteParcours(id);
+      navigate('/parcours/mes-parcours');
+    } catch (error) {
+      console.error('Error deleting parcours:', error);
+      setError(t('courses.view.errorDeleting'));
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
+  console.log('parcours:', parcours);
+  console.log('user:', user);
+
+  const isCreator = user && parcours && user.id === parcours.creatorId;
+  console.log('isCreator:', isCreator);
 
   if (isLoading) {
     return (
@@ -85,13 +110,44 @@ const View: React.FC = () => {
           </Link>
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h1 className="text-3xl font-bold mb-4">{parcours.title}</h1>
+        <div className="bg-white rounded-lg shadow-lg p-6">          <div className="flex justify-between items-start mb-4">
+            <div>
+              <h1 className="text-3xl font-bold">{parcours.title}</h1>
+              {parcours.username && (
+                <p className="text-gray-600 mt-1">
+                  {t('courses.view.createdBy')}: <span className="font-medium">{parcours.username}</span>
+                </p>
+              )}
+            </div>
+            {isCreator && (
+              <button
+                onClick={handleDelete}
+                disabled={isDeleting}
+                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              >
+                <FaTrash />
+                {isDeleting ? t('courses.view.deleting') : t('courses.view.delete')}
+              </button>
+            )}
+          </div>
           
           <div className="flex items-center gap-4 mb-6">
-            <span className="bg-gray-100 px-3 py-1 rounded-full">
-              {t('courses.view.level')}: {parcours.level}
+            <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+              {t('courses.view.level')}: {parcours.difficulty}
             </span>
+            <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
+              {t('courses.view.type')}: {parcours.courseType === '1' ? 'Grand Prix' : parcours.courseType === '2' ? 'Speed' : 'Special'}
+            </span>
+            {parcours.waterElements && (
+              <span className="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm font-medium">
+                {t('courses.view.waterElements')}
+              </span>
+            )}
+            {parcours.created_at && (
+              <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
+                {t('courses.view.created')}: {new Date(parcours.created_at).toLocaleDateString()}
+              </span>
+            )}
           </div>
 
           <p className="text-gray-700 mb-6">{parcours.description}</p>

@@ -1,5 +1,4 @@
-const enTranslations = {
-  common: {
+const enTranslations = {  common: {
     save: "Save",
     cancel: "Cancel",
     retry: "Retry",
@@ -9,7 +8,9 @@ const enTranslations = {
     yes: "Yes",
     no: "No",
     hours: "hours",
-    language: "Language"
+    language: "Language",
+    delete: "Delete",
+    deleting: "Deleting..."
   },
   navigation: {
     home: "Home",
@@ -111,7 +112,16 @@ const enTranslations = {
     passwordChanged: "Password successfully changed",
     saved: "Settings saved successfully",
     changesDiscarded: "Changes discarded",
-    error: "An error occurred while saving your settings"
+    error: "An error occurred while saving your settings",
+    deleteAccount: "Delete Profile",
+    deleteAccountWarning: "⚠️ Danger Zone",
+    deleteAccountDescription: "This action will permanently delete your account and all your data. This action is irreversible.",    confirmDeleteTitle: "Confirm Account Deletion",
+    confirmDeleteWarning: "Are you sure you want to permanently delete your account? All your data will be lost and this action cannot be undone.",
+    confirmDeleteMessage: "Are you sure you want to permanently delete your account? All your data will be lost and this action cannot be undone.",
+    typeDeleteToConfirm: "Type 'DELETE' to confirm:",
+    deleteConfirmationPlaceholder: "DELETE",
+    accountDeleted: "Your account has been successfully deleted",
+    deleteAccountError: "Error deleting account"
   },
   auth: {
     login: {

@@ -279,6 +279,52 @@ async function updateUserLanguage(userId, language) {
   }
 }
 
+async function deleteUserAccount(userId) {
+  const client = await pool.connect();
+  try {
+    // Begin transaction
+    await client.query('BEGIN');
+
+    // 1. Delete user favorites (references user_id)
+    await client.query('DELETE FROM user_favorites WHERE user_id = $1', [userId]);
+    
+    // 2. Delete user completed courses (references user_id)
+    await client.query('DELETE FROM user_completed_courses WHERE user_id = $1', [userId]);
+    
+    // 3. Delete favorites for parcours created by this user
+    await client.query('DELETE FROM user_favorites WHERE course_id IN (SELECT id FROM parcours WHERE creator_id = $1)', [userId]);
+    
+    // 4. Delete completed records for parcours created by this user
+    await client.query('DELETE FROM user_completed_courses WHERE course_id IN (SELECT id FROM parcours WHERE creator_id = $1)', [userId]);
+    
+    // 5. Delete parcours created by this user
+    await client.query('DELETE FROM parcours WHERE creator_id = $1', [userId]);
+    
+    // 6. Finally, delete the user
+    const result = await client.query('DELETE FROM users WHERE id = $1 RETURNING *', [userId]);
+    
+    if (result.rowCount === 0) {
+      throw new Error('User not found or already deleted');
+    }
+
+    // Commit transaction
+    await client.query('COMMIT');
+    
+    return { 
+      success: true,
+      message: 'User account and all associated data deleted successfully' 
+    };
+  } catch (error) {
+    // Rollback transaction on error
+    await client.query('ROLLBACK');
+    console.error('Error deleting user account:', error);
+    throw new Error(`Failed to delete user account: ${error.message}`);
+  } finally {
+    client.release();
+  }
+}
+
+
 
 module.exports = {
   getUserProfile,
@@ -287,5 +333,6 @@ module.exports = {
   updateUserSettings,
   changeUserPassword,
   getRecentCourses,
-  updateUserLanguage
+  updateUserLanguage,
+  deleteUserAccount
 };

@@ -133,4 +133,23 @@ router.put('/language', async (req, res) => {
   }
 });
 
+// delete user account en cascade
+
+router.delete('/account', async (req, res) => {
+  try {
+    const userId = req.user.id;
+    
+    // Utiliser le service pour supprimer le compte utilisateur
+    const result = await userService.deleteUserAccount(userId);
+    
+    res.status(200).json(result);
+  } catch (error) {
+    console.error('Error deleting user account:', error);
+    res.status(500).json({ 
+      success: false,
+      error: error.message || 'Une erreur est survenue lors de la suppression du compte'
+    });
+  }
+});
+
 module.exports = router;

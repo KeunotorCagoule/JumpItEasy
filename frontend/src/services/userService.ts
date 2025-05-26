@@ -87,7 +87,8 @@ export const changePassword = async (passwordData: PasswordChangeRequest): Promi
 };
 
 export const deleteAccount = async (): Promise<{ success: boolean, message: string }> => {
-  return authFetch(`${API_URL}/users/delete-account`, {
+  console.log('Deleting account...');
+  return authFetch(`${API_URL}/users/account`, {
     method: 'DELETE'
   });
 }

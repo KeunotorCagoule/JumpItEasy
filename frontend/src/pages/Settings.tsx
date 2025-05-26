@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Lock, User } from "lucide-react";
+import { Lock, User, Trash2 } from "lucide-react";
 import {
   getUserSettings,
   updateUserSettings,
   changePassword,
+  deleteAccount,
 } from "../services/userService";
 import CountryDropdown from "../components/common/CountryDropdown";
 import { useLanguage } from "../context/LanguageContext";
 
 const Settings: React.FC = () => {
-  const { isLoggedIn, username } = useAuth();
+  const { isLoggedIn, username, logout } = useAuth();
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState("profile");
   const [isSaving, setIsSaving] = useState(false);
@@ -21,6 +22,9 @@ const Settings: React.FC = () => {
     type: "success" | "error";
     text: string;
   } | null>(null);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [deleteConfirmation, setDeleteConfirmation] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
   const navigate = useNavigate();
 
   // États pour le formulaire de profil
@@ -183,6 +187,42 @@ const Settings: React.FC = () => {
 
     // Rediriger vers la page /profile
     navigate("/profile");
+  };
+
+  // Fonction pour gérer la suppression du compte
+  const handleDeleteAccount = async () => {
+    if (deleteConfirmation !== "SUPPRIMER" && deleteConfirmation !== "DELETE") {
+      setSaveMessage({
+        type: "error",
+        text: t("settings.typeDeleteToConfirm"),
+      });
+      return;
+    }
+
+    setIsDeleting(true);
+    try {
+      await deleteAccount();
+      setSaveMessage({
+        type: "success",
+        text: t("settings.accountDeleted"),
+      });
+      
+      // Déconnexion et redirection vers la page d'accueil
+      setTimeout(() => {
+        logout();
+        navigate("/");
+      }, 2000);
+    } catch (error) {
+      console.error("Error deleting account:", error);
+      setSaveMessage({
+        type: "error",
+        text: t("settings.deleteAccountError"),
+      });
+    } finally {
+      setIsDeleting(false);
+      setIsDeleteModalOpen(false);
+      setDeleteConfirmation("");
+    }
   };
 
   if (isLoading) {
@@ -369,8 +409,10 @@ const Settings: React.FC = () => {
                       />
                     </div>
                   </div>
-                </div>
-              )}
+                </div>              )}
+
+              {/* Section de suppression de compte - danger zone */}
+
 
               {/* Boutons de soumission */}
               <div className="mt-6 flex justify-end gap-3">
@@ -415,10 +457,73 @@ const Settings: React.FC = () => {
                   )}
                 </button>
               </div>
-            </form>
+            </form>            {/* Section de suppression de compte */}
+            <div className="mt-8 p-6 border border-red-200 rounded-lg bg-red-50">
+              <h2 className="text-xl font-semibold text-red-800 mb-2">
+                {t("settings.deleteAccountWarning")}
+              </h2>
+              <h3 className="text-lg font-medium text-red-700 mb-3">
+                {t("settings.deleteAccount")}
+              </h3>
+              <p className="text-sm text-red-600 mb-4">
+                {t("settings.deleteAccountDescription")}
+              </p>
+              <button
+                onClick={() => setIsDeleteModalOpen(true)}
+                className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors"
+              >
+                <Trash2 size={18} />
+                {t("settings.deleteAccount")}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </div>{/* Modal de confirmation de suppression */}
+      {isDeleteModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
+            <h3 className="text-lg font-semibold text-red-600 mb-4">
+              {t("settings.confirmDeleteTitle")}
+            </h3>
+            <p className="text-sm text-gray-600 mb-6">
+              {t("settings.confirmDeleteWarning")}
+            </p>
+            
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                {t("settings.typeDeleteToConfirm")}
+              </label>
+              <input
+                type="text"
+                value={deleteConfirmation}
+                onChange={(e) => setDeleteConfirmation(e.target.value)}
+                placeholder={t("settings.deleteConfirmationPlaceholder")}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+              />
+            </div>
+            
+            <div className="flex gap-3 justify-end">
+              <button
+                onClick={() => {
+                  setIsDeleteModalOpen(false);
+                  setDeleteConfirmation("");
+                }}
+                className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                disabled={isDeleting}
+              >
+                {t("common.cancel")}
+              </button>
+              <button
+                onClick={handleDeleteAccount}
+                className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isDeleting || deleteConfirmation === ""}
+              >
+                {isDeleting ? t("common.deleting") : t("common.delete")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

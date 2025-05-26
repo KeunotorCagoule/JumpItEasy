@@ -1,5 +1,4 @@
-const fr = {
-  common: {
+const fr = {  common: {
     save: "Enregistrer",
     cancel: "Annuler",
     retry: "Réessayer",
@@ -9,7 +8,9 @@ const fr = {
     yes: "Oui",
     no: "Non",
     hours: "heures",
-    language: "Langue"
+    language: "Langue",
+    delete: "Supprimer",
+    deleting: "Suppression..."
   },
   navigation: {
     home: "Accueil",
@@ -112,7 +113,16 @@ const fr = {
     passwordChanged: "Mot de passe changé avec succès",
     saved: "Paramètres enregistrés avec succès",
     changesDiscarded: "Modifications annulées",
-    error: "Une erreur est survenue lors de l'enregistrement de vos paramètres"
+    error: "Une erreur est survenue lors de l'enregistrement de vos paramètres",
+    deleteAccount: "Supprimer le profil",
+    deleteAccountWarning: "⚠️ Zone dangereuse",
+    deleteAccountDescription: "Cette action supprimera définitivement votre compte et toutes vos données. Cette action est irréversible.",    confirmDeleteTitle: "Confirmer la suppression du compte",
+    confirmDeleteWarning: "Êtes-vous sûr de vouloir supprimer définitivement votre compte ? Toutes vos données seront perdues et cette action ne peut pas être annulée.",
+    confirmDeleteMessage: "Êtes-vous sûr de vouloir supprimer définitivement votre compte ? Toutes vos données seront perdues et cette action ne peut pas être annulée.",
+    typeDeleteToConfirm: "Tapez 'SUPPRIMER' pour confirmer :",
+    deleteConfirmationPlaceholder: "SUPPRIMER",
+    accountDeleted: "Votre compte a été supprimé avec succès",
+    deleteAccountError: "Erreur lors de la suppression du compte"
   },
   auth: {
     login: {

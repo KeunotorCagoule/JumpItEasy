@@ -10,7 +10,7 @@ interface UserHeaderProps {
 
 const UserHeader: React.FC<UserHeaderProps> = ({ onLogout }) => {
   const { t } = useLanguage();
-  const { tokenExpiresIn, user } = useAuth();
+  const { tokenExpiresIn, user, username } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -40,21 +40,24 @@ const UserHeader: React.FC<UserHeaderProps> = ({ onLogout }) => {
     };
   }, []);
 
-  if (!user) return null;
+  // Use fallback to username if user object is not available
+  const displayUsername = user?.username || username || "User";
+
+  // If neither user nor username is available, don't render
+  if (!user && !username) return null;
 
   return (
     <div className="relative ml-3" ref={dropdownRef}>
       <button
         className="flex items-center gap-2 bg-white p-2 rounded-full hover:bg-gray-50 transition-colors"
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-      >
-        <div className="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center">
+      >        <div className="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center">
           <span className="text-white text-sm font-medium">
-            {user.username.charAt(0).toUpperCase()}
+            {displayUsername.charAt(0).toUpperCase()}
           </span>
         </div>
         <span className="hidden md:block text-sm font-medium text-gray-700">
-          {user.username}
+          {displayUsername}
         </span>
       </button>
 

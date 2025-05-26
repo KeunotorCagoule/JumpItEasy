@@ -57,9 +57,7 @@ const Login: React.FC = () => {
 
       const payload = JSON.parse(jsonPayload);
       const username = payload.username || data.usernameOrEmail;
-      const userId = payload.id || "1";
-
-      // Store user data with more complete information
+      const userId = payload.id || "1";      // Store user data with more complete information
       const userData = {
         id: userId,
         username: username,
@@ -73,7 +71,13 @@ const Login: React.FC = () => {
         sessionStorage.setItem("user", JSON.stringify(userData));
       }
 
-      login(username);
+      // Call login with proper parameters: (username, language, userData)
+      login(username, 'en', {
+        id: userId,
+        username: username,
+        email: data.usernameOrEmail,
+        language: 'en'
+      });
       navigate("/", { replace: true });
     } catch (error: unknown) {
       console.error(

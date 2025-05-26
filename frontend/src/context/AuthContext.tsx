@@ -129,14 +129,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         } else {
           // If we have a token but no user info, try to decode the token
           try {
-            const payload = decodeJwtToken(token);
-
-            if (payload.username && typeof payload.username === 'string') {
+            const payload = decodeJwtToken(token);            if (payload.username && typeof payload.username === 'string') {
               const authUser: AuthUser = {
-                id: payload.id || payload.user_id || '',
+                id: (payload.id && typeof payload.id === 'string') ? payload.id : 
+                    (payload.user_id && typeof payload.user_id === 'string') ? payload.user_id : '',
                 username: payload.username,
-                email: payload.email || '',
-                language: payload.language || ''
+                email: (payload.email && typeof payload.email === 'string') ? payload.email : '',
+                language: (payload.language && typeof payload.language === 'string') ? payload.language : ''
               };
 
               setUser(authUser);
@@ -175,13 +174,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       window.removeEventListener("token-expired", handleTokenExpired);
     };
   }, [logout]);
-
   const login = (name: string, language: string, userData?: AuthUser) => {
     setIsLoggedIn(true);
     setUsername(name);
 
     if (userData) {
       setUser(userData);
+    } else {
+      // Create a basic user object if userData is not provided
+      const basicUser: AuthUser = {
+        id: '',
+        username: name,
+        email: '',
+        language: language || 'en'
+      };
+      setUser(basicUser);
     }
 
     // Ensure we have a valid language code

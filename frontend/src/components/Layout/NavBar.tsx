@@ -10,7 +10,7 @@ import LanguageToggle from "../common/LanguageToggle";
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const { isLoggedIn, username, logout } = useAuth();
+  const { isLoggedIn, logout } = useAuth();
   const { t } = useLanguage();
 
   const handleLogout = () => {
@@ -72,12 +72,8 @@ const NavBar: React.FC = () => {
                 >
                   {t("navigation.register")}
                 </Link>
-              </>
-            ) : (
-              <UserHeader
-                user={{ username: username || "User" }}
-                onLogout={handleLogout}
-              />
+              </>            ) : (
+              <UserHeader onLogout={handleLogout} />
             )}
           </div>
 

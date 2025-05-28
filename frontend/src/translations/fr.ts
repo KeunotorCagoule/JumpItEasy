@@ -8,6 +8,8 @@ const fr = {  common: {
     yes: "Oui",
     no: "Non",
     hours: "heures",
+    minutes: "minutes",
+    obstacles: "obstacles",
     language: "Langue",
     delete: "Supprimer",
     deleting: "Suppression..."
@@ -213,13 +215,22 @@ const fr = {  common: {
         difficulty: "Niveau de difficulté",
         hasWaterElements: "Inclure des éléments d'eau",
         terrainType: "Type de terrain",
-        heightRange: "Plage de hauteur",
-        equipment: "Équipement requis",
+        heightRange: "Plage de hauteur",        equipment: "Équipement requis",
         courseType: "Type de parcours",
         parcoursType:{
           item1: "Grand Prix",
           item2: "Vitesse",
           item3: "Spéciale"
+        },
+        equipmentOptions: {
+          none: "Aucun",
+          basic: "Basique",
+          fullSet: "Équipement complet"
+        },
+        difficultyLevels: {
+          beginner: "Débutant",
+          intermediate: "Intermédiaire",
+          advanced: "Avancé"
         },
         environment: "Environnement",
         safetyFeatures: "Fonctionnalités de sécurité"
@@ -240,9 +251,24 @@ const fr = {  common: {
         print: "Imprimer",
         share: "Partager",
         generatePreviewFirst: "Veuillez d'abord générer un aperçu"
-      },
-      validation: {
+      },      validation: {
         titleRequired: "Le titre est obligatoire"
+      },      coursePreview: {
+        legend: "Légende",
+        startLine: "Ligne de départ",
+        finishLine: "Ligne d'arrivée",
+        hurdle: "Haie (avec direction)",
+        waterObstacle: "Obstacle d'eau",
+        direction: "Direction de passage",
+        clickObstacle: "Cliquez sur un obstacle pour voir les détails",
+        obstacleDetails: "Détails de l'obstacle",
+        techniques: "Techniques",
+        safety: "Sécurité",
+        directionDegrees: "Direction"
+      },
+      courseGeneration: {
+        defaultTitle: "Parcours {difficulty}",
+        defaultDescription: "Un parcours de {duration} minutes avec {obstacleCount} obstacles"
       }
     },
     userCourses: {

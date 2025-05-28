@@ -203,7 +203,7 @@ const View: React.FC = () => {
                   : "Special"}
               </span>
               {parcours.waterElements && (
-                <span className="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm font-medium">
+                <span className="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm font-medium flex items-center" style={{ alignItems: "center" }}>
                   {t("courses.view.waterElements")}
                 </span>
               )}

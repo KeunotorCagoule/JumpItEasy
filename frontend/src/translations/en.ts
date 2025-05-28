@@ -8,6 +8,8 @@ const enTranslations = {  common: {
     yes: "Yes",
     no: "No",
     hours: "hours",
+    minutes: "minutes",
+    obstacles: "obstacles",
     language: "Language",
     delete: "Delete",
     deleting: "Deleting..."
@@ -212,8 +214,7 @@ const enTranslations = {  common: {
         difficulty: "Difficulty Level",
         hasWaterElements: "Include Water Elements",
         terrainType: "Terrain Type",
-        heightRange: "Height Range",
-        equipment: "Equipment Required",
+        heightRange: "Height Range",        equipment: "Equipment Required",
         courseType: "Course Type",
         environment: "Environment",
         safetyFeatures: "Safety Features",
@@ -221,6 +222,16 @@ const enTranslations = {  common: {
           item1: "Grand Prix",
           item2: "Speed",
           item3: "Special"
+        },
+        equipmentOptions: {
+          none: "None",
+          basic: "Basic",
+          fullSet: "Full Set"
+        },
+        difficultyLevels: {
+          beginner: "Beginner",
+          intermediate: "Intermediate",
+          advanced: "Advanced"
         }
       },
       details: {
@@ -239,9 +250,24 @@ const enTranslations = {  common: {
         print: "Print",
         share: "Share",
         generatePreviewFirst: "Please generate a preview first"
-      },
-      validation: {
+      },      validation: {
         titleRequired: "Title is required"
+      },      coursePreview: {
+        legend: "Legend",
+        startLine: "Start line",
+        finishLine: "Finish line",
+        hurdle: "Hurdle (with direction)",
+        waterObstacle: "Water obstacle",
+        direction: "Passage direction",
+        clickObstacle: "Click on an obstacle to see details",
+        obstacleDetails: "Obstacle details",
+        techniques: "Techniques",
+        safety: "Safety",
+        directionDegrees: "Direction"
+      },
+      courseGeneration: {
+        defaultTitle: "{difficulty} Course",
+        defaultDescription: "A {duration}-minute course with {obstacleCount} obstacles"
       }
     },
     userCourses: {

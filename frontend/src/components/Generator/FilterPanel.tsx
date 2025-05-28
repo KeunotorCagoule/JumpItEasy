@@ -74,9 +74,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
             <span>{filters.obstacleCount}</span>
             <span>15</span>
           </div>
-        </div>
-
-        <div>
+        </div>        <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             {t("courses.generate.filters.difficulty")}
           </label>
@@ -86,9 +84,9 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
             onChange={handleChange}
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           >
-            <option value="Beginner">Beginner</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
+            <option value="Beginner">{t("courses.generate.filters.difficultyLevels.beginner")}</option>
+            <option value="Intermediate">{t("courses.generate.filters.difficultyLevels.intermediate")}</option>
+            <option value="Advanced">{t("courses.generate.filters.difficultyLevels.advanced")}</option>
           </select>
         </div>
 
@@ -105,9 +103,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
               {t("courses.generate.filters.hasWaterElements")}
             </span>
           </label>
-        </div>
-
-        <div>
+        </div>        <div>
           <label className="block text-sm font-medium text-gray-500 mb-1">
             {t("courses.generate.filters.equipment")}
           </label>
@@ -118,9 +114,9 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, onChange }) => {
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-100 cursor-not-allowed"
             disabled={true}
           >
-            <option value="None">None</option>
-            <option value="Basic">Basic</option>
-            <option value="Full Set">Full Set</option>
+            <option value="None">{t("courses.generate.filters.equipmentOptions.none")}</option>
+            <option value="Basic">{t("courses.generate.filters.equipmentOptions.basic")}</option>
+            <option value="Full Set">{t("courses.generate.filters.equipmentOptions.fullSet")}</option>
           </select>
         </div>
 

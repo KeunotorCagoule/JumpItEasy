@@ -32,13 +32,14 @@ const Generate: React.FC = () => {
     try {
       setIsGenerating(true);
       setError(null);
-      
-      // Validate required fields
+        // Validate required fields
       if (!filters.title.trim()) {
         setError(t('courses.generate.validation.titleRequired') || 'Title is required');
         setIsGenerating(false);
         return;
-      }      if (!courseLayout) {
+      }
+
+      if (!courseLayout) {
         setError(t('courses.generate.preview.generatePreviewFirst') || 'Please generate a preview first');
         setIsGenerating(false);
         return;
@@ -258,8 +259,12 @@ const Generate: React.FC = () => {
                     obstacle.name = `${obstacle.type} ${index + 1}`;
                   });                  const newCourse = {
                     id: Math.random().toString(36).substr(2, 9),
-                    name: `${filters.difficulty} Course`,
-                    description: `A ${filters.duration}-minute ${filters.courseType.toLowerCase()} course with ${filters.obstacleCount} obstacles`,
+                    name: t('courses.generate.courseGeneration.defaultTitle')
+                      .replace('{difficulty}', t(`courses.generate.filters.difficultyLevels.${filters.difficulty.toLowerCase()}`)),
+                    description: t('courses.generate.courseGeneration.defaultDescription')
+                      .replace('{duration}', filters.duration.toString())
+                      .replace('{courseType}', filters.courseType.toLowerCase())
+                      .replace('{obstacleCount}', filters.obstacleCount.toString()),
                     duration: filters.duration,
                     obstacleCount: filters.obstacleCount,
                     difficulty: filters.difficulty,
@@ -279,10 +284,9 @@ const Generate: React.FC = () => {
                   ? 'bg-gray-400 text-gray-600 cursor-not-allowed' 
                   : 'bg-green-600 text-white hover:bg-green-700'
               }`}
-            >
-              {isGeneratingPreview 
-                ? (t('courses.generate.preview.generating') || 'Génération en cours...') 
-                : (t('courses.generate.preview.generateNew') || 'Generate Preview')
+            >              {isGeneratingPreview 
+                ? t('courses.generate.preview.generating') 
+                : t('courses.generate.preview.generateNew')
               }
             </button>
             
@@ -296,7 +300,7 @@ const Generate: React.FC = () => {
                   : 'bg-blue-600 text-white hover:bg-blue-700 disabled:bg-gray-400'
               }`}
             >
-              {isGenerating ? t('courses.generate.preview.saving') || 'Saving...' : t('courses.generate.preview.save') || 'Save Course'}
+              {isGenerating ? t('courses.generate.preview.saving') : t('courses.generate.preview.save')}
             </button>
             
             {error && (
@@ -317,7 +321,7 @@ const Generate: React.FC = () => {
             <div className="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center rounded-lg">
               <div className="flex flex-col items-center">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mb-3"></div>
-                <p className="text-gray-700 font-medium">{t('courses.generate.preview.generating') || 'Génération en cours...'}</p>
+                <p className="text-gray-700 font-medium">{t('courses.generate.preview.generating')}</p>
               </div>
             </div>
           )}

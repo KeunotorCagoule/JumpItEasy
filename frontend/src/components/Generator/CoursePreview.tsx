@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { CourseLayout, Obstacle } from '../../types/course';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface CoursePreviewProps {
   course: CourseLayout;
 }
 
 const CoursePreview: React.FC<CoursePreviewProps> = ({ course }) => {
+  const { t } = useLanguage();
   const [selectedObstacle, setSelectedObstacle] = useState<Obstacle | null>(null);
   
   // Reset selected obstacle when course changes
@@ -85,15 +87,14 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ course }) => {
     <div className="bg-white p-6 rounded-lg shadow-md">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold">{course.name}</h2>
-        <div className="flex items-center gap-4">
-          <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
-            {course.duration} minutes
+        <div className="flex items-center gap-4">          <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+            {course.duration} {t('common.minutes')}
           </span>
           <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
-            {course.difficulty}
+            {t(`courses.generate.filters.difficultyLevels.${course.difficulty.toLowerCase()}`)}
           </span>
           <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">
-            {course.obstacles.length} obstacles
+            {course.obstacles.length} {t('common.obstacles')}
           </span>
         </div>
       </div>
@@ -260,16 +261,14 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ course }) => {
                 </span>
                 <span className="px-2 py-1 bg-gray-200 rounded-full text-xs">
                   {selectedObstacle.type}
-                </span>
-                {selectedObstacle.direction !== undefined && selectedObstacle.type === 'Hurdle' && (
+                </span>                {selectedObstacle.direction !== undefined && selectedObstacle.type === 'Hurdle' && (
                   <span className="px-2 py-1 bg-blue-200 rounded-full text-xs">
-                    Direction: {selectedObstacle.direction}°
+                    {t('courses.generate.coursePreview.directionDegrees')}: {selectedObstacle.direction}°
                   </span>
                 )}
-              </div>
-              {selectedObstacle.techniques && (
+              </div>              {selectedObstacle.techniques && (
                 <div className="mb-2">
-                  <span className="text-sm font-medium text-gray-700">Techniques: </span>
+                  <span className="text-sm font-medium text-gray-700">{t('courses.generate.coursePreview.techniques')}: </span>
                   <span className="text-sm text-gray-600">
                     {selectedObstacle.techniques.join(', ')}
                   </span>
@@ -277,7 +276,7 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ course }) => {
               )}
               {selectedObstacle.safetyNotes && (
                 <div>
-                  <span className="text-sm font-medium text-gray-700">Safety: </span>
+                  <span className="text-sm font-medium text-gray-700">{t('courses.generate.coursePreview.safety')}: </span>
                   <span className="text-sm text-gray-600">
                     {selectedObstacle.safetyNotes.join(', ')}
                   </span>
@@ -286,34 +285,34 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ course }) => {
             </div>
           ) : (
             <p className="text-gray-500 text-center">
-              Cliquez sur un obstacle pour voir les détails
+              {t('courses.generate.coursePreview.clickObstacle')}
             </p>
           )}
         </div>
       </div>      <div className="mt-6">
-        <h3 className="text-lg font-semibold mb-2">Légende</h3>
+        <h3 className="text-lg font-semibold mb-2">{t('courses.generate.coursePreview.legend')}</h3>
         <div className="flex gap-4 flex-wrap">
           <div className="flex items-center gap-2">
             <div className="w-4 h-1 bg-green-600 rounded" />
-            <span className="text-sm">Ligne de départ</span>
+            <span className="text-sm">{t('courses.generate.coursePreview.startLine')}</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-1 bg-red-600 rounded" />
-            <span className="text-sm">Ligne d'arrivée</span>
+            <span className="text-sm">{t('courses.generate.coursePreview.finishLine')}</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-6 h-1 bg-amber-700 rounded" />
-            <span className="text-sm">Haie (avec direction)</span>
+            <span className="text-sm">{t('courses.generate.coursePreview.hurdle')}</span>
           </div>
           {hasWaterObstacles && (
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 bg-blue-600 rounded-full opacity-70" />
-              <span className="text-sm">Obstacle d'eau</span>
+              <span className="text-sm">{t('courses.generate.coursePreview.waterObstacle')}</span>
             </div>
           )}
           <div className="flex items-center gap-2">
             <div className="text-sm">→</div>
-            <span className="text-sm">Direction de passage</span>
+            <span className="text-sm">{t('courses.generate.coursePreview.direction')}</span>
           </div>
         </div>
       </div>
